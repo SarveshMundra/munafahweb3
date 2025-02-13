@@ -1,0 +1,186 @@
+.features-section {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    background: linear-gradient(to right, #000000, #1a1a2e);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.feature-slide {
+    position: absolute;
+    width: 100%;
+    height: 80vh;
+    left: 0%;
+    top: 20%;
+    opacity: 0;
+    transform: translateZ(-1000px);
+    transition: all 0.5s ease-in-out;
+}
+
+.feature-slide.active {
+    opacity: 1;
+    transform: translateZ(0) translateY(-15%);  /* Added translateY to move it up */
+    z-index: 5;  /* Added z-index to ensure it's above others */
+}
+
+.feature-slide.next {
+    opacity: 0.3;
+    transform: translateZ(-500px) translateX(30%);
+    filter: blur(4px);
+}
+
+.feature-slide.prev {
+    opacity: 0.3;
+    transform: translateZ(-500px) translateX(-30%);
+    filter: blur(4px);
+}
+
+.feature-image {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    /* border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); */
+}
+
+.feature-content {
+    position: absolute;
+    bottom: 0%;  /* Changed from 10% to -20% */
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    opacity: 1;  /* Changed from 0 to 1 */
+    z-index: 10;
+}
+
+.active .feature-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.feature-title {
+    font-family: 'Zen Dots', cursive;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.feature-description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 600px;
+    margin: 0 auto;
+    color: #888;
+}
+
+/* Hide content of inactive slides */
+.feature-slide:not(.active) .feature-content {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.nav-progress-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 3rem; /* Adjust gap as needed */
+}
+
+.nav-arrow {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.nav-arrow:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-arrow svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.progress-bar {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+    background: white;
+    transform: scale(1.3);
+}
+...
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .feature-slide {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-slide {
+        width: 90%;
+        left: 5%;
+        height: 50vh;
+    }
+    
+    .feature-content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-image {
+        height: 60%;
+    }
+    
+    .nav-button {
+        padding: 0.8rem 1.5rem;
+    }
+}
