@@ -47,7 +47,7 @@
     height: 300px;
     top: 10%;
     left: 5%;
-    background: rgba(128, 170, 255, 0.8);
+    background: rgba(89, 183, 238, 0.8);
     transform: translate(0, 0);
     transition: transform 0.3s ease-out;
 }
@@ -101,7 +101,7 @@
 
 #hero-title {
     font-family: 'Zen Dots';
-    font-size: clamp(2rem, 8vw, 20rem);
+    font-size: clamp(2rem, 10vw, 20rem);
     letter-spacing: 0em;
     width: 100%;
     text-align: center;
@@ -113,8 +113,8 @@
 }
 
     #hero-title .letter {
-        /* background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080); */
-        background: linear-gradient(45deg, #FFFFFF, #ffffff, #676768); /* Adjusted gradient */
+        background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+        /* background: linear-gradient(45deg, #FFFFFF, #ffffff, #676768);  */
         /* background: white; */
         -webkit-background-clip: text;
         background-clip: text;
@@ -127,7 +127,7 @@
 #hero-tagline {
     font-family: 'Zen Dots';
     font-size: 2rem;
-    color: rgb(192, 190, 190);
+    color: white;
     margin-top: 2rem; /* Add margin to the top */
     margin-bottom: 1rem;
     line-height: 1.5;

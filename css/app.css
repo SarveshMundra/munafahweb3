@@ -51,6 +51,11 @@ html, body {
 
 
 /* 3D Rolling Image View Styles */
+
+.rolling-image-view {
+    margin-top: 200px;
+}
+
 .banner {
     width: 100%;
     height: 100vh;
