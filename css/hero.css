@@ -10,9 +10,9 @@
 }
 
 /* Layer 1: Video Background */
-/*.background-video-container {
-    position: fixed;*/ /* Changed from absolute to fixed */
-    /*top: 0;
+.background-video-container {
+    position: fixed; /* Changed from absolute to fixed */
+    top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
@@ -24,7 +24,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}*/
+} 
 
 /* Layer 2: Background Orbs */
 .background-orbs {
@@ -43,8 +43,8 @@
 }
 
 .orb-1 {
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     top: 10%;
     left: 5%;
     background: rgba(128, 170, 255, 0.8);
@@ -53,8 +53,8 @@
 }
 
 .orb-2 {
-    width: 450px;
-    height: 450px;
+    width: 0px;
+    height: 0px;
     bottom: 15%;
     right: 2%;
     background: rgba(255, 255, 0, 0.6);
@@ -70,7 +70,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: 200px;
-    gap: 20px;
+    gap: 15px;
     z-index: 3;
     padding: 20px;
     margin: 0;

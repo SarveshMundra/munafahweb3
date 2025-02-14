@@ -14,7 +14,7 @@
 
         // Responsive cell size
         const cellSize = viewportWidth <= 768 ? 120 : 200;
-        const gap = viewportWidth <= 768 ? 10 : 20;
+        const gap = viewportWidth <= 768 ? 10 : 15;
 
 
         // Clear existing cells

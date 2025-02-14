@@ -108,11 +108,15 @@ function initFeatureCarousel() {
     
     let currentSlide = 0;
     let autoplayInterval;
-    const autoplayDelay = 3000; // 5 seconds
+    const autoplayDelay = 3000; // 3 seconds
 
     // Initialize first slide
     updateSlides();
-    startAutoplay();
+    
+    // Ensure autoplay starts after a slight delay
+    setTimeout(() => {
+        startAutoplay();
+    }, 100); // 100ms delay
 
     // Event Listeners
     prevButton.addEventListener('click', () => {
