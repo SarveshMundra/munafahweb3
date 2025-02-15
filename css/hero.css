@@ -146,6 +146,10 @@
     }
 }
 
+
+
+
+
 /* Floating Features */
 .floating-features {
     position: relative; /* Changed from absolute */
@@ -219,8 +223,50 @@
     }
 }
 
+
+/* Add this new container */
+.animation-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Adjust based on your needs */
+    margin: 50px 0 -50px 0; /* Add margin to separate from previous elements */
+    z-index: 5;
+}
+
+/* Modify gift box container */
+.gift-box-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 5;
+    width: 250px;
+    height: 250px;
+}
+
+/* Add wrapper container styles */
+.wrapper-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 1200px;
+    z-index: 4;
+}
+
 /* Early Bird Container */
 .early-bird-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 6;
+    margin: 0;
+    opacity: 0;
     display: flex;
     flex-wrap: wrap; /* Allows wrapping when there is not enough space */
     justify-content: space-between;
@@ -228,7 +274,7 @@
     width: 100%;
     margin: 1.5rem 1rem;
     opacity: 0;  /* Start hidden for animation */
-    transform: translateY(30px);  /* Start slightly below for animation */
+
 }
 
 .early-bird-badge {
@@ -244,9 +290,9 @@
     height: 250px;
     border-radius: 50%;
     border: 5px solid transparent;
-    background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+    background: linear-gradient(45deg, #ffffff, #8c36d8, #ff7bbd);
     padding: 3px;  /* Creates space for the gradient border */
-    animation: rotate 10s linear infinite;
+    animation: rotateandmove 10s linear infinite;
 }
 
 .counter-cta-wrapper {
@@ -375,21 +421,21 @@
     }
 }
 
-@keyframes rotate {
+@keyframes rotateandmove {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translateX(0);
     }
     25% {
-        transform: rotate(45deg);
+        transform: rotate(45deg) translateX(100px);
     }
     50% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translateX(200px);
     }
     75% {
-        transform: rotate(-45deg);
+        transform: rotate(-45deg) translateX(100px);
     }
     100% {
-        transform: rotate(0deg);
+        transform: rotate(0deg) translateX(0px);
     }
 }
 

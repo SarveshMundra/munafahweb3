@@ -29,6 +29,22 @@ function initHeroAnimations() {
         defaults: { ease: "power3.out" }
     });
 
+    // Initialize gift box animation
+    const giftBoxAnimation = new DotLottie({
+        autoplay: true,
+        loop: true,
+        canvas: document.getElementById("giftBoxCanvas"),
+        src: "https://lottie.host/b4fa9fd9-5b2a-4415-9db8-126c710af110/5U34HpSDEk.lottie"
+    });
+
+    // Initialize sparkle animation
+    const sparkleAnimation = new DotLottie({
+        autoplay: false,
+        loop: false,
+        canvas: document.getElementById("sparkleCanvas"),
+        src: "https://lottie.host/3afdfb48-ec82-45f5-af4b-4645de8efc7a/bzWejngDPa.lottie"
+    });
+
     // Animate each letter
     const letters = document.querySelectorAll('#hero-title .letter');
     letters.forEach((letter, index) => {
@@ -37,8 +53,8 @@ function initHeroAnimations() {
             x: 0,
             y: 0,
             duration: 0.5,
-            delay: index * 0.1 // Delay each letter for typing effect
-        }, index * 0.1); // Start each animation after delay
+            delay: index * 0.1
+        }, index * 0.1);
     });
 
     // Animate tagline after letters
@@ -46,55 +62,77 @@ function initHeroAnimations() {
         y: 50,
         opacity: 1,
         duration: 1.5,
-
     });
 
-    // Animate feature icons after tagline
+    // Animate feature icons
     timeline.call(initHeroFeatureIconsAnimation);
 
-        // Add a delay before starting the early bird counter animation
-        timeline.to({}, { duration: 2 }); // Add a 1-second delay
+    // Show gift box after features
+    timeline.add(() => {
+        gsap.to(".gift-box-container", {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "back.out(1.7)"
+        });
+    }, "+=3"); // Adjust delay as needed
 
-// Animate early bird counter after feature icons
-timeline.to(".early-bird-container", {
-    opacity: 1,
-    y: 0,
-    duration: .1,
-    delay: 1, // Delay after feature icons
-    ease: "power3.out",
-    onComplete: function() {
-        // Enhanced counter animation
-        let obj = { val: 0 };
-        gsap.to(obj, {
-            val: 47,
-            duration: 1.5,
-            delay: 0.1, // Delay after the container animation
-            ease: "steps(47)",  // This creates that mechanical stepping effect
-            onUpdate: function() {
-                document.querySelector('.spots-counter').textContent = Math.round(obj.val);
+    // Handle gift box click
+    let isGiftOpened = false; 
+    document.querySelector('.gift-box-container').addEventListener('click', function() {
+        if (isGiftOpened) return;
+        isGiftOpened = true;
+
+        const revealTimeline = gsap.timeline();
+
+        revealTimeline
+        .to('.gift-box-container', {
+            scale: 1,
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => {
+                document.querySelector('.gift-box-container').style.display = 'none';
+                document.getElementById('sparkleCanvas').style.display = 'block';
+                sparkleAnimation.play();
+            }
+        })
+        .to('.wrapper-container', {
+            scale: 1,
+            opacity: 1,
+            duration: 0.3
+        })
+        .to(".early-bird-container", {
+            display: 'flex',
+            opacity: 1,
+            scale: 1,
+            duration: .5,
+            ease: "back.out(1.7)"
+        })
+        // Counter animation
+        .call(() => {
+            let obj = { val: 0 };
+            gsap.to(obj, {
+                val: 47,
+                duration: 1.5,
+                ease: "steps(47)",
+                onUpdate: function() {
+                    document.querySelector('.spots-counter').textContent = Math.round(obj.val);
+                }
+            });
+        })
+        .to(".cta-button-container", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            onComplete: () => {
+                document.querySelector('.cta-button').classList.add('initial-animate');
+                setTimeout(() => {
+                    document.querySelector('.cta-button').classList.remove('initial-animate');
+                }, 5000);
             }
         });
-    }
-});
-
-    // Animate CTA button
-    timeline.to(".cta-button-container", {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.out",
-        onComplete: () => {
-            // Add class for initial animation
-            document.querySelector('.cta-button').classList.add('initial-animate');
-            
-            // Remove class after animation (optional - the animation will finish naturally)
-            setTimeout(() => {
-                document.querySelector('.cta-button').classList.remove('initial-animate');
-            }, 5000); // Match this with animation duration (1.2s = 1200ms)
-        }
     });
-
-
 
     // Orb animations
     const orb1 = document.querySelector('.orb-1');
@@ -130,7 +168,6 @@ timeline.to(".early-bird-container", {
         x: 50
     });
 }
-
 function initHeroFeatureIconsAnimation() {
     const icons = document.querySelectorAll('.feature-icon');
     const isMobile = window.innerWidth <= 768;
