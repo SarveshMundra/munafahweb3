@@ -1,5 +1,5 @@
 ﻿// Register GSAP ScrollTrigger Plugin
-gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);  
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 const styleElement = document.createElement('style');
 styleElement.textContent = `
@@ -45,22 +45,56 @@ function initHeroAnimations() {
     timeline.to("#hero-tagline", {
         y: 50,
         opacity: 1,
-        duration: 1.5
+        duration: 1.5,
+
     });
 
-    // Video scroll animation
-    gsap.to(".background-video-container", {
-        scrollTrigger: {
-            trigger: ".features-section",
-            start: "top bottom", // Start when features section hits bottom of viewport
-            end: "top top", // End when features section reaches top of viewport
-            scrub: 1, // Smooth scrubbing
-            //    markers: true // Remove this in production, helpful for debugging
-        },
-        y: "0", // This ensures video stays in view
-        scale: 1, // Optional: slight scale effect
-        opacity: 1 // Optional: slight fade effect
+    // Animate feature icons after tagline
+    timeline.call(initHeroFeatureIconsAnimation);
+
+        // Add a delay before starting the early bird counter animation
+        timeline.to({}, { duration: 2 }); // Add a 1-second delay
+
+// Animate early bird counter after feature icons
+timeline.to(".early-bird-container", {
+    opacity: 1,
+    y: 0,
+    duration: .1,
+    delay: 1, // Delay after feature icons
+    ease: "power3.out",
+    onComplete: function() {
+        // Enhanced counter animation
+        let obj = { val: 0 };
+        gsap.to(obj, {
+            val: 47,
+            duration: 1.5,
+            delay: 0.1, // Delay after the container animation
+            ease: "steps(47)",  // This creates that mechanical stepping effect
+            onUpdate: function() {
+                document.querySelector('.spots-counter').textContent = Math.round(obj.val);
+            }
+        });
+    }
+});
+
+    // Animate CTA button
+    timeline.to(".cta-button-container", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        onComplete: () => {
+            // Add class for initial animation
+            document.querySelector('.cta-button').classList.add('initial-animate');
+            
+            // Remove class after animation (optional - the animation will finish naturally)
+            setTimeout(() => {
+                document.querySelector('.cta-button').classList.remove('initial-animate');
+            }, 5000); // Match this with animation duration (1.2s = 1200ms)
+        }
     });
+
+
 
     // Orb animations
     const orb1 = document.querySelector('.orb-1');
@@ -97,6 +131,42 @@ function initHeroAnimations() {
     });
 }
 
+function initHeroFeatureIconsAnimation() {
+    const icons = document.querySelectorAll('.feature-icon');
+    const isMobile = window.innerWidth <= 768;
+    const centerX = window.innerWidth / 2;
+    const spacing = isMobile ? 60 : 100; // Smaller spacing for mobile
+
+    icons.forEach((icon, index) => {
+        // Initial position at the center
+        gsap.set(icon, {
+            x: 0,
+            opacity: 0,
+            scale: 0
+        });
+
+        // Calculate final position
+        let finalX;
+        if (window.innerWidth <= 480) {
+            // Mobile vertical layout
+            finalX = index % 2 === 0 ? -spacing : spacing;
+        } else {
+            // Desktop/tablet horizontal layout
+            finalX = index < 3 ? -spacing * (3 - index) : spacing * (index - 2);
+        }
+
+        // Animation
+        gsap.to(icon, {
+            x: finalX,
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            delay: 0.2 * index,
+            ease: "back.out(1.2)",
+        });
+    });
+}
+
 
 
 function initFeatureCarousel() {
@@ -105,14 +175,14 @@ function initFeatureCarousel() {
     const prevButton = document.querySelector('.nav-arrow.prev');
     const nextButton = document.querySelector('.nav-arrow.next');
     const progressDots = document.querySelectorAll('.progress-dot');
-    
+
     let currentSlide = 0;
     let autoplayInterval;
     const autoplayDelay = 3000; // 3 seconds
 
     // Initialize first slide
     updateSlides();
-    
+
     // Ensure autoplay starts after a slight delay
     setTimeout(() => {
         startAutoplay();
@@ -173,7 +243,7 @@ function initFeatureCarousel() {
     function updateSlides() {
         slides.forEach((slide, index) => {
             slide.classList.remove('active', 'next', 'prev');
-            
+
             if (index === currentSlide) {
                 slide.classList.add('active');
                 gsap.from(slide.querySelector('.feature-content'), {
@@ -237,6 +307,36 @@ function initCrossPlatformAnimations() {
         }
     });
 
+    // New code to animate video opacity
+    gsap.to(".platform-video-container", {
+        scrollTrigger: {
+            trigger: ".cross-platform-section",
+            start: "top 30%", // Start when the section enters the viewport
+            end: "bottom 90%", // End when the section leaves the viewport
+            scrub: true, // Smooth scrubbing
+            toggleActions: "play reverse play reverse",
+            onLeave: () => gsap.to(".platform-video-container", { opacity: 0.3, duration: 0.5 }), // Set opacity back to 0.3 with smooth transition
+            onEnterBack: () => gsap.to(".platform-video-container", { opacity: 0.8, duration: 0.5 }), // Set opacity to 0.8 when scrolling back with smooth transition
+            onLeaveBack: () => gsap.to(".platform-video-container", { opacity: 0.3, duration: 0.5 }) // Set opacity back to 0.3 when scrolling back with smooth transition
+        },
+        opacity: 0.8, // Change opacity to 0.8 when fully in viewport
+        ease: "power3.out"
+    });
+
+    // Scale platform image  size from .5 to .8
+    gsap.to(".platform-image", {
+        scrollTrigger: {
+            trigger: ".cross-platform-section",
+            start: "top center", // Adjust as needed
+            end: "bottom center", // Adjust as needed
+            scrub: true, // Smooth scrubbing
+            toggleActions: "play reverse play reverse"
+        },
+        scale: .8, // Scale to 1
+        duration: 1,
+        ease: "power3.out"
+    });
+
     timeline
         .to("#platform-heading", {
             y: 0,
@@ -248,7 +348,7 @@ function initCrossPlatformAnimations() {
             y: 30,
             opacity: 1,
             duration: 1.5,
-            delay: 0.2,
+            delay: 0.5,
             ease: "power3.out"
         });
 }
@@ -263,6 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize animations
     initHeroAnimations();
     setupGrid(); // This is from grid-setup.js
+    // initHeroFeatureIconsAnimation();
     initFeatureCarousel();
     initCrossPlatformAnimations();
 });
@@ -270,6 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Make functions available globally
 window.initHeroAnimations = initHeroAnimations;
+// window.initHeroFeatureIconsAnimation = initHeroFeatureIconsAnimation;
 window.initFeatureCarousel = initFeatureCarousel;
 window.initCrossPlatformAnimations = initCrossPlatformAnimations;
 
