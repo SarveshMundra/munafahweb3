@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Munafah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        .pricing-section {
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pricing-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: white;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(142, 45, 226, 0.3);
+        }
+
+        .plan-name {
+            font-family: 'Zen Dots', cursive;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .plan-features li {
+            margin-bottom: 0.8rem;
+        }
+
+        .plan-button {
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Zen Dots', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .plan-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="/" class="logo">MUNAFAH</a>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/pricing.html" class="nav-link">Pricing</a>
+                    <a href="/about.html" class="nav-link">About Us</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="pricing-section">
+        <h1 class="pricing-title">Choose Your Plan</h1>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h2 class="plan-name">Starter</h2>
+                <div class="plan-price">$29/mo</div>
+                <ul class="plan-features">
+                    <li>Sales Management</li>
+                    <li>Basic Inventory</li>
+                    <li>5 Users</li>
+                    <li>Email Support</li>
+                </ul>
+                <button class="plan-button">Get Started</button>
+            </div>
+            
+            <div class="pricing-card">
+                <h2 class="plan-name">Business</h2>
+                <div class="plan-price">$79/mo</div>
+                <ul class="plan-features">
+                    <li>All Starter Features</li>
+                    <li>Advanced Inventory</li>
+                    <li>20 Users</li>
+                    <li>Priority Support</li>
+                </ul>
+                <button class="plan-button">Get Started</button>
+            </div>
+            
+            <div class="pricing-card">
+                <h2 class="plan-name">Enterprise</h2>
+                <div class="plan-price">Custom</div>
+                <ul class="plan-features">
+                    <li>All Business Features</li>
+                    <li>Custom Integration</li>
+                    <li>Unlimited Users</li>
+                    <li>24/7 Support</li>
+                </ul>
+                <button class="plan-button">Contact Us</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    <footer class="main-footer">...</footer>
+
+    <script src="js/navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // Animation for pricing cards
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.from(".pricing-title", {
+            scrollTrigger: {
+                trigger: ".pricing-title",
+                start: "top 80%"
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1
+        });
+
+        gsap.from(".pricing-card", {
+            scrollTrigger: {
+                trigger: ".pricing-grid",
+                start: "top 80%"
+            },
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2
+        });
+    </script>
+</body>
+</html>
