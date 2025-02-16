@@ -104,7 +104,11 @@
 
 #hero-title {
     font-family: 'Zen Dots';
-    font-size: clamp(2rem, 10vw, 20rem);
+    /* Using clamp for responsive font size */
+    font-size: clamp(2rem, 8vw, 20rem);
+    /* Alternative viewport units approach */
+    /* font-size: calc(2rem + 6vw); */
+    
     letter-spacing: 0em;
     width: 100%;
     text-align: center;
@@ -127,26 +131,16 @@
 /* Hero Tagline */
 #hero-tagline {
     font-family: 'Zen Dots';
-    font-size: 2rem;
+    /* Using clamp for responsive font size */
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    /* Alternative viewport units approach */
+    /* font-size: calc(1rem + 1vw); */
+    
     color: white;
     padding: 1rem;
     opacity: 0;
-    margin-top: 20px; /* Add margin to separate from previous elements */
+    margin-top: 20px;
 }
-
-@media (max-width: 768px) {
-    #hero-tagline {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    #hero-tagline {
-        font-size: 1rem;
-    }
-}
-
-
 
 
 
@@ -158,7 +152,7 @@
     width: 100%;
     height: auto; /* Changed from 100% to auto */
     z-index: 4;
-    margin-top: 20px; /* Add margin to separate from previous elements */
+    margin-top: 0px; /* Add margin to separate from previous elements */
 }
 
 .feature-icon {
@@ -185,7 +179,11 @@
 }
 
 .feature-icon span {
-    font-size: 1rem;
+    /* Using clamp for responsive font size */
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    /* Alternative viewport units approach */
+    /* font-size: calc(0.8rem + 0.2vw); */
+    
     font-family: 'Zen Dots';
     color: white;
     text-align: center;
@@ -196,7 +194,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 40px;
+        gap: 0px;
     }
 
     .feature-icon {
@@ -214,8 +212,8 @@
     .floating-features {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 0 20px;
+        gap: 0px;
+        padding: 0px 40px;
     }
 
     .feature-icon {
@@ -225,7 +223,7 @@
 
 
 /* Add this new container */
-.animation-container {
+.gift-animation-container {
     position: relative;
     width: 100%;
     height: 300px; /* Adjust based on your needs */
@@ -244,6 +242,30 @@
     z-index: 5;
     width: 250px;
     height: 250px;
+}
+
+/* Styles for larger screens */
+#giftBoxCanvas {
+    width: 250px;
+    height: 250px;
+}
+
+/* Styles for screens smaller than 768px */
+@media (max-width: 768px) {
+    #giftBoxCanvas {
+        margin-top: 30%;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* Styles for screens smaller than 480px */
+@media (max-width: 480px) {
+    #giftBoxCanvas {
+        margin-top: 40%;
+        width: 100px;
+        height: 100px;
+    }
 }
 
 /* Add wrapper container styles */
@@ -306,7 +328,11 @@
 
 .counter-container {
     font-family: 'Zen Dots', cursive;
-    font-size: 2rem;
+    /* Using clamp for responsive font size */
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    /* Alternative viewport units approach */
+    /* font-size: calc(1.5rem + 0.5vw); */
+    
     color: white;
     text-shadow: 0 3px 10px rgba(142, 45, 226, 0.8);
     display: flex;
@@ -319,7 +345,10 @@
 .spots-counter {
     color: #FF0080;
     text-shadow: 5px 5px 10px rgba(255, 0, 128, 0.8);
-    font-size: 5rem;
+    /* Using clamp for responsive font size */
+    font-size: clamp(3rem, 8vw, 5rem);
+    /* Alternative viewport units approach */
+    /* font-size: calc(3rem + 2vw); */
 }
 
 
@@ -339,10 +368,13 @@
     align-items: center;
     padding: 1rem 2.5rem;
     font-family: 'Zen Dots', cursive;
-    font-size: 1.2rem;
+    /* Using clamp for responsive font size */
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    /* Alternative viewport units approach */
+    /* font-size: calc(1rem + 0.2vw); */
+    
     background: transparent;
     border: 3px solid white;
-    /* border-image: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080) 1; */
     border-radius: 50px;
     cursor: pointer;
     overflow: hidden;
@@ -408,16 +440,28 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    .gift-animation-container {
+        height: 300px; /* Adjust based on your needs */
+        margin: 0px 0 0px 0; /* Add margin to separate from previous elements */
+    }
+
     .cta-button {
         padding: 0.8rem 2rem;
-        font-size: 1rem;
+
     }
 }
 
 @media (max-width: 480px) {
+
+    .gift-animation-container {
+        height: 200px; /* Adjust based on your needs */
+        margin: 0px 0 0px 0; /* Add margin to separate from previous elements */
+    }
+
     .cta-button {
         padding: 0.7rem 1.8rem;
-        font-size: 0.9rem;
+
     }
 }
 
@@ -453,9 +497,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #hero-tagline {
-        font-size: 1.2rem;
-    }
 
     .grid-overlay {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -482,41 +523,22 @@
         height: 20px;
     }
     
-    .feature-icon span {
-        font-size: 10px;
-    }
     .early-bird-container {
         margin: 1.5rem 0;
     }
 
     .badge-image {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
     }
 
-    .counter-container {
-        font-size: 1.5rem;
-    }
-
-    .offer-text {
-        font-size: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
-    #hero-tagline {
-        font-size: 1rem;
-    }
+
     .badge-image {
-        width: 80px;
-        height: 80px;
+        width: 130px;
+        height: 130px;
     }
 
-    .counter-container {
-        font-size: 1.2rem;
-    }
-
-    .offer-text {
-        font-size: 0.9rem;
-    }
 }
