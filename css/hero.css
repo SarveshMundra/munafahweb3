@@ -1,6 +1,4 @@
 /* Hero Section Base */
-
-
 .hero-section {
     min-height: 100vh;
     width: 100%;
@@ -9,9 +7,9 @@
     background-color: black;
 }
 
-/* Layer 1: Video Background */
+/* Layer 1: Video Background - Keeping this fixed as requested */
 .background-video-container {
-    position: fixed; /* Changed from fixed to absolute */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -24,7 +22,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-} 
+}
 
 /* Layer 2: Background Orbs */
 .background-orbs {
@@ -43,25 +41,23 @@
 }
 
 .orb-1 {
-    width: 300px;
-    height: 300px;
+    width: 25%;  /* Changed from fixed 300px */
+    height: 25vh;
     top: 10%;
     left: 5%;
     background: rgba(24, 159, 238, 0.8);
-    transform: translate(0, 0);
-    transition: transform 0.3s ease-out;
     opacity: 0.5;
 }
 
 .orb-2 {
-    width: 0px;
-    height: 0px;
+    width: 20%;  /* Changed from 0px */
+    height: 20vh;
     bottom: 15%;
     right: 2%;
     background: rgba(255, 255, 0, 0.6);
 }
 
-/* Layer 3: Grid Overlay */
+/* Layer 3: Grid Overlay - Made more responsive */
 .grid-overlay {
     position: absolute;
     top: 0;
@@ -69,11 +65,11 @@
     right: 0;
     bottom: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 200px;
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(clamp(100px, 15vw, 200px), 1fr));
+    grid-auto-rows: clamp(100px, 15vw, 200px);
+    gap: clamp(5px, 1vw, 15px);
     z-index: 3;
-    padding: 20px;
+    padding: 2%;
     margin: 0;
 }
 
@@ -81,203 +77,109 @@
     backface-visibility: hidden;
     background: rgba(129, 129, 129, 0.1);
     border-radius: 10px;
-    /* box-shadow: 0 0px 25px rgba(255, 255, 255, 0.1); */
     backdrop-filter: blur(20px);
-    border: 0px solid rgba(0, 0, 0, 0.1);
 }
-
-
 
 /* Layer 4: Main Content */
 .hero-content {
     position: relative;
     z-index: 4;
-    text-align: center;
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Align items to the start */
-    align-items: center;
-    padding-top: 40px; /* Add padding to the top */
+    padding: clamp(40px, 8vh, 80px) 5% 10%;  /* Adjusted for header */
 }
 
+/* Content wrapper to help with spacing */
+.content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* Title Section */
 #hero-title {
     font-family: 'Zen Dots';
-    /* Using clamp for responsive font size */
     font-size: clamp(2rem, 8vw, 20rem);
-    /* Alternative viewport units approach */
-    /* font-size: calc(2rem + 6vw); */
-    
-    letter-spacing: 0em;
     width: 100%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.1em;
-    padding: 20px;
+    margin-bottom: 20px;
+    height: 10vh;  /* Control the height proportion */
 }
 
-    #hero-title .letter {
-        background: linear-gradient(180deg, #4A00E0, #ffffff, #ffffff);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        opacity: 0;
-
-    }
-
-/* Hero Tagline */
-#hero-tagline {
-    font-family: 'Zen Dots';
-    /* Using clamp for responsive font size */
-    font-size: clamp(1.2rem, 3vw, 2rem);
-    /* Alternative viewport units approach */
-    /* font-size: calc(1rem + 1vw); */
-    
-    color: white;
-    padding: 1rem;
+#hero-title .letter {
+    background: linear-gradient(180deg, #4A00E0, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     opacity: 0;
-    margin-top: 20px;
 }
 
-
-
-/* Floating Features */
+/* Features Section */
 .floating-features {
-    position: relative; /* Changed from absolute */
     display: flex;
-    justify-content: center;
-    width: 100%;
-    height: auto; /* Changed from 100% to auto */
-    z-index: 4;
-    margin-top: 0px; /* Add margin to separate from previous elements */
+    justify-content: space-evenly;
+    gap: clamp(5px, 80px, 20px);
+    height: clamp(10vh, 20vh, 30vh);  /* Control the height proportion */    display: flex;
+    align-items: center;
 }
 
 .feature-icon {
-    position: relative; /* Changed from absolute */
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 30px;
+    gap: 8px;
     opacity: 0;
-    width: 100px; /* Fixed width for consistency */
-    transition: transform 0.7s ease; /* Add transition for smooth effect */
 }
 
 .feature-icon img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 8px;
-    transition: transform 1s ease; /* Add transition for smooth effect */
-}
-
-.feature-icon img:hover,
-.feature-icon img:active {
-    transform: translateY(-40px); /* Move up by 40px on hover or click */
+    width: clamp(40px, 10vw, 60px);
+    height: auto;
+    transition: transform 1s ease;
 }
 
 .feature-icon span {
-    /* Using clamp for responsive font size */
-    font-size: clamp(0.875rem, 2vw, 1rem);
-    /* Alternative viewport units approach */
-    /* font-size: calc(0.8rem + 0.2vw); */
-    
+    font-size: clamp(0.875rem, 2vw, 1.15rem);
     font-family: 'Zen Dots';
     color: white;
     text-align: center;
 }
 
-@media (max-width: 768px) {
-    .floating-features {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0px;
-    }
-
-    .feature-icon {
-        width: 80px;
-        padding: 10px;
-    }
-
-    .feature-icon img {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 480px) {
-    .floating-features {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0px;
-        padding: 0px 40px;
-    }
-
-    .feature-icon {
-        width: 100%;
-    }
-}
-
-
-/* Add this new container */
+/* Gift Animation Container */
 .gift-animation-container {
     position: relative;
-    width: 100%;
-    height: 300px; /* Adjust based on your needs */
-    margin: 50px 0 -50px 0; /* Add margin to separate from previous elements */
+    height: 30vh;  /* Control the height proportion */    display: flex;
+    justify-content: start;
+    align-items: center;
     z-index: 5;
+    /* border: 5px solid wheat; */
 }
 
-/* Modify gift box container */
 .gift-box-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    z-index: 5;
-    width: 250px;
-    height: 250px;
+
 }
 
-/* Styles for larger screens */
 #giftBoxCanvas {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
 }
 
-/* Styles for screens smaller than 768px */
-@media (max-width: 768px) {
-    #giftBoxCanvas {
-        margin-top: 30%;
-        width: 150px;
-        height: 150px;
-    }
-}
-
-/* Styles for screens smaller than 480px */
-@media (max-width: 480px) {
-    #giftBoxCanvas {
-        margin-top: 40%;
-        width: 100px;
-        height: 100px;
-    }
-}
-
-/* Add wrapper container styles */
-.wrapper-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#sparkleCanvas {
     width: 1200px;
     height: 1200px;
-    z-index: 4;
 }
+
 
 /* Early Bird Container */
 .early-bird-container {
@@ -287,92 +189,88 @@
     transform: translate(-50%, -50%);
     width: 100%;
     z-index: 6;
-    margin: 0;
     opacity: 0;
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping when there is not enough space */
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    margin: 1.5rem 1rem;
-    opacity: 0;  /* Start hidden for animation */
-
 }
 
 .early-bird-badge {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    flex: 1; /* Allow the badge to take available space */
+    flex: 0 0 auto;
+    margin-left: 10%;
 }
 
 .badge-image {
-    width: 250px;
-    height: 250px;
+    width: clamp(120px, 10vw, 200px);
+    height: clamp(120px, 10vw, 200px);
     border-radius: 50%;
     border: 5px solid transparent;
     background: linear-gradient(45deg, #ffffff, #8c36d8, #ff7bbd);
-    padding: 3px;  /* Creates space for the gradient border */
     animation: rotateandmove 10s linear infinite;
 }
 
+
+@keyframes rotateandmove {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+    25% {
+        transform: rotate(45deg) translateX(100px);
+    }
+    50% {
+        transform: rotate(0deg) translateX(200px);
+    }
+    75% {
+        transform: rotate(-45deg) translateX(100px);
+    }
+    100% {
+        transform: rotate(0deg) translateX(0px);
+    }
+}
+
+
 .counter-cta-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .5rem;
-    flex: 1; /* Allow the counter and button to take available space */
-    margin: 1rem;
-}
-
-.counter-container {
-    font-family: 'Zen Dots', cursive;
-    /* Using clamp for responsive font size */
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    /* Alternative viewport units approach */
-    /* font-size: calc(1.5rem + 0.5vw); */
-    
-    color: white;
-    text-shadow: 0 3px 10px rgba(142, 45, 226, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
-
-.spots-counter {
-    color: #FF0080;
-    text-shadow: 5px 5px 10px rgba(255, 0, 128, 0.8);
-    /* Using clamp for responsive font size */
-    font-size: clamp(3rem, 8vw, 5rem);
-    /* Alternative viewport units approach */
-    /* font-size: calc(3rem + 2vw); */
+    flex: 0 0 auto;
+    margin-right: 10%;
+    text-align: right;
 }
 
 
-/* Hero CTA Button */
-.cta-button-container {
+ .cta-button-container {
     position: relative;
     opacity: 0;
     transform: translateY(100px);
     z-index: 4;
 }
 
+.counter-container {
+    font-family: 'Zen Dots', cursive;
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+}
 
+.spots-counter {
+    color: #FF0080;
+    text-shadow: 5px 5px 10px rgba(255, 0, 128, 0.8);
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-right: 40px;
+}
+
+.spots-text {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: white;
+    text-shadow: 0 3px 10px rgba(142, 45, 226, 0.8);
+}
 
 .cta-button {
     position: relative;
+    margin-right: -10px;
     display: inline-flex;
     align-items: center;
-    padding: 1rem 2.5rem;
+    padding: 1rem 2rem;
     font-family: 'Zen Dots', cursive;
-    /* Using clamp for responsive font size */
     font-size: clamp(1rem, 2vw, 1.2rem);
-    /* Alternative viewport units approach */
-    /* font-size: calc(1rem + 0.2vw); */
-    
     background: transparent;
     border: 3px solid white;
     border-radius: 50px;
@@ -438,107 +336,93 @@
     transform: translateX(15px);
 }
 
-/* Responsive Design */
+
+
+
+
+/* Tagline Section */
+#hero-tagline {
+    font-family: 'Zen Dots';
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    color: white;
+    text-align: center;
+    opacity: 0;
+
+    margin-top: auto;  /* Push to bottom of flex container */
+}
+
+/* Consolidated Media Queries */
 @media (max-width: 768px) {
-
-    .gift-animation-container {
-        height: 300px; /* Adjust based on your needs */
-        margin: 0px 0 0px 0; /* Add margin to separate from previous elements */
+    .hero-content {
+        padding-top: clamp(40px, 8vh, 80px);
     }
 
-    .cta-button {
-        padding: 0.8rem 2rem;
-
-    }
-}
-
-@media (max-width: 480px) {
-
-    .gift-animation-container {
-        height: 200px; /* Adjust based on your needs */
-        margin: 0px 0 0px 0; /* Add margin to separate from previous elements */
-    }
-
-    .cta-button {
-        padding: 0.7rem 1.8rem;
-
-    }
-}
-
-@keyframes rotateandmove {
-    0% {
-        transform: rotate(0deg) translateX(0);
-    }
-    25% {
-        transform: rotate(45deg) translateX(100px);
-    }
-    50% {
-        transform: rotate(0deg) translateX(200px);
-    }
-    75% {
-        transform: rotate(-45deg) translateX(100px);
-    }
-    100% {
-        transform: rotate(0deg) translateX(0px);
-    }
-}
-
-
-/* Animations */
-@keyframes bounce {
-    0%, 100% {
-        transform: rotate(45deg) translate(-5px, -5px);
-    }
-
-    50% {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-
-    .grid-overlay {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        grid-auto-rows: 120px;
-        gap: 10px;
-    }
-
-    .orb-1 {
-        width: 300px;
-        height: 300px;
-    }
-
-    .orb-2 {
-        width: 250px;
-        height: 250px;
+    .floating-features {
+        height: 35vh;
+        gap: clamp(5px, 1.5vw, 20px);
     }
 
     .feature-icon {
-        padding: 10px;
-    }
-    
-    .feature-icon svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .early-bird-container {
-        margin: 1.5rem 0;
+        flex: 0 1 clamp(60px, 12%, 100px);
     }
 
+    .early-bird-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .early-bird-badge {
+        margin-left: 0;
+    }
+    
     .badge-image {
         width: 200px;
         height: 200px;
     }
-
+    
+    .counter-cta-wrapper {
+        margin-right: 0;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
-
-    .badge-image {
-        width: 130px;
-        height: 130px;
+    .hero-content {
+        padding: clamp(0px, 5vh, 40px) 5% 10%;  /* Adjusted for header */
     }
 
+    .floating-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(20px, 5vw, 40px);
+        padding: 15% 35%;
+    }
+
+    .gift-animation-container {
+        height: 15vh;
+    }
+
+    .badge-image {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Portrait Tablet Specific */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .hero-content {
+        justify-content: space-between;
+    }
+
+    .content-wrapper {
+        gap: 4vh;
+    }
+
+    .floating-features {
+        height: 30vh;
+    }
+
+    .gift-animation-container {
+        height: 25vh;
+    }
 }

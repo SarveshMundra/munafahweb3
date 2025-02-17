@@ -172,7 +172,7 @@ function initHeroFeatureIconsAnimation() {
     const icons = document.querySelectorAll('.feature-icon');
     const isMobile = window.innerWidth <= 768;
     const centerX = window.innerWidth / 2;
-    const spacing = isMobile ? 60 : 100; // Smaller spacing for mobile
+    const spacing = isMobile ? 20 : 40; // Smaller spacing for mobile
 
     icons.forEach((icon, index) => {
         // Initial position at the center
