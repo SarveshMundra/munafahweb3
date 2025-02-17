@@ -168,41 +168,47 @@ function initHeroAnimations() {
         x: 50
     });
 }
+
+
 function initHeroFeatureIconsAnimation() {
     const icons = document.querySelectorAll('.feature-icon');
-    const isMobile = window.innerWidth <= 768;
-    const centerX = window.innerWidth / 2;
-    const spacing = isMobile ? 20 : 40; // Smaller spacing for mobile
-
+    const isMobile = window.innerWidth <= 480;
+    
     icons.forEach((icon, index) => {
-        // Initial position at the center
+        // Reset initial position
         gsap.set(icon, {
-            x: 0,
             opacity: 0,
-            scale: 0
+            scale: 0,
+            y: 20  // Small initial offset for animation
         });
 
-        // Calculate final position
-        let finalX;
-        if (window.innerWidth <= 480) {
-            // Mobile vertical layout
-            finalX = index % 2 === 0 ? -spacing : spacing;
+        if (isMobile) {
+            // Simple fade in and scale up animation for mobile grid
+            gsap.to(icon, {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 1,
+                delay: index * 0.4,
+                ease: "back.out(1.2)"
+            });
         } else {
-            // Desktop/tablet horizontal layout
-            finalX = index < 3 ? -spacing * (3 - index) : spacing * (index - 2);
+            // Desktop animation remains the same
+            const spacing = 40;
+            const finalX = index < 3 ? -spacing * (3 - index) : spacing * (index - 2);
+            
+            gsap.to(icon, {
+                x: finalX,
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                delay: index * 0.5,
+                ease: "back.out(1.2)"
+            });
         }
-
-        // Animation
-        gsap.to(icon, {
-            x: finalX,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            delay: 0.2 * index,
-            ease: "back.out(1.2)",
-        });
     });
 }
+
 
 
 
