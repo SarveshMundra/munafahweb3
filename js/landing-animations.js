@@ -178,12 +178,12 @@ function initHeroFeatureIconsAnimation() {
         // Reset initial position
         gsap.set(icon, {
             opacity: 0,
-            scale: 0,
+            scale: .15,
             y: 20  // Small initial offset for animation
         });
 
         if (isMobile) {
-            // Simple fade in and scale up animation for mobile grid
+            // Simple fade in and scale down animation for mobile grid
             gsap.to(icon, {
                 opacity: 1,
                 scale: 1,

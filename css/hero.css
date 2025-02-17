@@ -139,6 +139,17 @@
     opacity: 0;
 }
 
+/* Add keyframes for scaling animation */
+@keyframes scaleDown {
+    0% {
+        transform: scale(4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply the scaling animation to the images inside feature-icon */
 .feature-icon img {
     width: clamp(40px, 10vw, 60px);
     height: auto;
