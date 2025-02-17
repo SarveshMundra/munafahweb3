@@ -171,42 +171,93 @@ function initHeroAnimations() {
 
 
 function initHeroFeatureIconsAnimation() {
+    const container = document.querySelector('.floating-features');
     const icons = document.querySelectorAll('.feature-icon');
-    const isMobile = window.innerWidth <= 480;
     
+    // Add features title
+    const title = document.createElement('div');
+    title.className = 'features-title';
+    title.textContent = 'Features';
+    container.insertBefore(title, container.firstChild);
+    
+    // Galaxy animation setup
+    const radius = window.innerWidth <= 480 ? 150 : 300;
+    const orbitDuration = 10;
+    
+    // Initial setup
     icons.forEach((icon, index) => {
-        // Reset initial position
         gsap.set(icon, {
             opacity: 0,
-            scale: .15,
-            y: 20  // Small initial offset for animation
+            scale: 0
         });
-
-        if (isMobile) {
-            // Simple fade in and scale down animation for mobile grid
-            gsap.to(icon, {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 1,
-                delay: index * 0.4,
-                ease: "back.out(1.2)"
-            });
-        } else {
-            // Desktop animation remains the same
-            const spacing = 40;
-            const finalX = index < 3 ? -spacing * (3 - index) : spacing * (index - 2);
-            
-            gsap.to(icon, {
-                x: finalX,
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                delay: index * 0.5,
-                ease: "back.out(1.2)"
-            });
-        }
     });
+
+    // Animate title
+    gsap.to(title, {
+        opacity: 1,
+        duration: 1,
+        delay: 1,
+        y: 30,
+    });
+
+    // Create orbits
+    icons.forEach((icon, index) => {
+        const angle = (index / icons.length) * Math.PI * 2;
+        const delay = index * 0.2;
+    
+        // Create orbit animation
+        gsap.to(icon, {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            delay: delay
+        });
+    
+        // Continuous orbit animation
+        gsap.to(icon, {
+            duration: orbitDuration,
+            repeat: -1,
+            ease: "none",
+            onUpdate: function() {
+                const progress = this.progress();
+                const currentAngle = angle + (progress * Math.PI * 2);
+                
+                const x = Math.cos(currentAngle) * radius;
+                const z = Math.sin(currentAngle) * radius;
+                const y = Math.sin(currentAngle) * (radius / 100); // Adjust the tilt factor as needed
+                const scale = gsap.utils.mapRange(-radius, radius, 1, 1.2, z); // Scale from 1 to 1.5
+                
+                icon.style.transform = `translate3d(${x}px, ${y}px, ${z}px) scale(${scale})`;
+                icon.style.zIndex = z < 0 ? 0 : 2;
+            }
+        });
+    });
+
+    // Mouse interaction
+    // let mouseX = 0;
+    // let mouseY = 0;
+
+    // container.addEventListener('mousemove', (e) => {
+    //     const rect = container.getBoundingClientRect();
+    //     mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 30;
+    //     mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 30;
+
+    //     gsap.to(container, {
+    //         rotationY: mouseX,
+    //         rotationX: -mouseY,
+    //         duration: 0.5,
+    //         ease: "power2.out"
+    //     });
+    // });
+
+    // container.addEventListener('mouseleave', () => {
+    //     gsap.to(container, {
+    //         rotationY: 0,
+    //         rotationX: 0,
+    //         duration: 1,
+    //         ease: "power2.out"
+    //     });
+    // });
 }
 
 

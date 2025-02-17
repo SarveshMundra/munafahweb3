@@ -121,52 +121,69 @@
     opacity: 0;
 }
 
-/* Features Section */
+/* Feature Galaxy Container */
 .floating-features {
-    display: flex;
-    justify-content: space-evenly;
-    gap: clamp(5px, 80px, 20px);
-    height: clamp(10vh, 20vh, 30vh);  /* Control the height proportion */    display: flex;
-    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    margin-bottom: 50px;
 }
 
-.feature-icon {
+.galaxy-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+.features-title {
+    font-family: 'Zen Dots';
+    font-size: clamp(3rem, 6vw, 6rem);
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
     opacity: 0;
 }
 
-/* Add keyframes for scaling animation */
-@keyframes scaleDown {
-    0% {
-        transform: scale(4);
-    }
-    100% {
-        transform: scale(1);
-    }
+.feature-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
 }
 
-/* Apply the scaling animation to the images inside feature-icon */
 .feature-icon img {
-    width: clamp(40px, 10vw, 60px);
+    width: clamp(40px, 8vw, 60px);
     height: auto;
-    transition: transform 1s ease;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(255, 252, 252, 0.3));
 }
 
 .feature-icon span {
-    font-size: clamp(0.875rem, 2vw, 1.15rem);
+    position: absolute;
+    width: max-content;
+    left: 50%;
+    bottom: -25px;
     font-family: 'Zen Dots';
     color: white;
-    text-align: center;
+    transform: translateX(-50%);
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    white-space: nowrap;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
+
 
 /* Gift Animation Container */
 .gift-animation-container {
     position: relative;
-    height: 30vh;  /* Control the height proportion */    display: flex;
+    height: 10vh;  /* Control the height proportion */    display: flex;
     justify-content: start;
     align-items: center;
     z-index: 5;
@@ -202,7 +219,7 @@
     z-index: 6;
     opacity: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -212,12 +229,12 @@
 }
 
 .badge-image {
-    width: clamp(120px, 10vw, 200px);
-    height: clamp(120px, 10vw, 200px);
+    width: clamp(80px, 6vw, 150px);
+    height: clamp(80px, 6vw, 150px);
     border-radius: 50%;
     border: 5px solid transparent;
     background: linear-gradient(45deg, #ffffff, #8c36d8, #ff7bbd);
-    animation: rotateandmove 10s linear infinite;
+    animation: rotateandmove 10s linear;
 }
 
 
@@ -243,6 +260,8 @@
 .counter-cta-wrapper {
     margin-right: 10%;
     text-align: right;
+    align-items: end;
+    justify-content: end;
 }
 
 
@@ -369,8 +388,11 @@
     }
 
     .floating-features {
-        height: 35vh;
-        gap: clamp(5px, 1.5vw, 20px);
+        height: 30vh;
+    }
+    
+    .feature-icon img {
+        width: clamp(35px, 6vw, 45px);
     }
 
     .feature-icon {
@@ -412,33 +434,15 @@
     }
 
     .floating-features {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        flex-wrap: wrap;
-        height: 30vh;
-        width: 100%;
-        gap: 50px;
-
-    }
-
-    .feature-icon {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .feature-icon img {
-        width: 45px;
-        height: 45px;
-        margin-bottom: 5px;
+        height: 25vh;
     }
     
-    .feature-icon span {
-        font-size: 0.9rem;
-        text-align: center;
+    .feature-icon img {
+        width: clamp(30px, 5vw, 40px);
+    }
+    
+    .features-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
     }
 
 
