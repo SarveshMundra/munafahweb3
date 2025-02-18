@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +13,16 @@
 
     <!-- GSAP Animation Library -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>  <!-- Add this line -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <!-- Add this line -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
-<script type="module">
-    import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
-    window.DotLottie = DotLottie;  // Make it available globally
-</script>
+    <script type="module">
+        import { DotLottie } from "https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-web/+esm";
+        window.DotLottie = DotLottie;  // Make it available globally
+    </script>
 
     <!-- Our CSS -->
     <link rel="stylesheet" href="css/app.css">
@@ -28,6 +30,7 @@
     <link rel="stylesheet" href="css/features.css">
     <link rel="stylesheet" href="css/platform.css">
 </head>
+
 <body>
 
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
@@ -40,7 +43,7 @@
             <nav>
                 <button class="mobile-menu-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </button>
                 <div class="nav-links">
@@ -59,10 +62,10 @@
             <video class="background-video" autoplay loop muted>
                 <source src="media/7.mp4" type="video/mp4">
                 <source src="https://github.com/SarveshMundra/MunafahWeb3/raw/refs/heads/main/Media/7.mp4">
-                
+
             </video>
         </div>
-        
+
         <!-- Second Layer: Orbs -->
         <div class="background-orbs">
             <div class="orb orb-1"></div>
@@ -77,84 +80,92 @@
         <!-- Top Layer: Content -->
         <div class="hero-content">
             <div class="content-wrapper">
-            <h1 id="hero-title">
-                <span class="letter">M</span>
-                <span class="letter">U</span>
-                <span class="letter">N</span>
-                <span class="letter">A</span>
-                <span class="letter">F</span>
-                <span class="letter">A</span>
-                <span class="letter">H</span>
-            </h1>
+                <h1 id="hero-title">
+                    <span class="letter">M</span>
+                    <span class="letter">U</span>
+                    <span class="letter">N</span>
+                    <span class="letter">A</span>
+                    <span class="letter">F</span>
+                    <span class="letter">A</span>
+                    <span class="letter">H</span>
+                </h1>
 
-            <div class="floating-features">
-                <!-- The title will be added by JavaScript -->
-                <div class="galaxy-container">
-                    <div class="feature-icon">
-                        <img src="images/Sales3D.png" alt="Sales Management">
-                        <span>Sales</span>
-                    </div>
-                    
-                    <div class="feature-icon">
-                        <img src="images/inventory.png" alt="Inventory Management">
-                        <span>Inventory</span>
-                    </div>
-                
-                    <div class="feature-icon">
-                        <img src="images/purchase.png" alt="Purchase Management">
-                        <span>Purchase</span>
-                    </div>
-                    
-                    <div class="feature-icon">
-                        <img src="images/customer.png" alt="Customer Management">
-                        <span>Customer</span>
-                    </div>
-                
-                    <div class="feature-icon">
-                        <img src="images/catalog.png" alt="Catalog Management">
-                        <span>Catalog</span>
-                    </div>
-                    
-                    <div class="feature-icon">
-                        <img src="images/dashboard.png" alt="Financial Management">
-                        <span>Finance</span>
+                <div class="floating-features">
+                    <!-- The title will be added by JavaScript -->
+                    <div class="galaxy-container">
+                        <div class="feature-icon">
+                            <img src="images/Sales3D.png" alt="Sales Management">
+                            <span>Sales</span>
+                        </div>
+
+                        <div class="feature-icon">
+                            <img src="images/inventory.png" alt="Inventory Management">
+                            <span>Inventory</span>
+                        </div>
+
+                        <div class="feature-icon">
+                            <img src="images/purchase.png" alt="Purchase Management">
+                            <span>Purchase</span>
+                        </div>
+
+                        <div class="feature-icon">
+                            <img src="images/customer.png" alt="Customer Management">
+                            <span>Customer</span>
+                        </div>
+
+                        <div class="feature-icon">
+                            <img src="images/catalog.png" alt="Catalog Management">
+                            <span>Catalog</span>
+                        </div>
+
+                        <div class="feature-icon">
+                            <img src="images/dashboard.png" alt="Financial Management">
+                            <span>Finance</span>
+                        </div>
                     </div>
                 </div>
+
+                <div class="gift-animation-container">
+                    <div class="gift-box-container" style="opacity: 0;">
+                        <canvas id="giftBoxCanvas"></canvas>
+                    </div>
+
+                    <div class="wrapper-container">
+                        <canvas id="sparkleCanvas" style="display: none;"></canvas>
+                    </div>
+
+                    <!-- Replace the existing early-bird-container div with this -->
+                    <div class="early-bird-container" style="display: none;">
+                        <div class="counter-cta-wrapper">
+                            <!-- Counter Container -->
+                            <div class="counter-container">
+                                <div class="spots-number-container">
+                                    <span class="spots-counter">47</span>
+                                </div>
+
+                                <span class="spots-text">SPOTS OPEN</span>
+                            </div>
+                    
+                            <!-- CTA Container -->
+                            <div class="cta-button-container">
+                                <button class="cta-button">
+                                    <span class="cta-button-text">Get Access</span>
+                                    <span class="cta-button-arrow">→</span>
+                                </button>
+                            </div>
+                            <div class="price-tag">
+                                <span class="price-percentage">100%</span>
+                                <span class="price-text">Free</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <p id="hero-tagline">Simplify Business & Grow Profit with our all-in-one Business Software Solution.</p>
             </div>
-
-            <div class="gift-animation-container">
-                <div class="gift-box-container" style="opacity: 0;">
-                    <canvas id="giftBoxCanvas"></canvas>
-                </div>
-                
-                <div class="wrapper-container">
-                    <canvas id="sparkleCanvas"  style="display: none;"></canvas>
-                </div>
-
-                <div class="early-bird-container" style="display: none;">
-                <!-- <div class="early-bird-badge">
-                    <img src="images/EarlyBird.png" alt="Early Bird Badge" class="badge-image">
-                </div> -->
-                <div class="counter-cta-wrapper">
-                    <div class="counter-container">
-                        <span class="spots-counter">47</span>
-                        <span class="spots-text"> SPOTS OPEN </span> 
-                    </div>
-                    <div class="cta-button-container">
-                        <button class="cta-button">
-                            <span class="cta-button-text">Get Early Access</span>
-                            <span class="cta-button-arrow">→</span>
-                        </button>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-
-
-
-            <p id="hero-tagline">Simplify Business & Grow Profit with our all-in-one Business Software Solution.</p>
-        </div>
         </div>
 
 
@@ -165,101 +176,107 @@
     </section>
 
 
-<!-- Features Section -->
+    <!-- Features Section -->
 
-<section class="features-section">
+    <section class="features-section">
 
-    <!-- <div class="features-video-container">
+        <!-- <div class="features-video-container">
         <video class="features-background-video" autoplay loop muted>
             <source src="media/7.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div> -->
 
-    <div class="feature-carousel">
-        <div class="carousel-container">
-            <!-- Feature 1: Sales Management -->
-            <div class="feature-slide">
-                <img src="images/1.png" alt="Sales Management" class="feature-image">
-                <div class="feature-content">
-                    <h2 class="feature-title">Sales Management</h2>
-                    <p class="feature-description">Streamline your sales process with powerful tools for order management, invoicing, and customer tracking.</p>
+        <div class="feature-carousel">
+            <div class="carousel-container">
+                <!-- Feature 1: Sales Management -->
+                <div class="feature-slide">
+                    <img src="images/1.png" alt="Sales Management" class="feature-image">
+                    <div class="feature-content">
+                        <h2 class="feature-title">Sales Management</h2>
+                        <p class="feature-description">Streamline your sales process with powerful tools for order
+                            management, invoicing, and customer tracking.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Inventory Management -->
+                <div class="feature-slide">
+                    <img src="images/2.png" alt="Inventory Management" class="feature-image">
+                    <div class="feature-content">
+                        <h2 class="feature-title">Inventory Management</h2>
+                        <p class="feature-description">Keep track of your stock in real-time with automated inventory
+                            tracking and reorder notifications.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Purchase Management -->
+                <div class="feature-slide">
+                    <img src="images/3.png" alt="Purchase Management" class="feature-image">
+                    <div class="feature-content">
+                        <h2 class="feature-title">Purchase Management</h2>
+                        <p class="feature-description">Optimize your procurement process with automated purchase orders
+                            and vendor management.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Financial Management -->
+                <div class="feature-slide">
+                    <img src="images/4.png" alt="Financial Management" class="feature-image">
+                    <div class="feature-content">
+                        <h2 class="feature-title">Financial Management</h2>
+                        <p class="feature-description">Take control of your finances with comprehensive accounting tools
+                            and real-time reporting.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 5: Customer Management -->
+                <div class="feature-slide">
+                    <img src="images/5.png" alt="Customer Management" class="feature-image">
+                    <div class="feature-content">
+                        <h2 class="feature-title">Customer Management</h2>
+                        <p class="feature-description">Build stronger relationships with integrated CRM tools and
+                            customer insights.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 6: Catalog Management -->
+                <div class="feature-slide">
+                    <img src="images/6.png" alt="Catalog Management" class="feature-image">
+                    <div class="feature-content">
+                        <h2 class="feature-title">Catalog Management</h2>
+                        <p class="feature-description">Easily manage your product catalog with dynamic pricing and
+                            category organization.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Feature 2: Inventory Management -->
-            <div class="feature-slide">
-                <img src="images/2.png" alt="Inventory Management" class="feature-image">
-                <div class="feature-content">
-                    <h2 class="feature-title">Inventory Management</h2>
-                    <p class="feature-description">Keep track of your stock in real-time with automated inventory tracking and reorder notifications.</p>
-                </div>
-            </div>
+            <!-- Navigation Arrows -->
+            <!-- Navigation Arrows and Progress Bar Container -->
+            <div class="nav-progress-container">
+                <button class="nav-arrow prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </button>
 
-            <!-- Feature 3: Purchase Management -->
-            <div class="feature-slide">
-                <img src="images/3.png" alt="Purchase Management" class="feature-image">
-                <div class="feature-content">
-                    <h2 class="feature-title">Purchase Management</h2>
-                    <p class="feature-description">Optimize your procurement process with automated purchase orders and vendor management.</p>
+                <!-- Progress Indicator -->
+                <div class="progress-bar">
+                    <div class="progress-dot active"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
                 </div>
-            </div>
 
-            <!-- Feature 4: Financial Management -->
-            <div class="feature-slide">
-                <img src="images/4.png" alt="Financial Management" class="feature-image">
-                <div class="feature-content">
-                    <h2 class="feature-title">Financial Management</h2>
-                    <p class="feature-description">Take control of your finances with comprehensive accounting tools and real-time reporting.</p>
-                </div>
-            </div>
-
-            <!-- Feature 5: Customer Management -->
-            <div class="feature-slide">
-                <img src="images/5.png" alt="Customer Management" class="feature-image">
-                <div class="feature-content">
-                    <h2 class="feature-title">Customer Management</h2>
-                    <p class="feature-description">Build stronger relationships with integrated CRM tools and customer insights.</p>
-                </div>
-            </div>
-
-            <!-- Feature 6: Catalog Management -->
-            <div class="feature-slide">
-                <img src="images/6.png" alt="Catalog Management" class="feature-image">
-                <div class="feature-content">
-                    <h2 class="feature-title">Catalog Management</h2>
-                    <p class="feature-description">Easily manage your product catalog with dynamic pricing and category organization.</p>
-                </div>
+                <button class="nav-arrow next">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                    </svg>
+                </button>
             </div>
         </div>
-
-        <!-- Navigation Arrows -->
-        <!-- Navigation Arrows and Progress Bar Container -->
-<div class="nav-progress-container">
-    <button class="nav-arrow prev">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-        </svg>
-    </button>
-
-    <!-- Progress Indicator -->
-    <div class="progress-bar">
-        <div class="progress-dot active"></div>
-        <div class="progress-dot"></div>
-        <div class="progress-dot"></div>
-        <div class="progress-dot"></div>
-        <div class="progress-dot"></div>
-        <div class="progress-dot"></div>
-    </div>
-
-    <button class="nav-arrow next">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-        </svg>
-    </button>
-</div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -273,7 +290,7 @@
                 Your browser does not support the video tag.
             </video>
         </div>
-<!-- 
+        <!-- 
         <div class="scroll-indicator up">
             <div class="scroll-arrow up"></div>
         </div> -->
@@ -281,81 +298,81 @@
         <div class="platform-image-container">
             <img src="images/All Devices.png" alt="Platform Background" class="platform-image">
         </div>
-    
+
         <h2 id="platform-heading">ANY DEVICE</h2>
         <p id="platform-tagline">Exact same flow on any device you pick.</p>
 
     </section>
 
 
-<!-- 3D Rolling Image View Section -->
-<section class="rolling-image-view">
-    <div class="banner">
-        <div class="slider" style="--quantity: 10">
-            <div class="item" style="--position: 1"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 2"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 3"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 4"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 5"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 6"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 7"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 8"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 9"><img src="images/phone.png" alt=""></div>
-            <div class="item" style="--position: 10"><img src="images/phone.png" alt=""></div>
-        </div>
-        <div class="content">
-            <h1 data-content="MUNAFAH">
-                MUNAFAH
-            </h1>
-            <div class="model">
-                <!-- <img src="images/phone.png" alt="Model Image"> -->
+    <!-- 3D Rolling Image View Section -->
+    <section class="rolling-image-view">
+        <div class="banner">
+            <div class="slider" style="--quantity: 10">
+                <div class="item" style="--position: 1"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 2"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 3"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 4"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 5"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 6"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 7"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 8"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 9"><img src="images/phone.png" alt=""></div>
+                <div class="item" style="--position: 10"><img src="images/phone.png" alt=""></div>
+            </div>
+            <div class="content">
+                <h1 data-content="MUNAFAH">
+                    MUNAFAH
+                </h1>
+                <div class="model">
+                    <!-- <img src="images/phone.png" alt="Model Image"> -->
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
 
-<footer class="main-footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h3>Company</h3>
-            <ul>
-                <li><a href="/about.html">About Us</a></li>
-                <li><a href="/pricing.html">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/pricing.html">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Features</h3>
+                <ul>
+                    <li><a href="#">Sales Management</a></li>
+                    <li><a href="#">Inventory Control</a></li>
+                    <li><a href="#">Financial Tools</a></li>
+                    <li><a href="#">Customer Management</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">API Reference</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-section">
-            <h3>Features</h3>
-            <ul>
-                <li><a href="#">Sales Management</a></li>
-                <li><a href="#">Inventory Control</a></li>
-                <li><a href="#">Financial Tools</a></li>
-                <li><a href="#">Customer Management</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Munafah. All rights reserved.</p>
         </div>
-        <div class="footer-section">
-            <h3>Resources</h3>
-            <ul>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">API Reference</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h3>Support</h3>
-            <ul>
-                <li><a href="#">Help Center</a></li>
-                <li><a href="#">Community</a></li>
-                <li><a href="#">Status</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Munafah. All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
 
 
     <!-- Our JavaScript -->
@@ -364,4 +381,5 @@
     <script src="js/navigation.js"></script>
     <!--<script src="js/fullpage-scroll.js"></script>-->
 </body>
+
 </html>

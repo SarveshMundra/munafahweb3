@@ -140,7 +140,7 @@
 
 .features-title {
     font-family: 'Zen Dots';
-    font-size: clamp(3rem, 6vw, 6rem);
+    font-size: clamp(2rem, 4rem, 6rem);
     color: white;
     position: absolute;
     left: 50%;
@@ -212,84 +212,117 @@
 /* Early Bird Container */
 .early-bird-container {
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%, -50%);
+
     width: 100%;
+    height: 10vh;
     z-index: 6;
     opacity: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    animation: bounce 20s infinite;
 }
 
-.early-bird-badge {
-
-    margin-left: 2%;
-}
-
-.badge-image {
-    width: clamp(80px, 6vw, 150px);
-    height: clamp(80px, 6vw, 150px);
-    border-radius: 50%;
-    border: 5px solid transparent;
-    background: linear-gradient(45deg, #ffffff, #8c36d8, #ff7bbd);
-    animation: rotateandmove 10s linear;
-}
-
-
-@keyframes rotateandmove {
-    0% {
-        transform: rotate(0deg) translateX(0);
-    }
-    25% {
-        transform: rotate(45deg) translateX(100px);
+@keyframes bounce {
+    0%, 100% {
+        transform: translate(-50%, 20%);
     }
     50% {
-        transform: rotate(0deg) translateX(200px);
-    }
-    75% {
-        transform: rotate(-45deg) translateX(100px);
-    }
-    100% {
-        transform: rotate(0deg) translateX(0px);
+        transform: translate(-60%, 20%);
     }
 }
+
+
 
 
 .counter-cta-wrapper {
-    margin-right: 10%;
-    text-align: right;
-    align-items: end;
-    justify-content: end;
+    position: relative;
+    padding: 1rem;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    background-image: url('/images/EarlyBird6.gif');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
 
+/* Add an overlay to improve text readability */
+.counter-cta-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
 
- .cta-button-container {
+}
+
+.counter-container, .cta-button-container {
     position: relative;
-    opacity: 0;
-    transform: translateY(100px);
-    z-index: 4;
+    z-index: 1;
 }
 
 .counter-container {
     font-family: 'Zen Dots', cursive;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
+.spots-number-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .spots-counter {
+    font-family: 'Zen Dots', cursive;
+    font-size: clamp(2rem, 6vw, 4rem);
     color: #FF0080;
     text-shadow: 5px 5px 10px rgba(255, 0, 128, 0.8);
-    font-size: clamp(2rem, 6vw, 4rem);
-    margin-right: 40px;
+}
+
+.price-tag {
+    margin-top: 0;
+    text-align: center;
+}
+
+.price-percentage {
+    font-family: 'Zen Dots', cursive;
+    font-size: clamp(1rem, 1.2rem, 1.5rem);
+    color: #eceaee;
+
+}
+
+.price-text {
+    font-family: 'Zen Dots', cursive;
+    font-size: clamp(1.5rem, 2rem, 2.75rem);
+    color: #FF0080;
 }
 
 .spots-text {
-    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-family: 'Zen Dots', cursive;
+    font-size: clamp(.7rem, 1rem, 1.2rem);
     color: white;
     text-shadow: 0 3px 10px rgba(142, 45, 226, 0.8);
+    display: block;
+
+}
+
+
+
+
+.cta-button-container {
+    opacity: 0;
+    transform: translateY(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cta-button {
@@ -297,16 +330,16 @@
     margin-right: -10px;
     display: inline-flex;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: .8rem 1rem;
     font-family: 'Zen Dots', cursive;
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(.75rem, 1rem, 1.2rem);
     background: transparent;
     border: 3px solid white;
     border-radius: 50px;
     cursor: pointer;
     overflow: hidden;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 
 /* Fill effect background */
@@ -413,10 +446,7 @@
         height: 200px;
     }
     
-    .counter-cta-wrapper {
-        margin-right: 0;
-        text-align: center;
-    }
+
 }
 
 @media (max-width: 480px) {
