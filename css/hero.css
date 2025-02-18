@@ -88,7 +88,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: clamp(40px, 8vh, 80px) 5% 10%;  /* Adjusted for header */
+    padding: clamp(40px, 8vh, 80px) 0 0 0;  /* Adjusted for header */
 }
 
 /* Content wrapper to help with spacing */
@@ -96,21 +96,20 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
 }
 
 /* Title Section */
 #hero-title {
+    height:  15vh; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 10vh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'Zen Dots';
     font-size: clamp(2rem, 8vw, 20rem);
     width: 100%;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 0.1em;
-    margin-bottom: 20px;
-    height: 10vh;  /* Control the height proportion */
+    margin-bottom: 0px;
 }
 
 #hero-title .letter {
@@ -123,12 +122,15 @@
 
 /* Feature Galaxy Container */
 .floating-features {
+    height: 30vh; /* Allow it to grow and shrink */
     position: relative;
     width: 100%;
-    height: 50vh;
     perspective: 1000px;
     transform-style: preserve-3d;
     margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .galaxy-container {
@@ -179,63 +181,78 @@
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+/* Tagline Section */
+#hero-tagline {
+    height:  10vh;
+    position: relative;
+    font-family: 'Zen Dots';
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
 
 /* Gift Animation Container */
 .gift-animation-container {
+
+    height: 30vh;
     position: relative;
-    height: 10vh;  /* Control the height proportion */    display: flex;
-    justify-content: start;
+    display: flex;
+    justify-content: center;
     align-items: center;
     z-index: 5;
-    /* border: 5px solid wheat; */
+
 }
 
 .gift-box-container {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-
+    right: 10%;
 }
 
-#giftBoxCanvas {
-    width: 100%;
-    height: 100%;
+
+.wrapper-container {
+    position: fixed;
+    top: 70%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+
 }
 
 #sparkleCanvas {
     width: 1200px;
-    height: 1200px;
-}
+    height: 500px;
 
+
+}
 
 /* Early Bird Container */
 .early-bird-container {
+    height: 30vh;
     position: absolute;
-    top: 10%;
-    left: 50%;
-
-    width: 100%;
-    height: 10vh;
-    z-index: 6;
-    opacity: 0;
+    right: 1%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    animation: bounce 20s infinite;
+    z-index: 5;
+    opacity: 0;
+    animation: bounce 20s infinite; 
+
+
 }
 
 @keyframes bounce {
     0%, 100% {
-        transform: translate(-50%, 20%);
+        transform: translate(-50%, -10%);
     }
     50% {
-        transform: translate(-60%, 20%);
+        transform: translate(-60%, 10%);
     }
 }
-
-
-
 
 .counter-cta-wrapper {
     position: relative;
@@ -258,7 +275,6 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.0);
-
 }
 
 .counter-container, .cta-button-container {
@@ -299,7 +315,6 @@
     font-family: 'Zen Dots', cursive;
     font-size: clamp(1rem, 1.2rem, 1.5rem);
     color: #eceaee;
-
 }
 
 .price-text {
@@ -314,11 +329,7 @@
     color: white;
     text-shadow: 0 3px 10px rgba(142, 45, 226, 0.8);
     display: block;
-
 }
-
-
-
 
 .cta-button-container {
     opacity: 0;
@@ -401,22 +412,6 @@
     transform: translateX(15px);
 }
 
-
-
-
-
-/* Tagline Section */
-#hero-tagline {
-    font-family: 'Zen Dots';
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
-    color: white;
-    text-align: center;
-    opacity: 0;
-    /* border: 2px solid white; */
-    padding: 3rem;
-
-}
-
 /* Consolidated Media Queries */
 @media (max-width: 768px) {
     .hero-content {
@@ -424,9 +419,25 @@
     }
 
     .floating-features {
-        height: 30vh;
+        flex: 1 1 50vh; /* Allow it to grow and shrink */
     }
-    
+
+    #hero-title {
+        flex: 0 1 15vh;
+    }
+
+    #hero-tagline {
+        flex: 0 1 15vh;
+    }
+
+    .gift-animation-container {
+        flex: 0 1 30vh;
+    }
+
+    .early-bird-container {
+        flex: 0 1 30vh;
+    }
+
     .feature-icon img {
         width: clamp(35px, 6vw, 45px);
     }
@@ -435,70 +446,121 @@
         flex: 0 1 clamp(60px, 12%, 100px);
     }
 
-    .early-bird-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
+
     .early-bird-badge {
         margin-left: 0;
     }
-    
+
     .badge-image {
         width: 200px;
         height: 200px;
     }
-    
-
 }
 
 @media (max-width: 480px) {
     .hero-content {
-        padding: 10px 10px 10px 10px;  /* Adjusted for header */
+        padding: 50px 10px 10px 10px;  /* Increased top padding for header */
     }
 
     #hero-title {
-        font-size: clamp(3rem, 8vw, 20rem);
+        font-size: clamp(2rem, 8vw, 3rem);
         width: 100%;
         gap: 0.1em;
-        margin-bottom: 20px;
-        height: 10vh;  /* Control the height proportion */
-        align-items: flex-end;
+        margin-top: 20px;
+        height: 15vh;
+        align-items: center;
     }
 
     .floating-features {
         height: 25vh;
     }
-    
+
     .feature-icon img {
         width: clamp(30px, 5vw, 40px);
     }
-    
+
     .features-title {
         font-size: clamp(1.5rem, 3vw, 2rem);
     }
 
-
+    /* Gift box container fixes */
     .gift-animation-container {
-        height: 10vh;
-        margin-bottom: 3rem;
+        height: 30vh;
+
+        position: relative;
+        margin: 2rem 0;
     }
 
-    .early-bird-badge {
-
-        margin-left: -200px;
+    .gift-box-container {
+        position: relative; /* Changed from absolute */
+        right: auto;
+        transform: scale(0.3); /* Reduced scale further */
+        transform-origin: center center;
     }
 
-    .badge-image {
-        width: 120px;
-        height: 120px;
+    /* Sparkles container fixes */
+    .wrapper-container {
+        position: fixed;
+        top: 70%;
+        left: 50%;
+        overflow: hidden;
     }
+
+    /* giftBoxCanvas {
+        width: 150px;
+        height: 150px;
+    } */
+
+    #sparkleCanvas {
+        width: 800px;
+        height: auto;
+    }
+
+    /* Early bird offer fixes */
+    .early-bird-container {
+        height: 30vh;
+        position: relative; /* Changed from absolute */
+        left: 50%;
+
+    }
+
+    .counter-cta-wrapper {
+        position: relative;
+        width: 220px;
+        height: 220px;
+
+    }
+    
+    
+    .counter-container {
+
+        margin-top: 60px;
+        width: 150px;
+
+    }
+    
+ 
+    .spots-counter {
+        margin-right: 5px;
+    }
+    
+    
+    .cta-button {
+        position: relative;
+        margin-top: 15px;
+        padding: .5rem .5rem;
+        font-size: clamp(.75rem, 1rem, 1.2rem);
+        backdrop-filter: blur(15px);
+    }
+    
 
     #hero-tagline {
-        height: 10vh;
-        font-size: clamp(1rem, 1.25vw, 1.5rem);
-        padding: 0 1rem 3rem 1rem;
+        height: 20vh;
+        font-size: clamp(1.25rem, 1.5vw, 1.75rem);
+        padding: 1rem;
     }
+
+
 }
 
 /* Portrait Tablet Specific */
@@ -516,6 +578,10 @@
     }
 
     .gift-animation-container {
+        height: 25vh;
+    }
+
+    .early-bird-container {
         height: 25vh;
     }
 }
