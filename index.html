@@ -2,7 +2,12 @@
 <html lang="en">
 
 <head>
-    <base href="https://sarveshmundra.github.io/munafahweb3/">
+    <script>
+        // Dynamically set the base URL
+        const base = document.createElement('base');
+        base.href = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost' ? '/' : 'https://sarveshmundra.github.io/munafahweb3/';
+        document.head.appendChild(base);
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Munafah - Business Management Solution</title>
@@ -13,11 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Zen+Dots&display=swap" rel="stylesheet">
 
     <!-- GSAP Animation Library -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
-    <!-- Add this line -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
     <script type="module">
@@ -48,7 +51,6 @@
                     </svg>
                 </button>
                 <div class="nav-links">
-                    <!-- Remove the leading slashes -->
                     <a href="./" class="nav-link">Home</a>
                     <a href="pricing.html" class="nav-link">Pricing</a>
                     <a href="about.html" class="nav-link">About Us</a>
@@ -64,14 +66,12 @@
             <video class="background-video" autoplay loop muted>
                 <source src="media/7.mp4" type="video/mp4">
                 <source src="https://github.com/SarveshMundra/MunafahWeb3/raw/refs/heads/main/Media/7.mp4">
-
             </video>
         </div>
 
         <!-- Second Layer: Orbs -->
         <div class="background-orbs">
             <div class="orb orb-1"></div>
-            <!-- <div class="orb orb-2"></div> -->
         </div>
 
         <!-- Third Layer: Grid -->
@@ -83,7 +83,7 @@
         <div class="hero-content">
             <div class="content-wrapper">
                 <h1 id="hero-title">
-                    <span class="letter">N</span>
+                    <span class="letter">M</span>
                     <span class="letter">U</span>
                     <span class="letter">N</span>
                     <span class="letter">A</span>
@@ -93,33 +93,27 @@
                 </h1>
 
                 <div class="floating-features">
-                    <!-- The title will be added by JavaScript -->
                     <div class="galaxy-container">
                         <div class="feature-icon">
                             <img src="images/Sales3D.png" alt="Sales Management">
                             <span>Sales</span>
                         </div>
-
                         <div class="feature-icon">
                             <img src="images/inventory.png" alt="Inventory Management">
                             <span>Inventory</span>
                         </div>
-
                         <div class="feature-icon">
                             <img src="images/purchase.png" alt="Purchase Management">
                             <span>Purchase</span>
                         </div>
-
                         <div class="feature-icon">
                             <img src="images/customer.png" alt="Customer Management">
                             <span>Customer</span>
                         </div>
-
                         <div class="feature-icon">
                             <img src="images/catalog.png" alt="Catalog Management">
                             <span>Catalog</span>
                         </div>
-
                         <div class="feature-icon">
                             <img src="images/dashboard.png" alt="Financial Management">
                             <span>Finance</span>
@@ -129,70 +123,38 @@
 
                 <p id="hero-tagline">Simplify Business & Grow Profit with our all-in-one Business Software Solution.</p>
            
-           
                 <div class="gift-animation-container">
                     <div class="gift-box-container" style="opacity: 0;">
                         <canvas id="giftBoxCanvas"></canvas>
                     </div>
-
                     <div class="wrapper-container">
                         <canvas id="sparkleCanvas" style="display: none;"></canvas>
                     </div>
-
-                    <!-- Replace the existing early-bird-container div with this -->
                     <div class="early-bird-container" style="display: none;">
                         <div class="counter-cta-wrapper">
-                            <!-- Counter Container -->
                             <div class="counter-container">
                                 <div class="spots-number-container">
                                     <span class="spots-counter">47</span>
                                     <span class="spots-text">SPOTS OPEN</span>
                                 </div>
-
-
                             </div>
-                    
-                            <!-- CTA Container -->
                             <div class="cta-button-container">
                                 <button class="cta-button">
                                     <span class="cta-button-text">Get Access</span>
                                     <span class="cta-button-arrow">→</span>
                                 </button>
                             </div>
-                            <!-- <div class="price-tag">
-                                <span class="price-percentage">100%</span>
-                                <span class="price-text">Free</span>
-                            </div> -->
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
-
-
-
-        <!-- <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-        </div> -->
     </section>
 
-
     <!-- Features Section -->
-
     <section class="features-section">
-
-        <!-- <div class="features-video-container">
-        <video class="features-background-video" autoplay loop muted>
-            <source src="media/7.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div> -->
-
         <div class="feature-carousel">
             <div class="carousel-container">
-                <!-- Feature 1: Sales Management -->
                 <div class="feature-slide">
                     <img src="images/1.png" alt="Sales Management" class="feature-image">
                     <div class="feature-content">
@@ -201,8 +163,6 @@
                             management, invoicing, and customer tracking.</p>
                     </div>
                 </div>
-
-                <!-- Feature 2: Inventory Management -->
                 <div class="feature-slide">
                     <img src="images/2.png" alt="Inventory Management" class="feature-image">
                     <div class="feature-content">
@@ -211,8 +171,6 @@
                             tracking and reorder notifications.</p>
                     </div>
                 </div>
-
-                <!-- Feature 3: Purchase Management -->
                 <div class="feature-slide">
                     <img src="images/3.png" alt="Purchase Management" class="feature-image">
                     <div class="feature-content">
@@ -221,8 +179,6 @@
                             and vendor management.</p>
                     </div>
                 </div>
-
-                <!-- Feature 4: Financial Management -->
                 <div class="feature-slide">
                     <img src="images/4.png" alt="Financial Management" class="feature-image">
                     <div class="feature-content">
@@ -231,8 +187,6 @@
                             and real-time reporting.</p>
                     </div>
                 </div>
-
-                <!-- Feature 5: Customer Management -->
                 <div class="feature-slide">
                     <img src="images/5.png" alt="Customer Management" class="feature-image">
                     <div class="feature-content">
@@ -241,8 +195,6 @@
                             customer insights.</p>
                     </div>
                 </div>
-
-                <!-- Feature 6: Catalog Management -->
                 <div class="feature-slide">
                     <img src="images/6.png" alt="Catalog Management" class="feature-image">
                     <div class="feature-content">
@@ -252,17 +204,12 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Navigation Arrows -->
-            <!-- Navigation Arrows and Progress Bar Container -->
             <div class="nav-progress-container">
                 <button class="nav-arrow prev">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
                     </svg>
                 </button>
-
-                <!-- Progress Indicator -->
                 <div class="progress-bar">
                     <div class="progress-dot active"></div>
                     <div class="progress-dot"></div>
@@ -271,7 +218,6 @@
                     <div class="progress-dot"></div>
                     <div class="progress-dot"></div>
                 </div>
-
                 <button class="nav-arrow next">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
@@ -281,11 +227,8 @@
         </div>
     </section>
 
-
-
     <!-- Platform Section -->
     <section class="cross-platform-section" id="platforms">
-        <!-- Add Video Background -->
         <div class="platform-video-container">
             <video class="platform-video" autoplay loop muted playsinline>
                 <source src="media/11.mp4" type="video/mp4">
@@ -293,20 +236,12 @@
                 Your browser does not support the video tag.
             </video>
         </div>
-        <!-- 
-        <div class="scroll-indicator up">
-            <div class="scroll-arrow up"></div>
-        </div> -->
-
         <div class="platform-image-container">
             <img src="images/All Devices.png" alt="Platform Background" class="platform-image">
         </div>
-
         <h2 id="platform-heading">ANY DEVICE</h2>
         <p id="platform-tagline">Exact same flow on any device you pick.</p>
-
     </section>
-
 
     <!-- 3D Rolling Image View Section -->
     <section class="rolling-image-view">
@@ -328,13 +263,10 @@
                     MUNAFAH
                 </h1>
                 <div class="model">
-                    <!-- <img src="images/phone.png" alt="Model Image"> -->
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <footer class="main-footer">
         <div class="footer-container">
@@ -377,12 +309,10 @@
         </div>
     </footer>
 
-
     <!-- Our JavaScript -->
     <script src="js/grid-setup.js"></script>
     <script src="js/landing-animations.js"></script>
     <script src="js/navigation.js"></script>
-    <!--<script src="js/fullpage-scroll.js"></script>-->
 </body>
 
 </html>

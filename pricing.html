@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="https://sarveshmundra.github.io/munafahweb3/">
+    <script>
+        // Dynamically set the base URL
+        const base = document.createElement('base');
+        base.href = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost' ? '/' : 'https://sarveshmundra.github.io/munafahweb3/';
+        document.head.appendChild(base);
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing - Munafah</title>

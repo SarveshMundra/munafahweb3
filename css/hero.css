@@ -120,6 +120,10 @@
     opacity: 0;
 }
 
+.floating-features {
+    visibility: hidden;
+}
+
 /* Feature Galaxy Container */
 .floating-features {
     height: 30vh; /* Allow it to grow and shrink */
@@ -131,6 +135,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-right: 50px;
+
 }
 
 .galaxy-container {
@@ -138,6 +144,7 @@
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
+
 }
 
 .features-title {
@@ -147,7 +154,8 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -280%);
+
     text-align: center;
     z-index: 2;
     opacity: 0;
@@ -185,6 +193,7 @@
 #hero-tagline {
     height:  10vh;
     position: relative;
+    transform: translateY(50px); /* Initial position off-screen later adjusted by animation */
     font-family: 'Zen Dots';
     font-size: clamp(1.2rem, 2.5vw, 2rem);
     color: white;
@@ -463,32 +472,48 @@
     }
 
     #hero-title {
-        font-size: clamp(2rem, 8vw, 3rem);
+        height: 10vh;
+        font-size: clamp(3rem, 10vw, 4rem);
         width: 100%;
         gap: 0.1em;
         margin-top: 20px;
-        height: 15vh;
         align-items: center;
     }
 
-    .floating-features {
+
+
+    #hero-tagline {
         height: 25vh;
+        font-size: clamp(1rem, 1.25vw, 1.5rem);
+        padding: 1rem;
     }
 
-    .feature-icon img {
-        width: clamp(30px, 5vw, 40px);
+
+
+    .floating-features {
+        height: 35vh;
     }
 
     .features-title {
-        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-size: clamp(2rem, 2.25rem, 3rem);
     }
+
+    .feature-icon img {
+        width: clamp(40px, 50px, 60px);
+    }
+
+    .feature-icon span {
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+    }
+
+
 
     /* Gift box container fixes */
     .gift-animation-container {
         height: 30vh;
 
         position: relative;
-        margin: 2rem 0;
+        margin: 1rem 0;
     }
 
     .gift-box-container {
@@ -554,12 +579,6 @@
     }
     
 
-
-    #hero-tagline {
-        height: 20vh;
-        font-size: clamp(1.25rem, 1.5vw, 1.75rem);
-        padding: 1rem;
-    }
 
 
 }
