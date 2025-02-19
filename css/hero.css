@@ -260,7 +260,7 @@
     border-radius: 50%;
     width: 280px;
     height: 280px;
-    background-image: url('/images/EarlyBird8.gif');
+    background-image: url('/images/EarlyBird8.gif'), url('https://github.com/SarveshMundra/MunafahWeb3/raw/refs/heads/main/images/EarlyBird8.gif');
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -553,6 +553,7 @@
         backdrop-filter: blur(15px);
     }
     
+
 
     #hero-tagline {
         height: 20vh;
