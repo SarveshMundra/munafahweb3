@@ -88,7 +88,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: clamp(40px, 8vh, 80px) 0 0 0;  /* Adjusted for header */
+    padding: clamp(50px, 100px, 150px) 0 0 0;  /* Adjusted for header */
 }
 
 /* Content wrapper to help with spacing */
@@ -105,7 +105,7 @@
     justify-content: center;
     align-items: center;
     font-family: 'Zen Dots';
-    font-size: clamp(2rem, 8vw, 20rem);
+    font-size: clamp(4rem, 10vw, 11rem);
     width: 100%;
     text-align: center;
     gap: 0.1em;
@@ -297,7 +297,7 @@
     font-family: 'Zen Dots', cursive;
     margin-top: 80px;
     margin-left: -20px;
-    width: 200px;
+    width: 180px;
     padding: 5px 0 5px 10px;
     display: flex;
     justify-content: center;
@@ -310,35 +310,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 60px;
 }
 
 .spots-counter {
     font-family: 'Zen Dots', cursive;
     font-size: clamp(2rem, 6vw, 4rem);
+    margin-right: 10px;
     color: #FF0080;
     text-shadow: 5px 5px 10px rgba(255, 0, 128, 0.8);
 }
 
-.price-tag {
-    margin-top: 0;
-    text-align: center;
-}
-
-.price-percentage {
-    font-family: 'Zen Dots', cursive;
-    font-size: clamp(1rem, 1.2rem, 1.5rem);
-    color: #eceaee;
-}
-
-.price-text {
-    font-family: 'Zen Dots', cursive;
-    font-size: clamp(1.5rem, 2rem, 2.75rem);
-    color: #FF0080;
-}
 
 .spots-text {
     font-family: 'Zen Dots', cursive;
-    font-size: clamp(.7rem, 1rem, 1.2rem);
+    font-size: clamp(.1rem, 1.5rem, 2rem);
     color: white;
     text-shadow: 0 3px 10px rgba(142, 45, 226, 0.8);
     display: block;
@@ -571,6 +557,7 @@
     .spots-number-container {
         margin-left: 50px;
     }
+
     .spots-counter {
         margin-right: 15px;
 
