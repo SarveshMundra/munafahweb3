@@ -113,12 +113,12 @@
 }
 
 #hero-title .letter {
-    background: linear-gradient(360deg, #7a0afa, #e3d7e6, #ffffff);
+    /* background: linear-gradient(360deg, #7a0afa, #e3d7e6, #ffffff); */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     opacity: 0;
-    text-shadow: 0 0 10px #fff, 0 0 0px #fff, 0 0 35px #bb39f7;
+    text-shadow: 0 0 5px #fff, 0 0 0px #fff, 0 0 15px #bb39f7;
 
 }
 
@@ -175,7 +175,7 @@
     width: clamp(40px, 8vw, 60px);
     height: auto;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 0 10px rgba(255, 252, 252, 0.3));
+    filter: drop-shadow(0 0 10px rgb(52, 52, 236));
 }
 
 .feature-icon span {
@@ -486,7 +486,7 @@
 
     #hero-tagline {
         height: 25vh;
-        font-size: clamp(1rem, 1.25vw, 1.5rem);
+        font-size: clamp(.75rem, .85rem, 1.25rem);
         padding: .5rem;
     }
 
@@ -501,11 +501,11 @@
     }
 
     .feature-icon img {
-        width: clamp(40px, 50px, 60px);
+        width: clamp(30px, 40px, 50px);
     }
 
     .feature-icon span {
-        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        font-size: clamp(0.7rem, 0.8rem, 1rem);
     }
 
 
