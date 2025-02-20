@@ -100,7 +100,7 @@
 
 /* Title Section */
 #hero-title {
-    height:  15vh; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 10vh */
+    height: 15vh; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 10vh */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,11 +113,13 @@
 }
 
 #hero-title .letter {
-    background: linear-gradient(180deg, #fa59aa, #ffffff, #ffffff);
+    background: linear-gradient(360deg, #7a0afa, #e3d7e6, #ffffff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     opacity: 0;
+    text-shadow: 0 0 10px #fff, 0 0 0px #fff, 0 0 35px #bb39f7;
+
 }
 
 .floating-features {
@@ -485,7 +487,7 @@
     #hero-tagline {
         height: 25vh;
         font-size: clamp(1rem, 1.25vw, 1.5rem);
-        padding: 1rem;
+        padding: .5rem;
     }
 
 
@@ -551,8 +553,8 @@
 
     .counter-cta-wrapper {
         position: relative;
-        width: 220px;
-        height: 220px;
+        width: 180px;
+        height: 180px;
 
     }
     
@@ -572,10 +574,11 @@
     
     .cta-button {
         position: relative;
-        margin-top: 15px;
-        padding: .5rem .5rem;
+        margin-top: 5px;
+        padding: .25rem .25rem;
+        width: 150px;
         font-size: clamp(.75rem, 1rem, 1.2rem);
-        backdrop-filter: blur(15px);
+        backdrop-filter: blur(5px);
     }
     
 
