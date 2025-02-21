@@ -22,13 +22,36 @@
             position: relative;
             min-height: 100vh;
             padding: 120px 20px 60px;
-            background-image: url('images/DNB6.png');
-            background-size: cover;
-            background-position: center;
-            /* background: rgba(0, 0, 0, 0.2); */
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: black;
+        }
+
+        /* The wave background with reduced opacity */
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/DNB6.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+            pointer-events: none;
+            /* So it doesn't interfere with clicks */
+        }
+
+
+        .pricing-title,
+        .appfeatures-container,
+        .pricing-grid,
+        .pricing-card {
+            position: relative;
+            z-index: 1;
+            /* Keep content above the background */
         }
 
         .pricing-title {
@@ -209,15 +232,16 @@
     </header>
 
     <section class="pricing-section">
-        <h1 class="pricing-title">Choose Your Plan</h1>
 
-        <div class="appfeatures-container">
-            <button class="show-features-btn plan-button">See All Features</button>
-            <p class="appfeatures-text neon-glow">All Software features are included in all below plans.</p>
-        </div>
+            <h1 class="pricing-title">Choose Your Plan</h1>
 
-        <div class="pricing-grid">
-            <!-- <div class="pricing-card">
+            <div class="appfeatures-container">
+                <button class="show-features-btn plan-button">See All Features</button>
+                <p class="appfeatures-text neon-glow">All Software features are included in all below plans.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- <div class="pricing-card">
                 <h2 class="plan-name">Starter</h2>
                 <div class="plan-price">$29/mo</div>
                 <ul class="plan-features">
@@ -229,118 +253,118 @@
                 <button class="plan-button">Get Started</button>
             </div> -->
 
-            <!-- Starter Pricing Card -->
+                <!-- Starter Pricing Card -->
 
-            <div class="pricing-card">
-                <h2 class="plan-name">Starter</h2>
-                <div class="plan-price">
-                    <span class="price-amount">$0/month</span>
+                <div class="pricing-card">
+                    <h2 class="plan-name">Starter</h2>
+                    <div class="plan-price">
+                        <span class="price-amount">$0/month</span>
+                    </div>
+
+                    <ul class="plan-features">
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            All Features Included
+                        </li>
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            Up to 3 users <br> <span style="font-size:  12px;"> ($3/user after that) </span>
+
+                        </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            24X5 Offline Support <br> <span style="font-size:  12px;"> (1 min to 4 hours) </span>
+                        </li>
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            SetUp - Demo Videos <br> <span style="font-size: 0;">.</span>
+                        </li>
+
+                    </ul>
+
+                    <div class="card-actions">
+                        <button class="plan-button">Start Free</button>
+                    </div>
                 </div>
 
-                <ul class="plan-features">
+                <!-- Serious Pricing Card -->
 
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        All Features Included
-                    </li>
+                <div class="pricing-card">
+                    <h2 class="plan-name">Serious</h2>
+                    <div class="plan-price">
+                        <span class="price-amount">$5/month</span>
+                    </div>
 
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Up to 3 users <br> <span style="font-size:  12px;"> ($3/user after that) </span>
+                    <ul class="plan-features">
 
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        24X5 Offline Support <br> <span style="font-size:  12px;"> (1 min to 4 hours) </span>
-                    </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            All Features Included
+                        </li>
 
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        SetUp - Demo Videos <br> <span style="font-size: 0;">.</span>
-                    </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            Up to 3 users <br> <span style="font-size:  12px;"> ($5/user after that) </span>
+                        </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            24X7 Offline Support <br> <span style="font-size:  12px;"> (1 min to 2 hours) </span>
+                        </li>
 
-                </ul>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            SetUp - Demo Videos & Phone Support
+                        </li>
 
-                <div class="card-actions">
-                    <button class="plan-button">Start Free</button>
+                    </ul>
+
+                    <div class="card-actions">
+                        <button class="plan-button">Start Now</button>
+                    </div>
                 </div>
+
+                <!-- Committed Pricing Card -->
+
+                <div class="pricing-card">
+                    <h2 class="plan-name">Committed</h2>
+                    <div class="plan-price">
+                        <span class="price-amount">$10/month</span>
+                    </div>
+
+                    <ul class="plan-features">
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            All Features Included
+                        </li>
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            Up to 3 users <br> <span style="font-size:  12px;"> ($10/user after that) </span>
+                        </li>
+                        </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            24X7 Live Support <br> <span style="font-size:  12px;">(1 min to 15 mins) </span>
+                        </li>
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            Setup - Live Video Call <br> <span style="font-size: 0;">.</span>
+                        </li>
+
+                    </ul>
+
+                    <div class="card-actions">
+                        <button class="plan-button">Start Now</button>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Serious Pricing Card -->
-
-            <div class="pricing-card">
-                <h2 class="plan-name">Serious</h2>
-                <div class="plan-price">
-                    <span class="price-amount">$5/month</span>
-                </div>
-
-                <ul class="plan-features">
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        All Features Included
-                    </li>
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Up to 3 users <br> <span style="font-size:  12px;"> ($5/user after that) </span>
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        24X7 Offline Support <br> <span style="font-size:  12px;"> (1 min to 2 hours) </span>
-                    </li>
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        SetUp - Demo Videos & Phone Support
-                    </li>
-
-                </ul>
-
-                <div class="card-actions">
-                    <button class="plan-button">Start Now</button>
-                </div>
+            <div style="margin: 30px 0;         z-index: 1;">
+                <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
+                    Offline Support - Send us a Chat, Text, email and we will get back to you ASAP.
+                </li>
+                <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
+                    Pay Anually and lock-in the price for the year. Cancel anytime and get a refund for the remaining
+                    months.
+                </li>
+                <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
+                    3% Rate hike possible at start of every year to account for inflation.
+                </li>
             </div>
-
-            <!-- Committed Pricing Card -->
-
-            <div class="pricing-card">
-                <h2 class="plan-name">Committed</h2>
-                <div class="plan-price">
-                    <span class="price-amount">$10/month</span>
-                </div>
-
-                <ul class="plan-features">
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        All Features Included
-                    </li>
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Up to 3 users <br> <span style="font-size:  12px;"> ($10/user after that) </span>
-                    </li>
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        24X7 Live Support <br> <span style="font-size:  12px;">(1 min to 15 mins) </span>
-                    </li>
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Setup - Live Video Call <br> <span style="font-size: 0;">.</span>
-                    </li>
-
-                </ul>
-
-                <div class="card-actions">
-                    <button class="plan-button">Start Now</button>
-                </div>
-            </div>
-
-        </div>
-
-        <div style="margin: 30px 0;">
-            <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
-            Offline Support - Send us a Chat, Text, email and we will get back to you ASAP.
-            </li>
-            <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
-            Pay Anually and lock-in the price for the year. Cancel anytime and get a refund for the remaining
-            months.
-            </li>
-            <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
-            3% Rate hike possible at start of every year to account for inflation.
-            </li>
-        </div>
 
     </section>
 
