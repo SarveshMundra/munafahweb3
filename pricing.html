@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/pricing.css">
     <link rel="stylesheet" href="css/navigation.css">
     <style>
+
         .pricing-section {
             position: relative;
             min-height: 100vh;
@@ -39,9 +40,15 @@
             background-image: url('images/DNB6.png');
             background-size: cover;
             background-position: center;
-            opacity: 0.6;
+            opacity: 0.8;
             pointer-events: none;
             /* So it doesn't interfere with clicks */
+        }
+
+        @media (max-width: 480px) {
+            .pricing-section::before {
+            opacity: 0.3;
+            }
         }
 
 
