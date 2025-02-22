@@ -20,7 +20,46 @@ const features = {
             "Stock adjustment"
         ]
     },
-    // ... other features as in your original data
+    PurchaseManagement: {
+        title: "Purchase Management",
+        features: [
+            "Purchase order creation",
+            "Supplier management",
+            "Purchase tracking",
+            "Purchase reports",
+            "Order adjustments"
+        ]
+    },
+    CustomerManagement: {
+        title: "Customer Management",
+        features: [
+            "Customer database",
+            "Customer segmentation",
+            "Customer interaction tracking",
+            "Customer feedback management",
+            "Customer reports"
+        ]
+    },
+    b2bECommerce: {
+        title: "B2B e-Commerce",
+        features: [
+            "Bulk order processing",
+            "Wholesale pricing",
+            "B2B customer portal",
+            "Order history",
+            "Reorder functionality"
+        ]
+    },
+    financeManagement: {
+        title: "Finance Management",
+        features: [
+            "Expense tracking",
+            "Budget management",
+            "Financial reporting",
+            "Tax calculations",
+            "Profit & loss statements"
+        ]
+    }
 };
 
 // Modal functionality
@@ -59,7 +98,7 @@ class FeaturesModal {
             <div class="modal-container">
                 <button class="modal-close">&times;</button>
                 <div class="modal-header">
-                    <h2 class="modal-title">Starter Plan Features</h2>
+                    <h2 class="modal-title">All Plan, Same Features</h2>
                 </div>
                 <div class="features-grid">
                     ${this.generateFeaturesHTML()}
