@@ -37,12 +37,12 @@
 .orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(2px);
+    filter: blur(6px);
 }
 
 .orb-1 {
-    width: 300px;  /* Changed from fixed 300px */
-    height: 300px;
+    width: 100px;  /* Changed from fixed 300px */
+    height: 100px;
     top: 10%;
     left: 5%;
     background: rgba(0, 162, 255, 0.8);
