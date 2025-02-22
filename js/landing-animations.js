@@ -200,7 +200,7 @@ function initHeroFeatureIconsAnimation() {
     
     // Galaxy animation setup
     const radius = window.innerWidth <= 480 ? 140 : 300;
-    const orbitDuration = 15;
+    const orbitDuration = 100;
     
     // Animate title
     gsap.to(title, {

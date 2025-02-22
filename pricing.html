@@ -37,7 +37,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('images/DNB3.png');
+            background-image: url('images/DNB25.png');
             background-size: cover;
             background-position: center;
             opacity: 1;
@@ -47,7 +47,7 @@
 
         @media (max-width: 480px) {
             .pricing-section::before {
-                opacity: .5;
+                opacity: 1;
             }
         }
 
@@ -85,14 +85,14 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            margin-bottom: 2rem;
+           
         }
 
         .appfeatures-text {
             font-family: 'Zen Dots', cursive;
             color: white;
             font-size: clamp(.8rem, .8vw, 1rem);
-            margin-top: 1.5rem;
+            margin-top: 2.2rem;
             /* Increase transition duration */
         }
 
@@ -100,7 +100,7 @@
 
             0%,
             100% {
-                box-shadow: 0 0 25px #fff;
+                box-shadow: 0 0 10px #fff;
             }
 
             50% {
@@ -123,13 +123,11 @@
             display: flex;
             flex: 0 1 auto;
             align-items: center;
-            justify-content: center;
+            justify-content: start;
             width: 200px;
             z-index: 2;
-            background: transparent;
-            border-radius: 20px;
             padding: 1rem;
-            backdrop-filter: blur(30px);
+
 
         }
 
@@ -290,7 +288,7 @@
         <div class="features-and-spots-container">
             <div class="appfeatures-container">
                 <button class="show-features-btn plan-button">See All Features</button>
-                <p class="appfeatures-text neon-glow">All Software features are included in all below plans.</p>
+                <p class="appfeatures-text ">All Software features are included in all below plans.</p>
             </div>
 
             <div class="spots-number-container">
@@ -377,7 +375,7 @@
                 <div class="plan-price">
                     <span class="price-amount">$5/month</span><br>
                     <span class="price-amount"
-                        style="text-decoration: line-through; font-size: 1.5rem;">$20/month</span>
+                        style="text-decoration: line-through; font-size: 1.5rem;">$15/month</span>
 
                 </div>
 
