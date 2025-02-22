@@ -164,7 +164,7 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -280%);
+    transform: translate(-50%, -80%);
 
     text-align: center;
     z-index: 2;
@@ -486,11 +486,12 @@
 
     #hero-title {
         height: 10vh;
-        font-size: clamp(3rem, 10vw, 4rem);
+        font-size: clamp(2.85rem, 8vw, 3.5rem);
         width: 100%;
         gap: 0.1em;
         margin-top: 20px;
         align-items: center;
+        padding: 0 20px;
     }
 
 
@@ -573,7 +574,7 @@
     
     .counter-container {
 
-        margin-top: 60px;
+        margin-top: 30px;
         width: 150px;
 
     }

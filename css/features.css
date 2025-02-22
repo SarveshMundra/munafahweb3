@@ -173,7 +173,6 @@
     background: white;
     transform: scale(1.3);
 }
-...
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -183,24 +182,64 @@
     }
 }
 
+/* Update these media queries in features.css */
+
 @media (max-width: 768px) {
     .feature-slide {
         width: 90%;
         left: 5%;
-        height: 50vh;
+        /* Change height to take up more vertical space */
+        height: 75vh;  /* Increased from 50vh */
+        /* Add padding to ensure content doesn't touch edges */
+        padding: 1rem;
+    }
+    
+    .feature-image {
+        /* Make image take up more space */
+        height: 85%;
+        /* Ensure image stays within bounds */
+        object-fit: contain;
+        margin-top: 2rem;
     }
     
     .feature-content {
+        /* Position content at bottom */
+        bottom: 5%;
         padding: 1rem;
+        /* Add background gradient for better text visibility */
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    }
+
+    .feature-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .feature-description {
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        /* Ensure text is readable */
+        color: rgba(255,255,255,0.8);
     }
 }
 
+/* Additional adjustments for smaller screens */
 @media (max-width: 480px) {
-    .feature-image {
-        height: 60%;
+    .feature-slide {
+        /* Keep same proportions as tablet */
+        height: 75vh;
+        width: 95%;
+        left: 2.5%;
     }
     
-    .nav-button {
-        padding: 0.8rem 1.5rem;
+    .nav-progress-container {
+        /* Move navigation closer to bottom */
+        bottom: 2%;
+        gap: 1.5rem;
+    }
+
+    .nav-arrow {
+        /* Make arrows slightly smaller */
+        width: 40px;
+        height: 40px;
     }
 }
