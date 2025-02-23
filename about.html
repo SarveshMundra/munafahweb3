@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script>
         // Dynamically set the base URL
@@ -12,51 +13,87 @@
     <title>About Us - Munafah</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Zen+Dots&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Zen+Dots&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/navigation.css">
     <style>
+        .about-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+        }
 
-.about-section {
-    position: relative;
-    min-height: 100vh;
-    padding: 120px 20px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-}
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/Gal4.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            pointer-events: none;
+        }
 
-.about-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('images/Gal4.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 1;
-    pointer-events: none;
-}
-
-.about-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .8); /* Dark overlay */
-    pointer-events: none;
-}
+        .about-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .8);
+            /* Dark overlay */
+            pointer-events: none;
+        }
 
         .about-container {
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
+        }
+
+
+        .why-us {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 6rem;
+            text-align: center;
+        }
+
+        .why-us-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(25deg, #5603fc, #aa4bfd, #a10151);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .why-us-description {
+
+            font-family: 'Parkinsans', sans-serif;
+            font-size: 1.2rem;
+            color: #b8b7b7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            font-family: 'Parkinsans', sans-serif;
+            background: linear-gradient(25deg, #ab85f8, #e99bd8, #f5eff2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .about-hero {
@@ -91,10 +128,10 @@
         }
 
         .vision-card {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2rem;
-            backdrop-filter: blur(0px);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 252, 252, 0.1);
             transition: all 0.3s ease;
             opacity: 0;
@@ -127,6 +164,7 @@
         }
 
         .vision-text {
+            font-family: 'Parkinsans', sans-serif;
             color: #a5a5a5;
             line-height: 1.6;
             text-align: center;
@@ -167,6 +205,7 @@
         }
 
         .join-text {
+            font-family: 'Parkinsans', sans-serif;
             color: #cecdcd;
             margin-bottom: 2rem;
             max-width: 600px;
@@ -198,7 +237,7 @@
             font-size: clamp(1.5rem, 3vw, 2.5rem);
             text-align: center;
             margin-bottom: 3rem;
-            background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+            background: linear-gradient(45deg, #4A00E0, #e22dd9);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -212,8 +251,9 @@
         }
 
         .roadmap-item {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
+            box-shadow: 0px 0px 20px rgb(43, 42, 42);
             padding: 2rem;
             text-align: center;
             opacity: 0;
@@ -222,12 +262,14 @@
 
         .roadmap-phase {
             font-family: 'Zen Dots', cursive;
-            color: #f821c2;
+            color: #ffffff;
             margin-bottom: 1rem;
         }
 
         .roadmap-content {
+            font-family: 'Parkinsans', sans-serif;
             color: #b9b7b7;
+            text-align: left;
         }
 
         @media (max-width: 768px) {
@@ -241,6 +283,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="main-header">
@@ -249,7 +292,7 @@
             <nav>
                 <button class="mobile-menu-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </button>
                 <div class="nav-links">
@@ -264,9 +307,23 @@
     <section class="about-section">
         <div class="about-container">
             <!-- Hero Section -->
+
+            <div class="why-us">
+                <h1 class="why-us-title">Why Us</h1>
+                <h2 class="why-us-description">
+                    <span class="highlight">Our Platform is new but we are NOT.</span> With over 17 years of experience
+                    building Products for AT&T, T-Mobile, IBM, Accenture, TCS and Tech Mahindra.
+                </h2>
+                <!-- <p class="why-us-description">With over 17 years of experience working with AT&T, T-Mobile, IBM, Accenture, and Tech Mahindra. 
+                    Munafah is committed to transforming how Emerging Businesses operate. Our trusted, innovative solutions are accessible, affordable, and powerful, 
+                    enabling every business to thrive in today's competitive market. Join us and experience the future of business management.</p> -->
+
+            </div>
+
             <div class="about-hero">
                 <h1 class="about-title">Our Vision</h1>
-                <p class="about-subtitle">Revolutionizing how small businesses operate through smart, accessible technology</p>
+                <p class="about-subtitle">Revolutionizing how Emerging Businesses operate through smart, accessible
+                    technology</p>
             </div>
 
             <!-- Vision Cards -->
@@ -274,31 +331,34 @@
                 <div class="vision-card">
                     <div class="vision-icon">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
                     </div>
                     <h2 class="vision-title">The Problem</h2>
-                    <p class="vision-text">Small businesses struggle with complex, expensive software that's hard to use. Many resort to manual processes or disconnected tools.</p>
+                    <p class="vision-text">Emerging Businesses struggle with complex, expensive software that's hard to
+                        use. Many resort to manual processes or disconnected tools.</p>
                 </div>
 
                 <div class="vision-card">
                     <div class="vision-icon">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
                     </div>
                     <h2 class="vision-title">Our Solution</h2>
-                    <p class="vision-text">We're building an all-in-one platform that's affordable, easy to use, and powerful enough to run your entire business efficiently.</p>
+                    <p class="vision-text">We're building an all-in-one platform that's affordable, easy to use, and
+                        powerful enough to run your entire business efficiently.</p>
                 </div>
 
                 <div class="vision-card">
                     <div class="vision-icon">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                         </svg>
                     </div>
                     <h2 class="vision-title">The Future</h2>
-                    <p class="vision-text">Our goal is to empower 1 million small businesses with technology that was previously only available to large enterprises.</p>
+                    <p class="vision-text">Our goal is to empower 1 million Emerging Businesses with technology that was
+                        previously only available to large enterprises.</p>
                 </div>
             </div>
 
@@ -336,7 +396,9 @@
             <!-- Join Us Section -->
             <div class="join-section">
                 <h2 class="join-title">Be Part of Our Journey</h2>
-                <p class="join-text">Join us as an early adopter and help shape the future of small business management. Get exclusive benefits and direct access to our development team.</p>
+                <p class="join-text">Join us as an early adopter and help shape the future of Emerging Business
+                    management.
+                    Get exclusive benefits and direct access to our development team.</p>
                 <button class="join-button">Get Early Access</button>
             </div>
         </div>
@@ -348,7 +410,7 @@
     <script>
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
-        
+
         // Hero section animation
         gsap.to(".about-hero", {
             scrollTrigger: {
@@ -407,4 +469,5 @@
         });
     </script>
 </body>
+
 </html>
