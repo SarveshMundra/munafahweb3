@@ -16,31 +16,61 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/navigation.css">
     <style>
-        .about-section {
-            min-height: 100vh;
-            padding: 120px 20px 60px;
-            background-color: black;
-            color: white;
-        }
+
+.about-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/Gal4.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.about-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8); /* Dark overlay */
+    pointer-events: none;
+}
 
         .about-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
+            position: relative;
+            z-index: 1;
         }
 
         .about-hero {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .about-title {
             font-family: 'Zen Dots', cursive;
             font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(250deg, #5603fc, #aa4bfd, #a10151);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -48,132 +78,181 @@
 
         .about-subtitle {
             font-size: 1.2rem;
-            color: #888;
+            color: #b8b7b7;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .mission-section {
+        .vision-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 6rem;
+        }
+
+        .vision-card {
+            background: transparent;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .mission-card {
             padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
+            backdrop-filter: blur(0px);
+            border: 1px solid rgba(255, 252, 252, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
         }
 
-        .mission-card:hover {
+        .vision-card:hover {
             transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0px 30px rgba(142, 45, 226, .5);
         }
 
-        .mission-icon {
-            width: 80px;
-            height: 80px;
+        .vision-icon {
+            width: 60px;
+            height: 60px;
             margin: 0 auto 1.5rem;
-            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .mission-title {
+        .vision-title {
             font-family: 'Zen Dots', cursive;
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            text-align: center;
             color: white;
         }
 
-        .mission-text {
-            color: #888;
+        .vision-text {
+            color: #a5a5a5;
             line-height: 1.6;
+            text-align: center;
         }
 
         .team-section {
-            text-align: center;
-            padding: 4rem 0;
+            margin-bottom: 6rem;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(142, 45, 226, 0.3);
-        }
-
-        .member-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
-            padding: 3px;
-        }
-
-        .member-image img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .member-name {
+        .team-title {
             font-family: 'Zen Dots', cursive;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .join-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .join-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
             color: white;
         }
 
-        .member-role {
-            color: #888;
+        .join-text {
+            color: #cecdcd;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .join-button {
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Zen Dots', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .join-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+        }
+
+        .roadmap-section {
+            margin-bottom: 6rem;
+        }
+
+        .roadmap-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+        }
+
+        .roadmap-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .roadmap-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .roadmap-phase {
+            font-family: 'Zen Dots', cursive;
+            color: #f821c2;
             margin-bottom: 1rem;
         }
 
+        .roadmap-content {
+            color: #b9b7b7;
+        }
+
         @media (max-width: 768px) {
-            .mission-section {
+            .vision-section {
                 grid-template-columns: 1fr;
             }
 
-            .team-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            .about-section {
+                padding: 100px 20px 40px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Include Header -->
+    <!-- Header -->
     <header class="main-header">
         <div class="header-container">
-            <a href="./" class="logo">
-                <img src="images/applogo.png" alt="Munafah Logo" class="logo-image">
-            </a>
+            <a href="./" class="logo">MUNAFAH</a>
             <nav>
                 <button class="mobile-menu-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="nav-links">
-                    <!-- Remove the leading slashes -->
                     <a href="./" class="nav-link">Home</a>
                     <a href="pricing.html" class="nav-link">Pricing</a>
                     <a href="about.html" class="nav-link">About Us</a>
@@ -184,120 +263,147 @@
 
     <section class="about-section">
         <div class="about-container">
+            <!-- Hero Section -->
             <div class="about-hero">
-                <h1 class="about-title">Our Story</h1>
-                <p class="about-subtitle">Empowering businesses with smart solutions for seamless operations and growth</p>
+                <h1 class="about-title">Our Vision</h1>
+                <p class="about-subtitle">Revolutionizing how small businesses operate through smart, accessible technology</p>
             </div>
 
-            <div class="mission-section">
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+            <!-- Vision Cards -->
+            <div class="vision-section">
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <h2 class="mission-title">Our Mission</h2>
-                    <p class="mission-text">To revolutionize business management through innovative technology solutions that empower entrepreneurs to achieve their full potential.</p>
+                    <h2 class="vision-title">The Problem</h2>
+                    <p class="vision-text">Small businesses struggle with complex, expensive software that's hard to use. Many resort to manual processes or disconnected tools.</p>
                 </div>
 
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 15.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z"/>
-                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <h2 class="mission-title">Our Vision</h2>
-                    <p class="mission-text">To be the leading platform that transforms how businesses operate, making complex management simple and efficient.</p>
+                    <h2 class="vision-title">Our Solution</h2>
+                    <p class="vision-text">We're building an all-in-one platform that's affordable, easy to use, and powerful enough to run your entire business efficiently.</p>
                 </div>
 
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <h2 class="mission-title">Our Values</h2>
-                    <p class="mission-text">Innovation, reliability, and customer success drive everything we do. We're committed to providing solutions that make a real difference.</p>
+                    <h2 class="vision-title">The Future</h2>
+                    <p class="vision-text">Our goal is to empower 1 million small businesses with technology that was previously only available to large enterprises.</p>
                 </div>
             </div>
 
-            <div class="team-section">
-                <h2 class="about-title">Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-image">
-                            <img src="/api/placeholder/150/150" alt="Team Member">
-                        </div>
-                        <h3 class="member-name">Sarah Johnson</h3>
-                        <p class="member-role">CEO & Founder</p>
+            <!-- Roadmap Section -->
+            <div class="roadmap-section">
+                <h2 class="roadmap-title">Our Journey</h2>
+                <div class="roadmap-container">
+                    <div class="roadmap-item">
+                        <h3 class="roadmap-phase">Phase 1: Foundation</h3>
+                        <p class="roadmap-content">
+                            • Core business features<br>
+                            • User-friendly interface<br>
+                            • Cloud infrastructure
+                        </p>
                     </div>
-
-                    <div class="team-member">
-                        <div class="member-image">
-                            <img src="/api/placeholder/150/150" alt="Team Member">
-                        </div>
-                        <h3 class="member-name">Michael Chen</h3>
-                        <p class="member-role">CTO</p>
+                    <div class="roadmap-item">
+                        <h3 class="roadmap-phase">Phase 2: Growth</h3>
+                        <p class="roadmap-content">
+                            • Advanced analytics<br>
+                            • Mobile applications<br>
+                            • API integrations
+                        </p>
                     </div>
-
-                    <div class="team-member">
-                        <div class="member-image">
-                            <img src="/api/placeholder/150/150" alt="Team Member">
-                        </div>
-                        <h3 class="member-name">Elena Rodriguez</h3>
-                        <p class="member-role">Head of Design</p>
+                    <div class="roadmap-item">
+                        <h3 class="roadmap-phase">Phase 3: Scale</h3>
+                        <p class="roadmap-content">
+                            • AI-powered insights<br>
+                            • Global expansion<br>
+                            • Industry solutions
+                        </p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Join Us Section -->
+            <div class="join-section">
+                <h2 class="join-title">Be Part of Our Journey</h2>
+                <p class="join-text">Join us as an early adopter and help shape the future of small business management. Get exclusive benefits and direct access to our development team.</p>
+                <button class="join-button">Get Early Access</button>
             </div>
         </div>
     </section>
-
-    <!-- Include Footer -->
-    <footer class="main-footer">...</footer>
 
     <script src="js/navigation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
-        // Animations
+        // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
         
         // Hero section animation
-        gsap.from(".about-hero", {
+        gsap.to(".about-hero", {
             scrollTrigger: {
                 trigger: ".about-hero",
                 start: "top 80%"
             },
-            y: 100,
-            opacity: 0,
+            y: 0,
+            opacity: 1,
             duration: 1
         });
 
-        // Mission cards animation
-        gsap.from(".mission-card", {
+        // Vision cards animation
+        gsap.to(".vision-card", {
             scrollTrigger: {
-                trigger: ".mission-section",
+                trigger: ".vision-section",
                 start: "top 80%"
             },
-            y: 100,
-            opacity: 0,
+            y: 0,
+            opacity: 1,
             duration: 1,
             stagger: 0.2
         });
 
-        // Team members animation
-        gsap.from(".team-member", {
+        // Roadmap title animation
+        gsap.to(".roadmap-title", {
             scrollTrigger: {
-                trigger: ".team-section",
+                trigger: ".roadmap-section",
                 start: "top 80%"
             },
-            y: 100,
-            opacity: 0,
+            y: 0,
+            opacity: 1,
+            duration: 1
+        });
+
+        // Roadmap items animation
+        gsap.to(".roadmap-item", {
+            scrollTrigger: {
+                trigger: ".roadmap-container",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
             duration: 1,
             stagger: 0.2
+        });
+
+        // Join section animation
+        gsap.to(".join-section", {
+            scrollTrigger: {
+                trigger: ".join-section",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1
         });
     </script>
 </body>
