@@ -205,8 +205,8 @@ function initHeroFeatureIconsAnimation() {
     // Animate title
     gsap.to(title, {
         opacity: 1,
-        duration: 2,
-        delay: 1,
+        duration: 1,
+        delay: 0,
         y: 40,
     });
 
@@ -214,7 +214,8 @@ function initHeroFeatureIconsAnimation() {
     icons.forEach((icon, index) => {
         gsap.set(icon, {
             opacity: 0,
-            scale: 0
+            scale: 0, 
+
         });
     });
 
@@ -230,7 +231,7 @@ function initHeroFeatureIconsAnimation() {
             opacity: 1,
             scale: 1,
             duration: 1,
-            delay: delay
+            delay: delay + .5,
         });
     
         // Continuous orbit animation
@@ -244,8 +245,8 @@ function initHeroFeatureIconsAnimation() {
                 
                 const x = Math.cos(currentAngle) * radius;
                 const z = Math.sin(currentAngle) * radius;
-                const y = Math.sin(currentAngle) * (radius / 10); // Adjust the tilt smaller number more tilt
-                const scale = gsap.utils.mapRange(-radius, radius, 1, 1.2, z); // Scale Icons when they come in the front
+                const y = Math.sin(currentAngle) * (radius / 4); // Adjust the tilt smaller number more tilt
+                const scale = gsap.utils.mapRange(-radius, radius, 1, 1, z); // Scale Icons when they come in the front
                 
                 icon.style.transform = `translate3d(${x}px, ${y}px, ${z}px) scale(${scale})`;
                 icon.style.zIndex = z < 0 ? 0 : 2;
