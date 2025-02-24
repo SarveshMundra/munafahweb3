@@ -13,7 +13,8 @@
     <title>About Us - Munafah</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Zen+Dots&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Zen+Dots&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/navigation.css">
     <style>
@@ -272,6 +273,48 @@
             text-align: left;
         }
 
+
+        .contact-section {
+            margin-bottom: 6rem;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 252, 252, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0px 30px rgba(142, 45, 226, .5);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
         @media (max-width: 768px) {
             .vision-section {
                 grid-template-columns: 1fr;
@@ -401,6 +444,46 @@
                     Get exclusive benefits and direct access to our development team.</p>
                 <button class="join-button">Get Early Access</button>
             </div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h2 class="roadmap-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                        </div>
+                        <h3 class="vision-title">Call Us</h3>
+                        <p class="vision-text">+1 (404) 491-8845<br> 7AM-11PM EST</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <path d="M22 6l-10 7L2 6" />
+                            </svg>
+                        </div>
+                        <h3 class="vision-title">Email Us</h3>
+                        <p class="vision-text">munafah@outlook.com<br>24/7 Email Support</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="vision-title">Text Us</h3>
+                        <p class="vision-text">+1 (404) 491-8845<br>Quick Response within 1hr</p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
@@ -457,7 +540,7 @@
             stagger: 0.2
         });
 
-        // Join section animation
+        // Join US section animation
         gsap.to(".join-section", {
             scrollTrigger: {
                 trigger: ".join-section",
@@ -467,6 +550,19 @@
             opacity: 1,
             duration: 1
         });
+
+        // Contact US section animation
+        gsap.to(".contact-card", {
+            scrollTrigger: {
+                trigger: ".contact-container",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.2
+        });
+
     </script>
 </body>
 
