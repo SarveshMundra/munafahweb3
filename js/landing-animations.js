@@ -453,9 +453,9 @@ function initCrossPlatformAnimations() {
 
     timeline
         .to("#platform-heading", {
-            y: 0,
+            y: 30,
             opacity: 1,
-            duration: 1,
+            duration: 1.5,
             ease: "power3.out"
         })
         .to("#platform-tagline", {

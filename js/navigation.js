@@ -15,17 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentScroll = window.pageYOffset;
 
         // Add background when scrolling down
-        if (currentScroll > 50) {
-            header.style.background = 'rgba(0, 0, 0, 0.8)';
+        if (currentScroll > 10) {
+            header.style.background = 'rgba(0, 0, 0, .01)';
         } else {
-            header.style.background = 'rgba(0, 0, 0, 0.2)';
+            header.style.background = 'rgba(0, 0, 0, .01)';
         }
 
         // Hide/show header based on scroll direction
-        if (currentScroll > lastScroll && currentScroll > 100) {
+        if (currentScroll > lastScroll && currentScroll > 30) {
             header.style.transform = 'translateY(-100%)';
+
         } else {
             header.style.transform = 'translateY(0)';
+
         }
 
         lastScroll = currentScroll;

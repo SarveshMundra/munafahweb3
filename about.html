@@ -68,11 +68,12 @@
             align-items: center;
             margin-bottom: 6rem;
             text-align: center;
+            transform: translateY(30px);
         }
 
         .why-us-title {
             font-family: 'Zen Dots', cursive;
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             margin-bottom: 1.5rem;
             background: linear-gradient(25deg, #5603fc, #aa4bfd, #a10151);
             -webkit-background-clip: text;
@@ -106,7 +107,7 @@
 
         .about-title {
             font-family: 'Zen Dots', cursive;
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             margin-bottom: 1.5rem;
             background: linear-gradient(250deg, #5603fc, #aa4bfd, #a10151);
             -webkit-background-clip: text;
@@ -494,7 +495,41 @@
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero section animation
+
+        // About US section animation
+        gsap.to(".why-us", {
+            scrollTrigger: {
+                trigger: ".why-us",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1
+        });
+
+        // Highlight word-by-word animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const highlightElements = document.querySelectorAll('.highlight');
+
+            highlightElements.forEach(element => {
+                const words = element.textContent.split(' ');
+                element.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+
+                gsap.set('.word', { opacity: 0 });
+
+                gsap.to('.word', {
+                    opacity: 1,
+                    duration: .3,
+                    stagger: 0.15,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 80%'
+                    }
+                });
+            });
+        });
+
+        // About US section animation
         gsap.to(".about-hero", {
             scrollTrigger: {
                 trigger: ".about-hero",

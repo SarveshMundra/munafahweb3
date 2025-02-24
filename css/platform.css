@@ -30,12 +30,12 @@
     width: 100%;
     height: 10%;  /* Adjusted to take 20% of the height */
     color: white;
-    margin: 40px 0 10px 0;
+    margin: 20px 0 10px 0;
     opacity: 0;
-    transform: translateY(-150px);
+    transform: translateY(-50px);
     position: absolute;
     z-index: 3;
-    top: 0;
+    top: 0%;
     left: 30%;
     transform: translateX(-30%);
 
