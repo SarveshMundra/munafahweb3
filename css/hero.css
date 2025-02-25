@@ -142,7 +142,7 @@
     perspective: 1000px;
     transform-style: preserve-3d;
     margin-top: -60px;
-    margin-bottom: 130px;
+    margin-bottom: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -256,6 +256,10 @@
     box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
 }
 
+.show-features-btn {
+    opacity: 0;
+    transform: scale(0);
+}
 
 .alternating-content-container {
     position: relative;
@@ -291,7 +295,7 @@
 }
 
 #sparkleCanvas {
-    width: 600px;
+    width: 800px;
     height: 300px;
 }
 
@@ -347,9 +351,9 @@
     /* Keep the font-family the same */
     font-family: 'Zen Dots', cursive;
     /* Adjust these values */
-    margin-top: 20px; /* Reduced from 80px */
+    margin-top: 0px; /* Reduced from 80px */
     margin-left: 0; /* Reset the negative margin */
-    width: 200px;
+    width: 300px;
     padding: 5px 0;
     /* Keep these the same */
     display: flex;
@@ -364,7 +368,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 60px;
+    margin-left: 0px;
 }
 
 .spots-counter {
@@ -394,7 +398,7 @@
 
 .cta-button {
     position: relative;
-    margin-top: 5px;
+    margin-top: 0px;
     display: inline-flex;
     align-items: center;
     padding: .8rem 1.5rem;
@@ -478,7 +482,10 @@
     }
 
     .floating-features {
-        flex: 1 1 50vh; /* Allow it to grow and shrink */
+        height: 35vh;
+        margin-top: -100px;
+        margin-bottom: 0;
+
     }
 
     #hero-title {
@@ -487,29 +494,16 @@
 
     #hero-tagline {
         flex: 0 1 15vh;
+        margin-bottom: 30px;
     }
 
-    .gift-animation-container {
-        padding: 150px 0;
-        flex: 0 1 30vh;
-    }
-
+ 
     .feature-icon img {
         width: clamp(35px, 6vw, 45px);
     }
 
     .feature-icon {
-        flex: 0 1 clamp(60px, 12%, 100px);
-    }
-
-    /* Maintain absolute positioning of elements */
-    .gift-box-container,
-    .wrapper-container,
-    .early-bird-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        flex: 0 1 clamp(60px, 12vw, 100px);
     }
 
     .counter-container {
@@ -536,7 +530,7 @@
     }
 
     .hero-content {
-        padding: 50px 10px 10px 10px;  /* Increased top padding for header */
+        padding: 30px 10px 10px 10px;  /* Increased top padding for header */
     }
 
     #hero-title {
@@ -551,14 +545,15 @@
 
     #hero-tagline {
         height: 20vh;
+        margin-bottom: 10px;
         font-size: clamp(.75rem, .85rem, 1.25rem);
         padding: .5rem;
     }
 
     .floating-features {
-        height: 35vh;
+        height: 40vh;
         margin-top: -100px;
-        margin-bottom: 0;
+        margin-bottom: 40px;
 
     }
 
@@ -637,6 +632,25 @@
     .gift-animation-container {
         height: 25vh;
         position: relative;
+    }
+
+    .counter-container {
+        margin-top: 0px;
+        width: auto;
+    }
+
+    .counter-container {
+        width: 200px;
+    }
+
+    .spots-number-container {
+        margin-left: 0;
+    }
+
+
+    .cta-button {
+        width: 200px;
+        padding: 0.5rem 1.5rem;
     }
 
     /* Maintain consistency in positioning */

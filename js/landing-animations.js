@@ -75,6 +75,14 @@ function initHeroAnimations() {
     // Animate feature icons
     timeline.call(initHeroFeatureIconsAnimation);
 
+    // Show "See All Features" button after feature icons animation
+    timeline.to(".show-features-btn", {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power3.out"
+    }, "+=1"); // Adjust delay as needed
+
     // Show gift box after features
     timeline.add(() => {
         gsap.to(".gift-box-container", {
@@ -83,75 +91,76 @@ function initHeroAnimations() {
             duration: 1,
             ease: "back.out(1.7)"
         });
-    }, "+=3"); // Adjust delay as needed
+    }, "+=1"); // Adjust delay as needed
 
     // Handle gift box click
-    let isGiftOpened = false; 
+    let isGiftOpened = false;
 
-    document.querySelector('.gift-box-container').addEventListener('click', function() {
+    document.querySelector('.gift-box-container').addEventListener('click', function () {
         if (isGiftOpened) return;
         isGiftOpened = true;
-        
+
         const revealTimeline = gsap.timeline();
-        
+
         revealTimeline
-        .to('.gift-box-container', {
-            scale: 0,
-            opacity: 0,
-            duration: 0.3,
-            onComplete: () => {
-                document.querySelector('.gift-box-container').style.visibility = 'hidden';
-                document.getElementById('sparkleCanvas').style.display = 'block';
-                sparkleAnimation.play();
-            }
-        })
-        .to('.wrapper-container', {
-            opacity: 1,
-            visibility: 'visible',
-            duration: 0.3
-        })
-        .to('.wrapper-container', {
-            opacity: 0,
-            duration: 0.3,
-            delay: 1, // Give time for sparkle animation
-            onComplete: () => {
-                document.querySelector('.wrapper-container').style.visibility = 'hidden';
-                document.querySelector('.early-bird-container').style.display = 'flex';
-            }
-        })
-        .to(".early-bird-container", {
-            opacity: 1,
-            visibility: 'visible',
-            scale: 1,
-            duration: 0.5,
-            ease: "back.out(1.7)"
-        })
-        // Counter animation
-        .call(() => {
-            let obj = { val: 0 };
-            gsap.to(obj, {
-                val: 47,
-                duration: 1.5,
-                ease: "steps(47)",
-                onUpdate: function() {
-                    document.querySelector('.spots-counter').textContent = Math.round(obj.val);
+            .to('.gift-box-container', {
+                scale: 0,
+                opacity: 0,
+                duration: 0.3,
+                onComplete: () => {
+                    document.querySelector('.gift-box-container').style.visibility = 'hidden';
+                    document.getElementById('sparkleCanvas').style.display = 'block';
+                    sparkleAnimation.play();
                 }
+            })
+            .to('.wrapper-container', {
+                opacity: 1,
+                visibility: 'visible',
+                duration: 0.3
+            })
+            .to('.wrapper-container', {
+                opacity: 0,
+                duration: 0.6,
+                delay: 0.6, // Give time for sparkle animation
+                onComplete: () => {
+                    document.querySelector('.wrapper-container').style.visibility = 'hidden';
+                    document.querySelector('.early-bird-container').style.display = 'flex';
+                }
+            })
+            .to(".early-bird-container", {
+                opacity: 1,
+                visibility: 'visible',
+                scale: 1,
+                duration: 0.5,
+                ease: "back.out(.3)"
+            })
+            // Counter animation
+            .call(() => {
+                let obj = { val: 0 };
+                document.querySelector('.spots-counter').textContent = Math.round(obj.val); // Ensure initial value is 0
+                gsap.to(obj, {
+                    val: 47,
+                    duration: 1,
+                    ease: "steps(47)",
+                    onUpdate: function () {
+                        document.querySelector('.spots-counter').textContent = Math.round(obj.val);
+                    }
+                });
+            })
+            // Animate spots text
+            .from('.spots-text', {
+                y: 20,
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out"
+            }, "-=1")
+            // Animate CTA button
+            .to(".cta-button-container", {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out"
             });
-        })
-        // Animate spots text
-        .from('.spots-text', {
-            y: 20,
-            opacity: 0,
-            duration: 0.5,
-            ease: "power2.out"
-        }, "-=1")
-        // Animate CTA button
-        .to(".cta-button-container", {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out"
-        });
     });
 
     // Orb animations
@@ -193,17 +202,17 @@ function initHeroAnimations() {
 function initHeroFeatureIconsAnimation() {
     const container = document.querySelector('.floating-features');
     const icons = document.querySelectorAll('.feature-icon');
-    
+
     // Add features title
     const title = document.createElement('div');
     title.className = 'features-title';
     title.textContent = 'Features';
     container.insertBefore(title, container.firstChild);
-    
+
     // Galaxy animation setup
     const radius = window.innerWidth <= 480 ? 140 : 300;
     const orbitDuration = 50;
-    
+
     // Animate title
     gsap.to(title, {
         opacity: 1,
@@ -216,7 +225,7 @@ function initHeroFeatureIconsAnimation() {
     icons.forEach((icon, index) => {
         gsap.set(icon, {
             opacity: 0,
-            scale: 0, 
+            scale: 0,
 
         });
     });
@@ -227,7 +236,7 @@ function initHeroFeatureIconsAnimation() {
     icons.forEach((icon, index) => {
         const angle = (index / icons.length) * Math.PI * 2;
         const delay = index * 0.2;
-    
+
         // Create orbit animation
         gsap.to(icon, {
             opacity: 1,
@@ -235,21 +244,21 @@ function initHeroFeatureIconsAnimation() {
             duration: 1,
             delay: delay + .5,
         });
-    
+
         // Continuous orbit animation
         gsap.to(icon, {
             duration: orbitDuration,
             repeat: -1,
             ease: "none",
-            onUpdate: function() {
+            onUpdate: function () {
                 const progress = this.progress();
                 const currentAngle = angle + (progress * Math.PI * 2);
-                
+
                 const x = Math.cos(currentAngle) * radius;
                 const z = Math.sin(currentAngle) * radius;
                 const y = Math.sin(currentAngle) * (radius / 4); // Adjust the tilt smaller number more tilt
                 const scale = gsap.utils.mapRange(-radius, radius, 1, 1, z); // Scale Icons when they come in the front
-                
+
                 icon.style.transform = `translate3d(${x}px, ${y}px, ${z}px) scale(${scale})`;
                 icon.style.zIndex = z < 0 ? 0 : 2;
             }
