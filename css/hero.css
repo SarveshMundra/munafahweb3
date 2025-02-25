@@ -482,26 +482,52 @@
 
 /* Tablet Landscape Mode */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .hero-content {
-        padding-top: clamp(70px, 8vh, 100px);
+
+    #hero-tagline {
+        margin-bottom: 50px;
     }
 
-    .content-wrapper {
-        gap: clamp(15px, 2vh, 25px);
-    }
-    
-    #hero-title {
-        font-size: clamp(3.5rem, 7vw, 8rem);
-        padding: clamp(5px, 1vh, 15px) 0;
+    .features-title {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
     }
 
-    .floating-features {
-        min-height: clamp(180px, 35vh, 300px);
+    .feature-icon img {
+        width: clamp(30px, 6vw, 50px);
+    }
+
+    .feature-icon span {
+        font-size: clamp(0.9rem, 1.7vw, 1.2rem);
     }
 
     .gift-animation-container {
-        min-height: clamp(120px, 15vh, 200px);
+        margin-top: 60px;   
     }
+
+
+    .counter-cta-wrapper {
+        width: 150px;
+        height: 100px;
+    }
+
+    .counter-container {
+        width: 100%;
+    }
+
+    .spots-counter {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .spots-text {
+        font-size: clamp(1rem, 4vw, 2rem);
+    }
+
+    .cta-button {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        padding: 0.5rem .5rem;
+        width: 200px;
+    }
+
+
 }
 
 @media (max-width: 480px) {
