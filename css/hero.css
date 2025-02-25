@@ -108,7 +108,7 @@
 
 /* Title Section */
 #hero-title {
-    height: 15vh; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 10vh */
+    height: 12vh; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 10vh */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,12 +136,13 @@
 
 /* Feature Galaxy Container */
 .floating-features {
-    height: 30vh; /* Allow it to grow and shrink */
+    height: 35vh; 
     position: relative;
     width: 100%;
     perspective: 1000px;
     transform-style: preserve-3d;
-    margin-bottom: 100px;
+    margin-top: -60px;
+    margin-bottom: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -201,7 +202,7 @@
 
 /* Tagline Section */
 #hero-tagline {
-    height:  10vh;
+    height:  8vh;
     position: relative;
     transform: translateY(50px); /* Initial position off-screen later adjusted by animation */
     font-family: 'Zen Dots';
@@ -218,50 +219,90 @@
 
 /* Gift Animation Container */
 .gift-animation-container {
+    height: 25vh; /* Reduced from 30vh */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%; /* Added horizontal padding */
+    z-index: 5;
+    position: relative; /* Added to serve as positioning context */
+}
 
-    height: 30vh;
-    position: relative;
+
+.features-button-container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5;
-
+    position: relative; /* Added */
+    z-index: 10; /* Ensure it stays on top */
 }
+
+/* Style for the show features button - copied from pricing.css */
+.show-features-btn.plan-button {
+    background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-family: 'Zen Dots', cursive;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.show-features-btn.plan-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+}
+
+
+.alternating-content-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 
 .gift-box-container {
     position: absolute;
-    right: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
 }
 
 
 .wrapper-container {
-    position: fixed;
-    top: 70%;
-    left: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+}
 
+#giftBoxCanvas {
+    width: 100px;
+    height: 100px;
+    margin-top: -20px; /* need this as the box size is small, this aligns with feature button */
 }
 
 #sparkleCanvas {
-    width: 1200px;
-    height: 500px;
-
-
+    width: 600px;
+    height: 300px;
 }
 
 /* Early Bird Container */
 .early-bird-container {
-    height: 30vh;
     position: absolute;
-    right: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     opacity: 0;
-    animation: bounce 20s infinite; 
-
-
+    visibility: hidden;
 }
 
 @keyframes bouce {
@@ -273,16 +314,15 @@
     }
 }
 
+/* Make the counter-cta-wrapper match the gift box size and position */
 .counter-cta-wrapper {
     position: relative;
-    padding: 1rem;
-    border-radius: 50%;
-    width: 350px;
-    height: 350px;
-    /* background-image: url('/images/EarlyBird8.gif'), url('https://github.com/SarveshMundra/MunafahWeb3/raw/refs/heads/main/images/EarlyBird8.gif');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden; */
+    width: 300px; /* Match the approx size of the gift box */
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Add an overlay to improve text readability */
@@ -296,22 +336,28 @@
     background: rgba(0, 0, 0, 0.0);
 }
 
+/* Keep the existing z-index styles */
 .counter-container, .cta-button-container {
     position: relative;
     z-index: 1;
 }
 
+/* Update the counter container styles */
 .counter-container {
+    /* Keep the font-family the same */
     font-family: 'Zen Dots', cursive;
-    margin-top: 80px;
-    margin-left: -20px;
+    /* Adjust these values */
+    margin-top: 20px; /* Reduced from 80px */
+    margin-left: 0; /* Reset the negative margin */
     width: 200px;
-    padding: 5px 0 5px 10px;
+    padding: 5px 0;
+    /* Keep these the same */
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0);
     border-radius: 20px;
+    text-align: center;
 }
 
 .spots-number-container {
@@ -421,8 +467,6 @@
 
 /* Consolidated Media Queries */
 @media (max-width: 768px) {
-
-
     .grid-overlay {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         grid-auto-rows: 100px;
@@ -446,10 +490,7 @@
     }
 
     .gift-animation-container {
-        flex: 0 1 30vh;
-    }
-
-    .early-bird-container {
+        padding: 150px 0;
         flex: 0 1 30vh;
     }
 
@@ -461,19 +502,33 @@
         flex: 0 1 clamp(60px, 12%, 100px);
     }
 
+    /* Maintain absolute positioning of elements */
+    .gift-box-container,
+    .wrapper-container,
+    .early-bird-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-    .early-bird-badge {
+    .counter-container {
+        width: 200px;
+    }
+
+    .spots-number-container {
         margin-left: 0;
     }
 
-    .badge-image {
+
+    .cta-button {
         width: 200px;
-        height: 200px;
+        padding: 0.5rem 1.5rem;
     }
+
 }
 
 @media (max-width: 480px) {
-
     .grid-overlay {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         grid-auto-rows: 100px;
@@ -494,18 +549,17 @@
         padding: 0 20px;
     }
 
-
-
     #hero-tagline {
-        height: 25vh;
+        height: 20vh;
         font-size: clamp(.75rem, .85rem, 1.25rem);
         padding: .5rem;
     }
 
-
-
     .floating-features {
         height: 35vh;
+        margin-top: -100px;
+        margin-bottom: 0;
+
     }
 
     .features-title {
@@ -520,85 +574,50 @@
         font-size: clamp(0.7rem, 0.8rem, 1rem);
     }
 
-
-
-    /* Gift box container fixes */
+    /* Gift animation container adjustments for mobile */
     .gift-animation-container {
         height: 30vh;
-
         position: relative;
-        margin: 1rem 0;
     }
 
-    .gift-box-container {
-        position: relative; /* Changed from absolute */
-        right: auto;
-        transform: scale(0.3); /* Reduced scale further */
-        transform-origin: center center;
-    }
-
-    /* Sparkles container fixes */
-    .wrapper-container {
-        position: fixed;
-        top: 70%;
+    .features-button-container {
+        position: absolute;
+        top: 0;
         left: 50%;
-        overflow: hidden;
+        transform: translateX(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 10;
     }
 
-    /* giftBoxCanvas {
-        width: 150px;
-        height: 150px;
-    } */
 
-    #sparkleCanvas {
-        width: 800px;
-        height: auto;
-    }
 
-    /* Early bird offer fixes */
-    .early-bird-container {
-        height: 30vh;
-        position: relative; /* Changed from absolute */
-        left: 50%;
-
-    }
-
+    /* Early bird container adjustments */
     .counter-cta-wrapper {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        right: 50%;
-
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    
-    
+
     .counter-container {
-
-        margin-top: 30px;
-        width: 150px;
-
+        margin-top: 50px;
+        width: auto;
     }
-    
 
-    .spots-counter {
-        margin-right: 15px;
-
+    .spots-number-container {
+        margin-left: 0;
     }
-    
-    
+
+    .cta-button-container {
+        margin-top: 0px;
+    }
+
     .cta-button {
-        position: relative;
-        margin-top: 2px;
-        margin-left: 0px;
-        padding: .5rem .5rem;
-        width: 180px;
-        font-size: clamp(.75rem, 1rem, 1.2rem);
-        backdrop-filter: blur(5px);
+        width: 200px;
+        padding: 0.5rem 1.5rem;
     }
-    
-
-
-
 }
 
 /* Portrait Tablet Specific */
@@ -617,9 +636,63 @@
 
     .gift-animation-container {
         height: 25vh;
+        position: relative;
     }
 
+    /* Maintain consistency in positioning */
+    .gift-box-container,
+    .wrapper-container,
     .early-bird-container {
-        height: 25vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    #hero-title {
+        font-size: clamp(3.5rem, 8vw, 9rem); /* Reduced font size */
+        height: 10vh;
+    }
+    
+    #hero-tagline {
+        font-size: clamp(1rem, 2vw, 1.8rem); /* Reduced font size */
+        height: 7vh;
+        padding: 1rem;
+    }
+    
+    .floating-features {
+        height: 38vh; /* Increased proportional space */
+    }
+    
+
+    .counter-container {
+        margin-top: 0px;
+        width: auto;
+    }
+
+    .counter-container {
+        width: 200px;
+    }
+
+    .spots-number-container {
+        margin-left: 0;
+    }
+
+
+    .cta-button {
+        width: 200px;
+        padding: 0.5rem 1.5rem;
+    }
+
+    /* Ensure proper positioning in landscape mode */
+    .gift-box-container,
+    .wrapper-container,
+    .early-bird-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }

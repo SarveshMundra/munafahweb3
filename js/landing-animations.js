@@ -91,30 +91,39 @@ function initHeroAnimations() {
     document.querySelector('.gift-box-container').addEventListener('click', function() {
         if (isGiftOpened) return;
         isGiftOpened = true;
-
+        
         const revealTimeline = gsap.timeline();
-
+        
         revealTimeline
         .to('.gift-box-container', {
-            scale: 1,
+            scale: 0,
             opacity: 0,
             duration: 0.3,
             onComplete: () => {
-                document.querySelector('.gift-box-container').style.display = 'none';
+                document.querySelector('.gift-box-container').style.visibility = 'hidden';
                 document.getElementById('sparkleCanvas').style.display = 'block';
                 sparkleAnimation.play();
             }
         })
         .to('.wrapper-container', {
-            scale: 1,
             opacity: 1,
+            visibility: 'visible',
             duration: 0.3
         })
+        .to('.wrapper-container', {
+            opacity: 0,
+            duration: 0.3,
+            delay: 1, // Give time for sparkle animation
+            onComplete: () => {
+                document.querySelector('.wrapper-container').style.visibility = 'hidden';
+                document.querySelector('.early-bird-container').style.display = 'flex';
+            }
+        })
         .to(".early-bird-container", {
-            display: 'flex',
             opacity: 1,
+            visibility: 'visible',
             scale: 1,
-            duration: .5,
+            duration: 0.5,
             ease: "back.out(1.7)"
         })
         // Counter animation
@@ -142,14 +151,7 @@ function initHeroAnimations() {
             y: 0,
             duration: 0.8,
             ease: "power3.out"
-        })
-        // Animate price tag
-        .from('.price-tag', {
-            opacity: 0,
-            y: 10,
-            duration: 0.5,
-            ease: "power2.out"
-        }, "-=0.4");
+        });
     });
 
     // Orb animations
@@ -481,6 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // initHeroFeatureIconsAnimation();
     initFeatureCarousel();
     initCrossPlatformAnimations();
+
 });
 
 
