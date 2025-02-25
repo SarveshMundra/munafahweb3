@@ -22,7 +22,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0.8rem;
+    padding: .5rem;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(3px);
@@ -159,6 +159,10 @@ html, body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    .main-header {
+        padding: .5rem 1rem .2rem 1rem;
+    }
     .mobile-menu-btn {
         display: block;
     }
@@ -185,6 +189,11 @@ html, body {
 }
 
 @media (max-width: 480px) {
+
+    .main-header {
+        padding: .2rem .5rem;
+    }
+
     .footer-container {
         grid-template-columns: 1fr;
     }

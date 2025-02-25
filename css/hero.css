@@ -88,7 +88,7 @@
     min-height: 100vh; /* Ensure minimum full height */
     display: flex;
     flex-direction: column;
-    padding-top: clamp(80px, 10vh, 150px); /* Adjusted for header */
+    padding-top: clamp(40px, 5vh, 80px); /* Adjusted for header */
 }
 
 /* Content wrapper with flexbox */
@@ -125,7 +125,7 @@
 .floating-features {
     visibility: hidden;
     flex: 1; /* Takes up available space flexibly */
-    min-height: clamp(200px, 25vh, 400px); /* Ensures minimum height */
+    min-height: clamp(200px, 35vh, 400px); /* Ensures minimum height */
     position: relative;
     width: 100%;
     perspective: 1000px;
@@ -154,6 +154,7 @@
     text-align: center;
     z-index: 2;
     opacity: 0;
+    padding: 0 0 0 30px;
 }
 
 .feature-icon {
@@ -165,7 +166,7 @@
 }
 
 .feature-icon img {
-    width: clamp(40px, 8vw, 60px);
+    width: clamp(40px, 6vw, 50px);
     height: auto;
     transition: all 0.3s ease;
 }
@@ -178,7 +179,7 @@
     font-family: 'Zen Dots';
     color: white;
     transform: translateX(-50%);
-    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-size: clamp(0.65rem, 1.2vw, .85rem);
     white-space: nowrap;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
@@ -189,10 +190,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: clamp(10px, 2vh, 30px) 5%;
-    min-height: clamp(150px, 15vh, 250px);
+    padding: 1rem;
+    /* min-height: clamp(150px, 15vh, 250px); */
     position: relative;
     z-index: 5;
+    margin: 2rem 0 0 0;
 }
 
 .features-button-container {
@@ -209,7 +211,7 @@
     background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
     color: white;
     border: none;
-    padding: 1rem 2rem;
+    padding: .75rem 1.5rem;
     border-radius: 50px;
     font-family: 'Zen Dots', cursive;
     cursor: pointer;
@@ -232,7 +234,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 150px; /* Minimum height to ensure visibility */
+    min-height: 100px; /* Minimum height to ensure visibility */
 }
 
 /* Important: Preserve the absolute positioning for the gift box elements */
@@ -283,7 +285,7 @@
     transform: translateY(50px);
     padding: clamp(15px, 3vh, 40px);
     min-height: clamp(60px, 8vh, 100px);
-    margin: 0px 0 50px 0;
+    margin: 0px 0 100px 0;
 }
 
 /* Counter-CTA wrapper */
@@ -438,13 +440,34 @@
         gap: clamp(15px, 3vh, 30px); /* Slightly reduced gap on smaller screens */
     }
 
+    #hero-title {
+        font-size: clamp(2.8rem, 8vw, 3.5rem);
+        padding: clamp(5px, 1vh, 15px) 20px;
+    }
+
+    #hero-tagline {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        padding: clamp(20px, 3vh, 30px) 1rem;
+        margin-bottom: 100px;
+    }
+
     .floating-features {
-        min-height: clamp(180px, 30vh, 300px);
+        min-height: clamp(150px, 35vh, 250px);
+        margin-left: -30px;
+    }
+
+    .features-title {
+        font-size: clamp(2.5rem, 10vw, 4.5rem);
     }
 
     .feature-icon img {
-        width: clamp(35px, 6vw, 45px);
+        width: clamp(40px, 8vw, 60px);
     }
+
+    .feature-icon span {
+        font-size: clamp(0.9rem, 1.7vw, 1.2rem);
+    }
+
 
     .counter-container {
         width: 200px;
@@ -456,81 +479,6 @@
     }
 }
 
-@media (max-width: 480px) {
-    .hero-content {
-        padding-top: clamp(70px, 8vh, 100px);
-    }
-
-    .content-wrapper {
-        gap: clamp(10px, 2vh, 20px); /* Further reduced gap for mobile */
-    }
-
-    #hero-title {
-        font-size: clamp(2.8rem, 8vw, 3.5rem);
-        padding: clamp(5px, 1vh, 15px) 20px;
-    }
-
-    #hero-tagline {
-        font-size: clamp(.75rem, 1.5vw, 1.25rem);
-        padding: clamp(10px, 2vh, 20px) 0.5rem;
-    }
-
-    .floating-features {
-        min-height: clamp(150px, 25vh, 250px);
-    }
-
-    .features-title {
-        font-size: clamp(2rem, 2.25rem, 3rem);
-    }
-
-    .feature-icon img {
-        width: clamp(30px, 6vw, 40px);
-    }
-
-    .feature-icon span {
-        font-size: clamp(0.7rem, 1.2vw, 0.9rem);
-    }
-
-    .gift-animation-container {
-        flex-direction: column;
-        min-height: clamp(200px, 30vh, 300px);
-        gap: 20px;
-        padding: 15px 5%;
-    }
-
-    .features-button-container,
-    .alternating-content-container {
-        width: 100%;
-    }
-
-    /* Adjusted for the gift box interaction in mobile */
-    #giftBoxCanvas {
-        width: 80px;
-        height: 80px;
-    }
-
-    .counter-cta-wrapper {
-        width: 250px;
-        height: 200px;
-    }
-
-    .counter-container {
-        width: 100%;
-    }
-
-    .spots-counter {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-    }
-
-    .spots-text {
-        font-size: clamp(0.8rem, 1.2vw, 1.5rem);
-    }
-
-    .cta-button {
-        font-size: clamp(0.7rem, 1vw, 1rem);
-        padding: 0.5rem 1.2rem;
-    }
-}
 
 /* Tablet Landscape Mode */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
@@ -556,16 +504,88 @@
     }
 }
 
-/* Ensure proper positioning for various device orientations */
-@media (orientation: portrait) {
-    .gift-box-container,
-    .wrapper-container,
-    .early-bird-container {
-        transform: translate(-50%, -50%) scale(0.9);
+@media (max-width: 480px) {
+    .hero-content {
+        padding-top: clamp(40px, 7vh, 80px);
+    }
+
+    .content-wrapper {
+        gap: clamp(10px, 2vh, 20px); /* Further reduced gap for mobile */
+    }
+
+    #hero-title {
+        font-size: clamp(2.8rem, 8vw, 3.5rem);
+        padding: clamp(5px, 1vh, 15px) 20px;
+    }
+
+    #hero-tagline {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
+        padding: clamp(20px, 3vh, 30px) 1rem;
+    }
+
+    .floating-features {
+        min-height: clamp(150px, 35vh, 250px);
+        margin-left: -20px;
+    }
+
+    .features-title {
+        font-size: clamp(1.5rem, 2rem, 2.5rem);
+    }
+
+    .feature-icon img {
+        width: clamp(40px, 8vw, 60px);
+    }
+
+    .feature-icon span {
+        font-size: clamp(0.9rem, 1.7vw, 1.2rem);
+    }
+
+    .gift-animation-container {
+        flex-direction: column;
+        min-height: clamp(200px, 30vh, 300px);
+        gap: 10px;
+        padding: 10px 5%;
+    }
+
+    .features-button-container,
+    .alternating-content-container {
+        width: 100%;
+    }
+
+    /* Adjusted for the gift box interaction in mobile */
+    #giftBoxCanvas {
+        width: 80px;
+        height: 80px;
+    }
+
+    .counter-cta-wrapper {
+        width: 250px;
+        height: 100px;
+    }
+
+    .counter-container {
+        width: 100%;
+    }
+
+    .spots-counter {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .spots-text {
+        font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+    }
+
+    .cta-button {
+        font-size: clamp(0.7rem, 1vw, 1rem);
+        padding: 0.5rem 1.2rem;
     }
 }
 
-@media (orientation: landscape) and (max-height: 600px) {
+
+
+
+
+/* @media (orientation: landscape) and (max-height: 600px) {
     .content-wrapper {
         gap: 10px;
     }
@@ -582,4 +602,4 @@
         min-height: 40px;
         padding: 5px 10px;
     }
-}
+} */
