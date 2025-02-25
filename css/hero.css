@@ -145,7 +145,7 @@
 
 .features-title {
     font-family: 'Zen Dots';
-    font-size: clamp(2rem, 4vw, 6rem);
+    font-size: clamp(4rem, 4vw, 6rem);
     color: white;
     position: absolute;
     left: 50%;
@@ -166,7 +166,7 @@
 }
 
 .feature-icon img {
-    width: clamp(40px, 6vw, 50px);
+    width: clamp(50px, 7vw, 60px);
     height: auto;
     transition: all 0.3s ease;
 }
@@ -211,7 +211,7 @@
     background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
     color: white;
     border: none;
-    padding: .75rem 1.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 50px;
     font-family: 'Zen Dots', cursive;
     cursor: pointer;
@@ -318,7 +318,7 @@
 .counter-container {
     font-family: 'Zen Dots', cursive;
     margin-top: 0px;
-    width: 300px;
+    width: 180px;
     padding: 5px 0;
     display: flex;
     justify-content: center;
@@ -337,15 +337,15 @@
 
 .spots-counter {
     font-family: 'Zen Dots', cursive;
-    font-size: clamp(3rem, 8vw, 5rem);
-    margin-right: 10px;
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
+    margin-right: 0px;
     color: #FF0080;
     text-shadow: 5px 5px 10px rgba(255, 0, 128, 0.8);
 }
 
 .spots-text {
     font-family: 'Zen Dots', cursive;
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(.85rem, 1.25vw, 1.75rem);
     color: white;
     text-shadow: 0 3px 10px rgba(142, 45, 226, 0.8);
     display: block;
@@ -364,7 +364,8 @@
     margin-top: 0px;
     display: inline-flex;
     align-items: center;
-    padding: .8rem 1.5rem;
+    width: 170px;
+    padding: .5rem .8rem;
     font-family: 'Zen Dots', cursive;
     font-size: clamp(.75rem, 1rem, 1.2rem);
     background: transparent;
@@ -388,21 +389,6 @@
     z-index: -1;
 }
 
-@keyframes initialFill {
-    0% { width: 0%; }
-    50% { width: 100%; }
-    100% { width: 0%; }
-}
-
-.cta-button.initial-animate::before {
-    animation: initialFill 3s ease forwards;
-}
-
-.cta-button:hover::before {
-    left: 0;
-    width: 100%;
-}
-
 .cta-button-text {
     margin-right: 0.5rem;
     color: white;
@@ -420,9 +406,6 @@
     color: white;
 }
 
-.cta-button:hover {
-    box-shadow: 0 0 20px rgba(142, 45, 226, 0.4);
-}
 
 .cta-button:hover .cta-button-arrow {
     transform: translateX(15px);
@@ -470,7 +453,7 @@
 
 
     .counter-container {
-        width: 200px;
+        width: 180px;
     }
 
     .cta-button {
@@ -485,6 +468,7 @@
 
     #hero-tagline {
         margin-bottom: 50px;
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
     }
 
     .features-title {
@@ -509,22 +493,59 @@
         height: 100px;
     }
 
-    .counter-container {
-        width: 100%;
-    }
 
     .spots-counter {
-        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-size: clamp(1.5rem, 5vw, 3.5rem);
     }
 
     .spots-text {
-        font-size: clamp(1rem, 4vw, 2rem);
+        font-size: clamp(1rem, 3vw, 1.5rem);
     }
 
     .cta-button {
-        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-size: clamp(1rem, 1.25vw, 1.25rem);
         padding: 0.5rem .5rem;
-        width: 200px;
+        width: 170px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+    #hero-tagline {
+        margin-bottom: 50px;
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+    }
+
+    .features-title {
+        font-size: clamp(3rem, 7vw, 5rem);
+    }
+
+    .feature-icon img {
+        width: clamp(40px, 8vw, 60px);
+    }
+
+    .feature-icon span {
+        font-size: clamp(1rem, 1.8vw, 1.5rem);
+    }
+
+    .gift-animation-container {
+        margin-top: 60px;   
+    }
+
+
+    .counter-cta-wrapper {
+        width: 150px;
+        height: 100px;
+    }
+
+
+    .spots-counter {
+        font-size: clamp(1.5rem, 5vw, 3.5rem);
+    }
+
+    .spots-text {
+        font-size: clamp(1rem, 2.5vw, 1.5rem);
     }
 
 
@@ -542,6 +563,7 @@
     #hero-title {
         font-size: clamp(2.8rem, 8vw, 3.5rem);
         padding: clamp(5px, 1vh, 15px) 20px;
+        margin-bottom: 50px;
     }
 
     #hero-tagline {
@@ -568,7 +590,7 @@
 
     .gift-animation-container {
         flex-direction: column;
-        min-height: clamp(200px, 30vh, 300px);
+        min-height: clamp(200px, 20vh, 300px);
         gap: 10px;
         padding: 10px 5%;
     }
@@ -585,12 +607,12 @@
     }
 
     .counter-cta-wrapper {
-        width: 250px;
+        width: 180px;
         height: 100px;
     }
 
     .counter-container {
-        width: 100%;
+        width: 180px;
     }
 
     .spots-counter {
@@ -598,12 +620,13 @@
     }
 
     .spots-text {
-        font-size: clamp(0.8rem, 1.2vw, 1.5rem);
+        font-size: clamp(1rem, 1vw, 1.5rem);
     }
 
     .cta-button {
+        width: 150px;
         font-size: clamp(0.7rem, 1vw, 1rem);
-        padding: 0.5rem 1.2rem;
+        padding: 0.5rem .8rem;
     }
 }
 
