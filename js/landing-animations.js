@@ -207,7 +207,7 @@ function initSplitScreenServicesAnimations() {
     gsap.to(".services-section.services-split-screen .services-title", {
         scrollTrigger: {
             trigger: ".services-section.services-split-screen",
-            start: "top 60%",
+            start: "top 70%",
             toggleActions: "play none none none"
         },
         opacity: 1,
@@ -233,27 +233,35 @@ function initSplitScreenServicesAnimations() {
     gsap.to(".services-section.services-split-screen .divider-dot", {
         scrollTrigger: {
             trigger: ".services-section.services-split-screen",
-            start: "top 50%",
+            start: "top 60%",
             toggleActions: "play none none none"
         },
-        duration: .5
+        boxShadow: "0 0 30px rgba(255, 255, 255, 1)",
+        repeat: -1,
+        yoyo: true,
+        duration: 1.5
     });
 
-    // Split animation for left and right panels
-    const splitScreenTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".services-section.services-split-screen",
-            start: "top 40%",
-            end: "bottom 20%",
-            toggleActions: "play reverse play reverse"
-        }
-    });
+// Split animation for left and right panels
+const splitScreenTl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".services-section.services-split-screen",
+        start: "top 60%",
+        toggleActions: "play reverse play reverse"
+    }
+});
 
-    splitScreenTl
-        .to(".services-section.services-split-screen .split-left, .services-section.services-split-screen .split-right", {
-            x: 0,
-            ease: "power2.out",
-        });
+splitScreenTl
+    .to(".services-section.services-split-screen .split-left, .services-section.services-split-screen .split-right", {
+        x: 0,
+        duration: 0.3,
+        ease: "power3.out"
+    })
+    .to(".services-section.services-split-screen .split-content", {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power3.out"
+    }, 0); // Start at the same time as the previous animation
 }
 
 
