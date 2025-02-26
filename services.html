@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        // Dynamically set the base URL
+        const base = document.createElement('base');
+        base.href = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost' ? '/' : 'https://sarveshmundra.github.io/munafahweb3/';
+        document.head.appendChild(base);
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Services - Munafah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Zen+Dots&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        .services-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/Gal4.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .services-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .8);
+            pointer-events: none;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .services-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(250deg, #5603fc, #aa4bfd, #a10151);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .services-subtitle {
+            font-size: 1.2rem;
+            color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ecommerce-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 252, 252, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0px 30px rgba(142, 45, 226, .5);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: white;
+        }
+
+        .feature-text {
+            font-family: 'Parkinsans', sans-serif;
+            color: #a5a5a5;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .process-section {
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+
+        .section-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            opacity: 0;
+        }
+
+        .process-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #4A00E0, #8E2DE2, #FF0080);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 30px;
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .timeline-item:nth-child(even) {
+            align-self: flex-end;
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 30px;
+            left: 50%;
+            transform: translateX(50px);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            right: auto;
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .timeline-text {
+            font-family: 'Parkinsans', sans-serif;
+            color: #a5a5a5;
+        }
+
+        .platforms-section {
+            margin-bottom: 4rem;
+        }
+
+        .platforms-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .platform-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            width: 200px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 252, 252, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .platform-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0px 30px rgba(142, 45, 226, .5);
+        }
+
+        .platform-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .platform-logo img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .platform-name {
+            font-family: 'Zen Dots', cursive;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .pricing-section {
+            margin-bottom: 4rem;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 252, 252, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0px 30px rgba(142, 45, 226, .5);
+        }
+
+        .price-tier {
+            font-family: 'Zen Dots', cursive;
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .price-amount {
+            font-family: 'Zen Dots', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-period {
+            font-size: 0.9rem;
+            color: #a5a5a5;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 0.8rem;
+            color: #d0d0d0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            color: #8E2DE2;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .price-button {
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Zen Dots', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .price-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .cta-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .cta-text {
+            font-family: 'Parkinsans', sans-serif;
+            color: #cecdcd;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Zen Dots', cursive;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+        }
+
+        @media (max-width: 992px) {
+            .process-timeline::before {
+                left: 40px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 80px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 80px;
+            }
+
+            .timeline-dot {
+                left: 30px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 100px 20px 40px;
+            }
+
+            .platforms-container {
+                gap: 1rem;
+            }
+
+            .platform-card {
+                width: 160px;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .platform-card {
+                width: 130px;
+                padding: 1rem;
+            }
+
+            .platform-logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="./" class="logo">
+                <img src="images/websitelogo.png" alt="Munafah Logo" class="logo-image">
+            </a>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <div class="nav-links">
+                    <a href="./" class="nav-link">Home</a>
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="services-section">
+        <div class="services-container">
+            <!-- Hero Section -->
+            <div class="services-hero">
+                <h1 class="services-title">B2C E-Commerce Solutions</h1>
+                <p class="services-subtitle">Launch your online store with our complete e-commerce solutions. We handle everything from store setup to ongoing support, so you can focus on growing your business.</p>
+            </div>
+
+            <!-- Features Section -->
+            <div class="ecommerce-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Store Setup</h2>
+                    <p class="feature-text">Professional setup of your online store with customized design that matches your brand identity.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Product Management</h2>
+                    <p class="feature-text">Complete product catalog setup with optimized descriptions, images, and categories for better discoverability.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                            <line x1="1" y1="10" x2="23" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Payment Solutions</h2>
+                    <p class="feature-text">Integration of secure payment gateways and checkout processes to ensure smooth customer transactions.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Marketing Setup</h2>
+                    <p class="feature-text">Email marketing, SEO optimization, and social media integration to help drive traffic to your store.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Shipping Configuration</h2>
+                    <p class="feature-text">Setup of shipping options, rates, and delivery methods to ensure efficient order fulfillment.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="feature-title">Training & Support</h2>
+                    <p class="feature-text">Comprehensive training for your team and ongoing support to ensure smooth operation of your online store.</p>
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            <div class="process-section">
+                <h2 class="section-title">Our Process</h2>
+                <div class="process-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">1. Discovery & Planning</h3>
+                            <p class="timeline-text">We start by understanding your business, products, and target audience to create a tailored e-commerce strategy.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2. Store Design</h3>
+                            <p class="timeline-text">Our designers create a visually appealing, brand-aligned store layout that converts visitors into customers.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">3. Store Development</h3>
+                            <p class="timeline-text">We build your store with all necessary features, including payment gateways, shipping options, and product management.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">4. Product Setup</h3>
+                            <p class="timeline-text">We upload your products with optimized images, descriptions, and categories to maximize visibility and sales.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">5. Testing & Launch</h3>
+                            <p class="timeline-text">We thoroughly test all aspects of your store to ensure everything works flawlessly before launch.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">6. Training & Support</h3>
+                            <p class="timeline-text">We provide comprehensive training and ongoing support to help you manage and grow your online business.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Platforms Section -->
+            <div class="platforms-section">
+                <h2 class="section-title">Platforms We Work With</h2>
+                <div class="platforms-container">
+                    <div class="platform-card">
+                        <div class="platform-logo">
+                            <svg viewBox="0 0 24 24" fill="#95BF47" width="64" height="64">
+                                <path d="M15.5 7.5l-1 .3c0-.3-.1-.5-.2-.7-.3-.7-1.1-1.4-2.4-1.4-3.7.2-4.3 4.4-4.5 6.9H7c-1.2 0-1.5.6-1.5 1.1 0 .5.3 1.5 1.5 1.5h.5c.3 2.7 1.5 8.3 8.3 8.3 2 0 3.4-1.5 3.4-3.2 0-1.6-.8-2.9-2.9-2.9H16c-1.4 0-1.8-.8-1.8-1.5 0-.7.5-1.5 1.8-1.5h.3c2.5 0 3.8-1.5 3.8-3.3 0-1.8-1.4-3.2-3.1-3.2l-1.5-.1zm-2.8 10.4c1.4 0 1.8.9 1.8 1.5s-.5 1.5-1.8 1.5c-1.6 0-2.3-1-2.6-2.9h2.6v-.1zm.4-9c-1.4 0-1.8-.8-1.8-1.5 0-.6.4-1.5 1.8-1.5 1.4 0 1.8.8 1.8 1.5 0 .6-.5 1.5-1.8 1.5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">Shopify</h3>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="platform-logo">
+                            <svg viewBox="0 0 24 24" fill="#7F54B3" width="64" height="64">
+                                <path d="M21 8v12.993A1 1 0 0 1 20.007 22H3.993A.993.993 0 0 1 3 21.008V2.992C3 2.455 3.449 2 4.002 2h10.995L21 8zm-2 1h-5V4H5v16h14V9zM8 7h3v2H8V7zm0 4h8v2H8v-2zm0 4h8v2H8v-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">WooCommerce</h3>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="platform-logo">
+                            <svg viewBox="0 0 24 24" fill="#FF6C2C" width="64" height="64">
+                                <path d="M4.372 6.934a1.931 1.931 0 1 0-.002 3.862 1.931 1.931 0 0 0 .002-3.862zm7.9 3.77v-.001l-.001-2.839c0-.966-.758-1.737-1.738-1.737h-3.77A1.73 1.73 0 0 0 5.03 7.866v1.67H3.27a1.73 1.73 0 0 0-1.736 1.73v10.01c0 .966.758 1.736 1.736 1.736h10.12c.978 0 1.736-.77 1.736-1.736v-1.736h1.737c.978 0 1.736-.77 1.736-1.737v-6.016c0-.966-.758-1.735-1.736-1.735h-4.375zm-4.304 8.794a3.58 3.58 0 0 1-3.583 3.583 3.58 3.58 0 0 1-3.583-3.583 3.58 3.58 0 0 1 3.583-3.583 3.58 3.58 0 0 1 3.583 3.583zm8.039-3.489h-1.736v-4.28h6.016v4.28h-4.28zm5.246-10.064a1.931 1.931 0 1 0 0 3.862 1.931 1.931 0 0 0 0-3.862zm1.913 7.205h-3.77a1.73 1.73 0 0 0-1.738 1.739v3.77c0 .979.759 1.738 1.738 1.738h3.77c.978 0 1.737-.76 1.737-1.738v-3.77c0-.978-.759-1.739-1.737-1.739z"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">Magento</h3>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="platform-logo">
+                            <svg viewBox="0 0 24 24" fill="#0095D6" width="64" height="64">
+                                <path d="M3.335 7.17v9.696c0 .484.392.877.877.877h1.535V7.17H3.335zM18.482 7.17v10.572h1.534a.877.877 0 0 0 .878-.877V7.17h-2.412z"/>
+                                <path d="M7.777 17.742h2.034V7.17H7.777v10.571zm3.601 0h1.244V7.17h-1.244v10.571zm2.811 0h2.034V7.17h-2.034v10.571z"/>
+                            </svg>
+                        </div>
+                        <h3 class="platform-name">BigCommerce</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Section -->
+            <div class="pricing-section">
+                <h2 class="section-title">E-commerce Pricing Plans</h2>
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <h3 class="price-tier">Basic Store</h3>
+                        <div class="price-amount">
+                            $999
+                            <span class="price-period">One-time setup fee</span>
+                        </div>
+                        <ul class="price-features">
+                            <li>Shopify or WooCommerce store setup</li>
+                            <li>Basic theme customization</li>
+                            <li>Up to 50 products uploaded</li>
+                            <li>Payment gateway integration</li>
+                            <li>Basic shipping setup</li>
+                            <li>1 hour training session</li>
+                            <li>30 days of support</li>
+                        </ul>
+                        <button class="price-button">Get Started</button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3 class="price-tier">Professional Store</h3>
+                        <div class="price-amount">
+                            $1,999
+                            <span class="price-period">One-time setup fee</span>
+                        </div>
+                        <ul class="price-features">
+                            <li>Any platform of your choice</li>
+                            <li>Advanced theme customization</li>
+                            <li>Up to 200 products uploaded</li>
+                            <li>Multiple payment gateways</li>
+                            <li>Advanced shipping configuration</li>
+                            <li>SEO optimization</li>
+                            <li>3 hours of training</li>
+                            <li>60 days of support</li>
+                        </ul>
+                        <button class="price-button">Get Started</button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3 class="price-tier">Enterprise Store</h3>
+                        <div class="price-amount">
+                            $3,499
+                            <span class="price-period">One-time setup fee</span>
+                        </div>
+                        <ul class="price-features">
+                            <li>Any platform with custom features</li>
+                            <li>Custom theme development</li>
+                            <li>Unlimited products</li>
+                            <li>Custom checkout experience</li>
+                            <li>Worldwide shipping setup</li>
+                            <li>Advanced SEO & marketing setup</li>
+                            <li>Email marketing automation</li>
+                            <li>Custom reporting dashboards</li>
+                            <li>10 hours of training</li>
+                            <li>6 months of priority support</li>
+                        </ul>
+                        <button class="price-button">Get Started</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Section -->
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Launch Your Online Store?</h2>
+                <p class="cta-text">Let us handle the technical aspects of setting up your e-commerce store so you can focus on growing your business and delighting your customers. Our team of experts will ensure your online store is optimized for conversions and easy to manage.</p>
+                <button class="cta-button">Schedule a Free Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero section animation
+        gsap.to(".services-hero", {
+            scrollTrigger: {
+                trigger: ".services-hero",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1
+        });
+
+        // Feature cards animation
+        gsap.to(".feature-card", {
+            scrollTrigger: {
+                trigger: ".ecommerce-features",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.2
+        });
+
+        // Section titles animation
+        gsap.to(".section-title", {
+            scrollTrigger: {
+                trigger: ".section-title",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1
+        });
+
+        // Timeline items animation
+        gsap.to(".timeline-item", {
+            scrollTrigger: {
+                trigger: ".process-timeline",
+                start: "top 80%"
+            },
+            x: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.2
+        });
+
+        // Platform cards animation
+        gsap.to(".platform-card", {
+            scrollTrigger: {
+                trigger: ".platforms-container",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.15
+        });
+
+        // Pricing cards animation
+        gsap.to(".pricing-card", {
+            scrollTrigger: {
+                trigger: ".pricing-cards",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.2
+        });
+
+        // CTA section animation
+        gsap.to(".cta-section", {
+            scrollTrigger: {
+                trigger: ".cta-section",
+                start: "top 80%"
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1
+        });
+    </script>
+</body>
+
+</html>
