@@ -199,6 +199,65 @@ function initHeroAnimations() {
 }
 
 
+// Split-Screen Reveal Services Animation
+function initSplitScreenServicesAnimations() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate the title and subtitle
+    gsap.to(".services-section.services-split-screen .services-title", {
+        scrollTrigger: {
+            trigger: ".services-section.services-split-screen",
+            start: "top 60%",
+            toggleActions: "play none none none"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+
+    gsap.to(".services-section.services-split-screen .services-subtitle", {
+        scrollTrigger: {
+            trigger: ".services-section.services-split-screen",
+            start: "top 70%",
+            toggleActions: "play none none none"
+        },
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 0.2,
+        ease: "power2.out"
+    });
+
+    // Divider dot pulse animation
+    gsap.to(".services-section.services-split-screen .divider-dot", {
+        scrollTrigger: {
+            trigger: ".services-section.services-split-screen",
+            start: "top 50%",
+            toggleActions: "play none none none"
+        },
+        duration: .5
+    });
+
+    // Split animation for left and right panels
+    const splitScreenTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".services-section.services-split-screen",
+            start: "top 40%",
+            end: "bottom 20%",
+            toggleActions: "play reverse play reverse"
+        }
+    });
+
+    splitScreenTl
+        .to(".services-section.services-split-screen .split-left, .services-section.services-split-screen .split-right", {
+            x: 0,
+            ease: "power2.out",
+        });
+}
+
+
+
 function initHeroFeatureIconsAnimation() {
     const container = document.querySelector('.floating-features');
     const icons = document.querySelectorAll('.feature-icon');
@@ -490,6 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroAnimations();
     setupGrid(); // This is from grid-setup.js
     // initHeroFeatureIconsAnimation();
+    initSplitScreenServicesAnimations();
     initFeatureCarousel();
     initCrossPlatformAnimations();
 
@@ -498,7 +558,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Make functions available globally
 window.initHeroAnimations = initHeroAnimations;
-// window.initHeroFeatureIconsAnimation = initHeroFeatureIconsAnimation;
+window.initSplitScreenServicesAnimations = initSplitScreenServicesAnimations;
 window.initFeatureCarousel = initFeatureCarousel;
 window.initCrossPlatformAnimations = initCrossPlatformAnimations;
 
