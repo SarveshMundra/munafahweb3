@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="css/features.css">
     <link rel="stylesheet" href="css/platform.css">
     <link rel="stylesheet" href="css/pricing.css">
+    <link rel="stylesheet" href="css/theme.css">
+
 
 
 
@@ -51,6 +53,13 @@
                 <img src="images/websitelogo.png" alt="Munafah Logo" class="logo-image">
             </a>
             <nav>
+                <!-- Mobile theme toggle - visible on small screens -->
+                <div class="mobile-theme-toggle-container">
+                    <button id="mobile-theme-toggle" class="theme-toggle" title="Toggle Light/Dark Mode">
+                        <!-- Icon will be populated by theme-switcher.js -->
+                    </button>
+                </div>
+                
                 <button class="mobile-menu-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
@@ -61,7 +70,11 @@
                     <a href="pricing.html" class="nav-link">Pricing</a>
                     <a href="about.html" class="nav-link">About Us</a>
                     <a href="services.html" class="nav-link">Services</a>
-                    <!-- <a href="contact.html" class="nav-link">Contact</a>   -->
+                    
+                    <!-- Desktop theme toggle - visible on large screens -->
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Mode">
+                        <!-- Icon will be populated by theme-switcher.js -->
+                    </button>
                 </div>
             </nav>
         </div>
@@ -71,9 +84,9 @@
     <section id="hero" class="hero-section">
         <!-- Base Layer: Video -->
         <div class="background-video-container">
-            <video class="background-video" autoplay loop muted>
-                <source src="media/7.mp4" type="video/mp4">
-                <source src="https://github.com/SarveshMundra/MunafahWeb3/raw/refs/heads/main/Media/7.mp4">
+            <video class="background-video theme-aware" autoplay loop muted>
+                <source data-dark-src="media/7.mp4" data-light-src="media/WhiteBG1.mp4" src="media/7.mp4" type="video/mp4">
+
             </video>
         </div>
 
@@ -359,6 +372,7 @@
     </footer>
 
     <!-- Our JavaScript -->
+    <script src="js/theme-switcher.js"></script>
     <script src="js/grid-setup.js"></script>
     <script src="js/landing-animations.js"></script>
     <script src="js/navigation.js"></script>

@@ -64,59 +64,34 @@ function updateThemeIcon(theme) {
     }
 }
 
+
+
 // Function to update media sources based on theme
 function updateMediaSources(theme) {
-    // Update background videos
-    const backgroundVideos = document.querySelectorAll('.background-video, .platform-video');
-    backgroundVideos.forEach(video => {
-        const currentSrc = video.querySelector('source').getAttribute('src');
-        if (currentSrc) {
-            let newSrc;
-            if (theme === 'light') {
-                // If current src doesn't already have 'lite' in it
-                if (!currentSrc.includes('lite')) {
-                    // Insert 'lite' before the file extension
-                    newSrc = currentSrc.replace(/(\.[^.]+)$/, 'lite$1');
-                } else {
-                    newSrc = currentSrc;
-                }
-            } else {
-                // Remove 'lite' if it exists
-                newSrc = currentSrc.replace('lite.', '.');
-            }
-            
-            // Only update if the source has changed
-            if (newSrc !== currentSrc) {
-                video.querySelector('source').setAttribute('src', newSrc);
-                // Reload the video
-                video.load();
-                video.play();
-            }
-        }
-    });
+    // Only update elements with the 'theme-aware' class
+    const themeAwareElements = document.querySelectorAll('.theme-aware');
     
-    // Update images
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        const currentSrc = img.getAttribute('src');
-        if (currentSrc) {
-            let newSrc;
-            if (theme === 'light') {
-                // If current src doesn't already have 'lite' in it
-                if (!currentSrc.includes('lite')) {
-                    // Insert 'lite' before the file extension
-                    newSrc = currentSrc.replace(/(\.[^.]+)$/, 'lite$1');
-                } else {
-                    newSrc = currentSrc;
+    themeAwareElements.forEach(element => {
+        // For videos, we need to update the source element
+        if (element.tagName === 'VIDEO') {
+            const source = element.querySelector('source');
+            if (source) {
+                const darkSrc = source.getAttribute('data-dark-src');
+                const lightSrc = source.getAttribute('data-light-src');
+                
+                if (darkSrc && lightSrc) {
+                    // Set the appropriate source based on theme
+                    const newSrc = theme === 'light' ? lightSrc : darkSrc;
+                    const currentSrc = source.getAttribute('src');
+                    
+                    // Only update if the source has changed
+                    if (newSrc !== currentSrc) {
+                        source.setAttribute('src', newSrc);
+                        // Reload the video
+                        element.load();
+                        element.play();
+                    }
                 }
-            } else {
-                // Remove 'lite' if it exists
-                newSrc = currentSrc.replace('lite.', '.');
-            }
-            
-            // Only update if the source has changed
-            if (newSrc !== currentSrc) {
-                img.setAttribute('src', newSrc);
             }
         }
     });

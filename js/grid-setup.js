@@ -1,4 +1,7 @@
 ﻿window.setupGrid = function () {
+    // Get current theme
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    
     // Retry mechanism for element selection
     const setupGridCells = () => {
         const gridOverlay = document.querySelector('.grid-overlay');
@@ -13,9 +16,8 @@
         const viewportHeight = window.innerHeight;
 
         // Responsive cell size
-        const cellSize = viewportWidth <= 768 ? 100 : 200;
-        const gap = viewportWidth <= 768 ? 10 : 20;
-
+        const cellSize = viewportWidth <= 768 ? 120 : 200;
+        const gap = viewportWidth <= 768 ? 10 : 15;
 
         // Clear existing cells
         gridOverlay.innerHTML = '';
@@ -46,4 +48,10 @@ window.addEventListener('resize', () => {
     resizeTimeout = setTimeout(window.setupGrid, 250);
 });
 
-console.log("Enhanced grid setup loaded");
+// Listen for theme changes
+document.addEventListener('themeChanged', () => {
+    // Recreate grid with new theme colors
+    window.setupGrid();
+});
+
+console.log("Enhanced grid setup loaded with theme support");

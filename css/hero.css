@@ -15,7 +15,7 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: .6;
+    opacity: 1;
 }
 
 .background-video {
@@ -75,9 +75,9 @@
 
 .grid-cell {
     backface-visibility: hidden;
-    background: rgba(129, 129, 129, 0.1);
+    background: var(--grid-cell-color);
     border-radius: 10px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(--grid-cell-blur);
 }
 
 /* Layer 4: Main Content - Using Flexbox for flexible layout */
@@ -146,7 +146,7 @@
 .features-title {
     font-family: 'Zen Dots';
     font-size: clamp(4rem, 4vw, 6rem);
-    color: white;
+    color: rgb(194, 194, 194);
     position: absolute;
     left: 50%;
     top: 50%;

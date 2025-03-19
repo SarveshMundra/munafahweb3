@@ -206,8 +206,7 @@
         /* Position content at bottom */
         bottom: 5%;
         padding: 1rem;
-        /* Add background gradient for better text visibility */
-        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+
     }
 
     .feature-title {

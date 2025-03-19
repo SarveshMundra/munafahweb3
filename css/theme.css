@@ -1,0 +1,212 @@
+/* Theme Variables */
+:root {
+    /* Dark Theme (Default) */
+    --bg-color: black;
+    --text-color: white;
+    --secondary-text-color: #a5a5a5;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --header-bg: rgba(0, 0, 0, 0.2);
+    --grid-cell-color: rgba(129, 129, 129, 0.1);
+    --overlay-color: rgba(0, 0, 0, .8);
+    --grid-cell-blur: 20px;
+    --primary-gradient: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+    --title-glow: 0 0 5px #bb39f7;
+    --button-hover-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+    --card-border: rgba(255, 255, 255, 0.2);
+    --feature-icon-text: var(--text-color);
+    --feature-details-bg: rgba(0, 0, 0, 0.8);
+    --accent-color: #FF0080;
+    --accent-shadow: rgba(255, 0, 128, 0.8);
+    --progress-dot-bg: rgba(255, 255, 255, 0.3);
+    --progress-dot-active: white;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color:  #555555;
+    --secondary-text-color: #6e6e6e;
+    --card-bg: rgba(0, 0, 0, 0.05);
+    --header-bg: rgba(255, 255, 255, 0.8);
+    --grid-cell-color: rgba(255, 255, 255, 0.4);
+    --grid-cell-blur: 0px;
+    --overlay-color: rgba(255, 255, 255, 0.8);
+    --primary-gradient: linear-gradient(45deg, #3b00b3, #7627b8, #cf0068);
+    --title-glow: 0 0 5px #9427c9;
+    --button-hover-shadow: 0 0 20px rgba(114, 36, 181, 0.5);
+    --card-border: rgba(0, 0, 0, 0.2);
+    --feature-icon-text: var(--text-color);
+    --feature-details-bg: rgba(255, 255, 255, 0.9);
+    --accent-color: #FF0080;
+    --accent-shadow: rgba(255, 0, 128, 0.4);
+    --progress-dot-bg: rgba(0, 0, 0, 0.3);
+    --progress-dot-active: var(--text-color);
+}
+
+/* Apply theme variables to elements */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+.main-header {
+    background: var(--header-bg);
+}
+
+.grid-cell {
+    background: var(--grid-cell-color);
+    backdrop-filter: blur(--grid-cell-blur);
+}
+
+p, .services-subtitle, .feature-description, .vision-text {
+    color: var(--secondary-text-color);
+}
+
+/* Feature icons and details - Dark Theme (Default) */
+.feature-icon span {
+    color: var(--feature-icon-text);
+  }
+  
+  .feature-details {
+    background: var(--feature-details-bg);
+    border: 1px solid var(--card-border);
+  }
+
+
+[data-theme="light"] .feature-title,
+[data-theme="light"] .services-title,
+[data-theme="light"] .services-subtitle,
+[data-theme="light"] .vision-title,
+[data-theme="light"] .section-title,
+[data-theme="light"] .plan-name,
+[data-theme="light"] #hero-title .letter {
+    color: var(--text-color) !important;
+    text-shadow: none !important;
+}
+
+[data-theme="light"] #hero-tagline {
+    color: var(--secondary-text-color);
+}
+
+/* Background overlays for sections */
+[data-theme="light"] .about-section::after,
+[data-theme="light"] .services-section::after,
+[data-theme="light"] .pricing-section::after,
+[data-theme="light"] .contact-section::after {
+    background-color: var(--overlay-color);
+}
+
+
+/* Feature icons and details - Light Theme */
+[data-theme="light"] .feature-icon span {
+    color: var(--feature-icon-text);
+    text-shadow: none;
+  }
+  
+  [data-theme="light"] .feature-details {
+    background: var(--feature-details-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+  }
+  
+  [data-theme="light"] .feature-details h3
+
+  {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+
+  [data-theme="light"] .service-title 
+  {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Buttons - Light Theme */
+  [data-theme="light"] .plan-button:hover,
+  [data-theme="light"] .service-button:hover,
+  [data-theme="light"] .cta-button:hover {
+    box-shadow: var(--button-hover-shadow);
+  }
+  
+  /* Service section - Light Theme */
+  [data-theme="light"] .split-content .service-description {
+    color: var(--secondary-text-color);
+  }
+  
+  /* Nav arrows and progress dots - Light Theme */
+  [data-theme="light"] .nav-arrow {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  [data-theme="light"] .nav-arrow svg {
+    fill: var(--text-color);
+  }
+  
+  [data-theme="light"] .progress-dot {
+    background: var(--progress-dot-bg);
+  }
+  
+  [data-theme="light"] .progress-dot.active {
+    background: var(--progress-dot-active);
+  }
+  
+  /* Floating features and early bird - Light Theme */
+  [data-theme="light"] .spots-counter {
+    color: var(--accent-color);
+    text-shadow: 2px 2px 5px var(--accent-shadow);
+  }
+  
+  [data-theme="light"] .spots-text {
+    color: var(--text-color);
+    text-shadow: none;
+  }
+
+
+/* Theme toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--text-color);
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 768px) {
+    .mobile-theme-toggle-container {
+        position: absolute;
+        left: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
