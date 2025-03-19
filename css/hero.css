@@ -159,6 +159,7 @@
 
 .feature-icon {
     position: absolute;
+    cursor: pointer;
     left: 50%;
     top: 50%;
     transform-style: preserve-3d;
@@ -183,6 +184,67 @@
     white-space: nowrap;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
+
+/* Add this to hero.css */
+.feature-details {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+    z-index: 999; /* Very high z-index to appear above all elements */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    max-width: 250px;
+    top: -200px; /* Position it above the icon */
+    left: -50px;
+    transform-style: preserve-3d; /* Important to maintain 3D effect */
+  }
+  
+  .feature-details h3 {
+    font-family: 'Zen Dots', cursive;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .feature-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .feature-details li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    padding-left: 15px;
+    position: relative;
+  }
+  
+  .feature-details li:before {
+    content: "•";
+    color: #8E2DE2;
+    position: absolute;
+    left: 0;
+  }
+  
+ 
+  .feature-icon.active .feature-details {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+
+
 
 /* Gift Animation Container */
 .gift-animation-container {

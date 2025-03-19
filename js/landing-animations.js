@@ -242,28 +242,93 @@ function initSplitScreenServicesAnimations() {
         duration: 1.5
     });
 
-// Split animation for left and right panels
-const splitScreenTl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".services-section.services-split-screen",
-        start: "top 60%",
-        toggleActions: "play reverse play reverse"
-    }
-});
+    // Split animation for left and right panels
+    const splitScreenTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".services-section.services-split-screen",
+            start: "top 60%",
+            toggleActions: "play reverse play reverse"
+        }
+    });
 
-splitScreenTl
-    .to(".services-section.services-split-screen .split-left, .services-section.services-split-screen .split-right", {
-        x: 0,
-        duration: 0.3,
-        ease: "power3.out"
-    })
-    .to(".services-section.services-split-screen .split-content", {
-        opacity: 1,
-        duration: 0.3,
-        ease: "power3.out"
-    }, 0); // Start at the same time as the previous animation
+    splitScreenTl
+        .to(".services-section.services-split-screen .split-left, .services-section.services-split-screen .split-right", {
+            x: 0,
+            duration: 0.3,
+            ease: "power3.out"
+        })
+        .to(".services-section.services-split-screen .split-content", {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power3.out"
+        }, 0); // Start at the same time as the previous animation
 }
 
+
+
+// Feature details data 
+const featureDetails = {
+    "Purchase": {
+        title: "Purchase Management",
+        features: [
+            "Purchase order creation",
+            "Supplier management",
+            "Purchase tracking",
+            "Inventory updates",
+            "Order history"
+        ]
+    },
+    "Inventory": {
+        title: "Inventory Management",
+        features: [
+            "Stock tracking",
+            "Low stock alerts",
+            "Barcode scanning",
+            "Multiple locations",
+            "Batch tracking"
+        ]
+    },
+    "Sales": {
+        title: "Sales Management",
+        features: [
+            "Invoice generation",
+            "Customer orders",
+            "Payment tracking",
+            "Sales analytics",
+            "Discount management"
+        ]
+    },
+    "Customer": {
+        title: "Customer Management",
+        features: [
+            "Contact information",
+            "Purchase history",
+            "Communication logs",
+            "Loyalty programs",
+            "Custom fields"
+        ]
+    },
+    "e-Commerce": {
+        title: "e-Commerce Management",
+        features: [
+            "Online catalog",
+            "Order processing",
+            "Payment integration",
+            "Shipping options",
+            "Store analytics"
+        ]
+    },
+    "Finance": {
+        title: "Financial Management",
+        features: [
+            "Income tracking",
+            "Expense management",
+            "Financial reports",
+            "Tax calculations",
+            "Budget planning"
+        ]
+    }
+};
 
 
 function initHeroFeatureIconsAnimation() {
@@ -278,7 +343,7 @@ function initHeroFeatureIconsAnimation() {
 
     // Galaxy animation setup
     const radius = window.innerWidth <= 480 ? 140 : 300;
-    const orbitDuration = 50;
+    const orbitDuration = 200;
 
     // Animate title
     gsap.to(title, {
@@ -293,11 +358,42 @@ function initHeroFeatureIconsAnimation() {
         gsap.set(icon, {
             opacity: 0,
             scale: 0,
+        });
 
+        // Add feature details container to each icon
+        const featureName = icon.querySelector('span').textContent;
+        if (featureDetails[featureName]) {
+            const detailsContainer = document.createElement('div');
+            detailsContainer.className = 'feature-details';
+            detailsContainer.innerHTML = `
+          <h3>${featureDetails[featureName].title}</h3>
+          <ul>
+            ${featureDetails[featureName].features.map(feature => `<li>${feature}</li>`).join('')}
+          </ul>
+        `;
+            icon.appendChild(detailsContainer);
+        }
+
+        // Add click event
+        icon.addEventListener('click', function (e) {
+            e.stopPropagation(); // Prevent click from bubbling up
+
+            // Close all other open details
+            icons.forEach(otherIcon => {
+                if (otherIcon !== icon) {
+                    otherIcon.classList.remove('active');
+                }
+            });
+
+            // Toggle active state for this icon
+            icon.classList.toggle('active');
         });
     });
 
-
+    // Close details when clicking outside
+    document.addEventListener('click', function () {
+        icons.forEach(icon => icon.classList.remove('active'));
+    });
 
     // Create orbits
     icons.forEach((icon, index) => {
@@ -332,31 +428,24 @@ function initHeroFeatureIconsAnimation() {
         });
     });
 
-    // Mouse interaction
-    // let mouseX = 0;
-    // let mouseY = 0;
+    // Auto-show the Inventory feature details briefly (add this at the end of initHeroFeatureIconsAnimation function)
+    setTimeout(() => {
+        // Find the inventory icon
+        const inventoryIcon = Array.from(icons).find(icon =>
+            icon.querySelector('span') && icon.querySelector('span').textContent === 'Inventory'
+        );
 
-    // container.addEventListener('mousemove', (e) => {
-    //     const rect = container.getBoundingClientRect();
-    //     mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 30;
-    //     mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 30;
+        if (inventoryIcon) {
+            // Show the details
+            inventoryIcon.classList.add('active');
 
-    //     gsap.to(container, {
-    //         rotationY: mouseX,
-    //         rotationX: -mouseY,
-    //         duration: 0.5,
-    //         ease: "power2.out"
-    //     });
-    // });
+            // Hide after 2 seconds
+            setTimeout(() => {
+                inventoryIcon.classList.remove('active');
+            }, 2000);
+        }
+    }, 3000); // Start 3 seconds after the animation completes
 
-    // container.addEventListener('mouseleave', () => {
-    //     gsap.to(container, {
-    //         rotationY: 0,
-    //         rotationX: 0,
-    //         duration: 1,
-    //         ease: "power2.out"
-    //     });
-    // });
 }
 
 
