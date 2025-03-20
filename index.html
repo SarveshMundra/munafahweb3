@@ -45,7 +45,7 @@
 
 <body>
 
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script>
+    <!-- <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.59/build/spline-viewer.js"></script> -->
 
     <header class="main-header">
         <div class="header-container">
@@ -53,28 +53,27 @@
                 <img src="images/websitelogo.png" alt="Munafah Logo" class="logo-image">
             </a>
             <nav>
-                <!-- Mobile theme toggle - visible on small screens -->
-                <div class="mobile-theme-toggle-container">
-                    <button id="mobile-theme-toggle" class="theme-toggle" title="Toggle Light/Dark Mode">
-                        <!-- Icon will be populated by theme-switcher.js -->
-                    </button>
+                <!-- Mobile theme toggle -->
+                <div id="mobile-theme-toggle" class="theme-switch dark-mode" title="Toggle Light/Dark Mode">
+                    <div class="switch-head"></div>
                 </div>
-                
+
                 <button class="mobile-menu-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </button>
+                
                 <div class="nav-links">
                     <a href="./" class="nav-link">Home</a>
                     <a href="pricing.html" class="nav-link">Pricing</a>
                     <a href="about.html" class="nav-link">About Us</a>
                     <a href="services.html" class="nav-link">Services</a>
-                    
-                    <!-- Desktop theme toggle - visible on large screens -->
-                    <button id="theme-toggle" class="theme-toggle" title="Toggle Light/Dark Mode">
-                        <!-- Icon will be populated by theme-switcher.js -->
-                    </button>
+
+                    <!-- Desktop theme toggle -->
+                    <div id="theme-toggle" class="theme-switch dark-mode" title="Toggle Light/Dark Mode">
+                        <div class="switch-head"></div>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -85,7 +84,8 @@
         <!-- Base Layer: Video -->
         <div class="background-video-container">
             <video class="background-video theme-aware" autoplay loop muted>
-                <source data-dark-src="media/7.mp4" data-light-src="media/WhiteBG1.mp4" src="media/7.mp4" type="video/mp4">
+                <source data-dark-src="media/7.mp4" data-light-src="media/WhiteBG1.mp4" src="media/7.mp4"
+                    type="video/mp4">
 
             </video>
         </div>
@@ -184,43 +184,45 @@
 
 
 
-<!-- SPLIT-SCREEN REVEAL SERVICES SECTION -->
-<section class="services-section services-split-screen">
-    <div class="services-title-container">
-        <h2 class="services-title">You Want. We Got.</h2>
-        <p class="services-subtitle">Choose the solution that fits your business needs</p>
-    </div>
-    
-    <div class="split-container">
-        <div class="split-divider">
-            <span class="divider-dot"></span>
+    <!-- SPLIT-SCREEN REVEAL SERVICES SECTION -->
+    <section class="services-section services-split-screen">
+        <div class="services-title-container">
+            <h2 class="services-title">You Want. We Got.</h2>
+            <p class="services-subtitle">Choose the solution that fits your business needs</p>
         </div>
-        
-        <!-- Left Side - Munafah Core -->
-        <div class="split-side split-left">
-            <div class="split-content">
-                <div class="service-icon">
-                    <img src="images/websitelogo.png" alt="Munafah Logo">
+
+        <div class="split-container">
+            <div class="split-divider">
+                <span class="divider-dot"></span>
+            </div>
+
+            <!-- Left Side - Munafah Core -->
+            <div class="split-side split-left">
+                <div class="split-content">
+                    <div class="service-icon">
+                        <img src="images/websitelogo.png" alt="Munafah Logo">
+                    </div>
+                    <h3 class="service-title">Munafah Core</h3>
+                    <p class="service-description">Our all-in-one platform for inventory, sales, purchase, and financial
+                        management.</p>
+                    <a href="#features" class="service-button">Explore Features</a>
                 </div>
-                <h3 class="service-title">Munafah Core</h3>
-                <p class="service-description">Our all-in-one platform for inventory, sales, purchase, and financial management.</p>
-                <a href="#features" class="service-button">Explore Features</a>
+            </div>
+
+            <!-- Right Side - E-commerce Solutions -->
+            <div class="split-side split-right">
+                <div class="split-content">
+                    <div class="service-icon">
+                        <img src="images/shop.jpg" alt="E-commerce Icon">
+                    </div>
+                    <h3 class="service-title">E-Commerce Solutions</h3>
+                    <p class="service-description">We build and set up your Shopify store so you can start selling
+                        online immediately.</p>
+                    <a href="services.html" class="service-button">Learn More</a>
+                </div>
             </div>
         </div>
-        
-        <!-- Right Side - E-commerce Solutions -->
-        <div class="split-side split-right">
-            <div class="split-content">
-                <div class="service-icon">
-                    <img src="images/shop.jpg" alt="E-commerce Icon">
-                </div>
-                <h3 class="service-title">E-Commerce Solutions</h3>
-                <p class="service-description">We build and set up your Shopify store so you can start selling online immediately.</p>
-                <a href="services.html" class="service-button">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- Features Section -->

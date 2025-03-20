@@ -203,38 +203,39 @@ function initHeroAnimations() {
 function initSplitScreenServicesAnimations() {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Animate the title and subtitle
-    gsap.to(".services-section.services-split-screen .services-title", {
-        scrollTrigger: {
-            trigger: ".services-section.services-split-screen",
-            start: "top 70%",
-            toggleActions: "play none none none"
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out"
-    });
 
-    gsap.to(".services-section.services-split-screen .services-subtitle", {
-        scrollTrigger: {
-            trigger: ".services-section.services-split-screen",
-            start: "top 70%",
-            toggleActions: "play none none none"
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: 0.2,
-        ease: "power2.out"
-    });
+        // Animate the title and subtitle
+        gsap.to(" .services-title", {
+            scrollTrigger: {
+                trigger: ".services-section.services-split-screen",
+                start: "top 70%",
+                toggleActions: "play reverse play reverse"
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out"
+        });
+    
+        gsap.to(" .services-subtitle", {
+            scrollTrigger: {
+                trigger: ".services-section.services-split-screen",
+                start: "top 70%",
+                toggleActions: "play reverse play reverse"  
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: 0.2,
+            ease: "power2.out"
+        });
 
     // Divider dot pulse animation
-    gsap.to(".services-section.services-split-screen .divider-dot", {
+    gsap.to(".divider-dot", {
         scrollTrigger: {
-            trigger: ".services-section.services-split-screen",
+            trigger: ".services-section",
             start: "top 60%",
-            toggleActions: "play none none none"
+            toggleActions: "play reverse play reverse"
         },
         boxShadow: "0 0 30px rgba(255, 255, 255, 1)",
         repeat: -1,
@@ -245,19 +246,19 @@ function initSplitScreenServicesAnimations() {
     // Split animation for left and right panels
     const splitScreenTl = gsap.timeline({
         scrollTrigger: {
-            trigger: ".services-section.services-split-screen",
+            trigger: ".services-section",
             start: "top 60%",
             toggleActions: "play reverse play reverse"
         }
     });
 
     splitScreenTl
-        .to(".services-section.services-split-screen .split-left, .services-section.services-split-screen .split-right", {
+        .to(".split-left, .split-right", {
             x: 0,
             duration: 0.3,
             ease: "power3.out"
         })
-        .to(".services-section.services-split-screen .split-content", {
+        .to(".split-content", {
             opacity: 1,
             duration: 0.3,
             ease: "power3.out"

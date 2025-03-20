@@ -22,7 +22,7 @@ html, body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: .5rem;
+    padding: .5rem 2rem .5rem 2rem; /* Adjusted padding for better spacing */
     z-index: 1000;
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(3px);
@@ -30,20 +30,14 @@ html, body {
 }
 
 .header-container {
-    max-width: 1400px;
-    margin: 0 auto;
+
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    font-family: 'Zen Dots', cursive;
-    font-size: 1.5rem;
-    color: white;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
+
 
 /* Add this new style below the existing logo style */
 .logo-image {
@@ -61,7 +55,8 @@ html, body {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
+    font-size: 1.25rem;
     align-items: center;
 }
 
@@ -157,14 +152,25 @@ html, body {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+
+@media (max-width: 768px) {
+
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+
 
     .main-header {
         padding: .5rem 1rem .2rem 1rem;
     }
     .mobile-menu-btn {
         display: block;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
     }
 
     .nav-links {
