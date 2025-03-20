@@ -17,6 +17,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/theme.css">
     <style>
         .services-section {
             position: relative;
@@ -464,16 +465,27 @@
                 <img src="images/websitelogo.png" alt="Munafah Logo" class="logo-image">
             </a>
             <nav>
+                <!-- Mobile theme toggle -->
+                <div id="mobile-theme-toggle" class="theme-switch dark-mode" title="Toggle Light/Dark Mode">
+                    <div class="switch-head"></div>
+                </div>
+
                 <button class="mobile-menu-btn">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </button>
+                
                 <div class="nav-links">
                     <a href="./" class="nav-link">Home</a>
                     <a href="pricing.html" class="nav-link">Pricing</a>
                     <a href="about.html" class="nav-link">About Us</a>
                     <a href="services.html" class="nav-link">Services</a>
+
+                    <!-- Desktop theme toggle -->
+                    <div id="theme-toggle" class="theme-switch dark-mode" title="Toggle Light/Dark Mode">
+                        <div class="switch-head"></div>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -748,6 +760,7 @@
         </div>
     </section>
 
+    <script src="js/theme-switcher.js"></script>
     <script src="js/navigation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
