@@ -7,7 +7,7 @@
     --card-bg: rgba(255, 255, 255, 0.1);
     --header-bg: rgba(0, 0, 0, 0.2);
     --grid-cell-color: rgba(129, 129, 129, 0.1);
-    --overlay-color: rgba(0, 0, 0, .8);
+    --overlay-color: rgba(68, 67, 67, 0.8);
     --grid-cell-blur: 20px;
     --primary-gradient: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
     --title-glow: 0 0 5px #bb39f7;
@@ -19,6 +19,9 @@
     --accent-shadow: rgba(255, 0, 128, 0.8);
     --progress-dot-bg: rgba(255, 255, 255, 0.3);
     --progress-dot-active: white;
+    --pricepgae-bg: url('images/DNB26.svg');
+    --aboutpgae-bg: url('images/Gal4.png');
+    --servicepgae-bg: url('images/Gal4.png');
 }
 
 /* Light Theme */
@@ -30,7 +33,7 @@
     --header-bg: transparent;
     --grid-cell-color: rgba(255, 255, 255, 0.4);
     --grid-cell-blur: 0px;
-    --overlay-color: rgba(255, 255, 255, 0.8);
+    --overlay-color: rgba(231, 231, 231, 0.3);
     --primary-gradient: linear-gradient(45deg, #3b00b3, #7627b8, #cf0068);
     --title-glow: 0 0 5px #9427c9;
     --button-hover-shadow: 0 0 20px rgba(114, 36, 181, 0.5);
@@ -41,6 +44,9 @@
     --accent-shadow: rgba(255, 0, 128, 0.4);
     --progress-dot-bg: rgba(0, 0, 0, 0.3);
     --progress-dot-active: var(--text-color);
+    --pricepgae-bg: url('images/WBG2.png');
+    --aboutpgae-bg: url('images/WBG5.png');
+    --servicepgae-bg: url('images/WBG5.png');
 }
 
 /* Apply theme variables to elements */
@@ -88,8 +94,10 @@ p, .services-subtitle, .feature-description, .vision-text {
     text-shadow: none !important;
 }
 
-[data-theme="light"] #hero-tagline {
+[data-theme="light"] #hero-tagline,
+[data-theme="light"] .appfeatures-text {
     color: var(--secondary-text-color);
+
 }
 
 /* Background overlays for sections */
