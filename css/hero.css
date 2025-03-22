@@ -214,14 +214,14 @@
     visibility: hidden;
     transition: opacity 0.3s ease;
     max-width: 250px;
-    top: -200px; /* Position it above the icon */
-    left: -50px;
+    top: -180px; /* Position it above the icon */
+    left: -40px;
     transform-style: preserve-3d; /* Important to maintain 3D effect */
   }
   
   .feature-details h3 {
     font-family: 'Zen Dots', cursive;
-    font-size: 1rem;
+    font-size: .81rem;
     margin-bottom: 10px;
     background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
     -webkit-background-clip: text;
@@ -238,7 +238,7 @@
   
   .feature-details li {
     margin-bottom: 5px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     padding-left: 15px;
     position: relative;
   }

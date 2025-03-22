@@ -26,7 +26,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: rgb(138, 137, 137);
+            background-color: black;
 
         }
 
@@ -42,7 +42,7 @@
             background-image: var(--pricepgae-bg);
             background-size: cover;
             background-position: center;
-            opacity: .7;
+            opacity: 1;
             pointer-events: none;
 
         }
@@ -54,8 +54,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, .8);
-            /* Dark overlay */
+            background-color: rgba(0, 0, 0, .4);  /* Dark overlay as the background image has too much flashy light*/
             pointer-events: none;
         }
 
@@ -182,9 +181,9 @@
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
-            backdrop-filter: blur(30px);
-            border: 2px solid rgba(235, 234, 234, 0.2);
-            box-shadow: 0 0px 10px rgba(211, 209, 209, 0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0px 10px rgba(170, 170, 170, 0.3);
 
         }
 

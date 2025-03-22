@@ -19,7 +19,7 @@
     --accent-shadow: rgba(255, 0, 128, 0.8);
     --progress-dot-bg: rgba(255, 255, 255, 0.3);
     --progress-dot-active: white;
-    --pricepgae-bg: url('images/DNB26.svg');
+    --pricepgae-bg: url('images/DNB25.png');
     --aboutpgae-bg: url('images/Gal4.png');
     --servicepgae-bg: url('images/Gal4.png');
 }
@@ -34,7 +34,7 @@
     --grid-cell-color: rgba(255, 255, 255, 0.4);
     --grid-cell-color: linear-gradient(135deg, #edbdf8 0%, #b6c2f5 50%, #89d2ff 100%);
     --grid-cell-blur: 0px;
-    --overlay-color: rgba(231, 231, 231, 0.3);
+    --overlay-color: rgba(231, 231, 231, .4);
     --primary-gradient: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
     --title-glow: 0 0 5px #9427c9;
     --button-hover-shadow: 0 0 20px rgba(114, 36, 181, 0.5);
@@ -93,6 +93,7 @@ p, .services-subtitle, .feature-description, .vision-text {
 [data-theme="light"] .vision-title,
 [data-theme="light"] .roadmap-phase,
 [data-theme="light"] .plan-name,
+[data-theme="light"] .services-title,
 [data-theme="light"] .highlight
  {
     color: var(--text-color) !important;
