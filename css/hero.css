@@ -113,7 +113,7 @@
 }
 
 #hero-title .letter {
-    background: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
+    background: white;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

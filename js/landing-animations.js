@@ -622,16 +622,16 @@ function initCrossPlatformAnimations() {
 
     timeline
         .to("#platform-heading", {
-            y: 30,
+            y: 40,
             opacity: 1,
-            duration: 1.5,
+            duration: 1,
             ease: "power3.out"
         })
         .to("#platform-tagline", {
             y: 30,
             opacity: 1,
-            duration: 1.5,
-            delay: 0.5,
+            duration: 1,
+            delay: 0.2,
             ease: "power3.out"
         });
 }
