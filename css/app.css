@@ -104,9 +104,10 @@ html, body {
     position: relative;
     z-index: 2;
     background: rgba(0, 0, 0, 0.9);
-    padding: 4rem 2rem;
+    padding: 4rem 2rem .5rem 2rem;
     color: white;
     width: 100%;
+    opacity: 0.8;
 }
 
 .footer-container {
@@ -148,7 +149,7 @@ html, body {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
+    padding-top: .95rem;
     margin-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

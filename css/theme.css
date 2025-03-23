@@ -165,6 +165,19 @@ p, .services-subtitle, .feature-description, .vision-text {
     box-shadow: var(--button-hover-shadow);
   }
   
+
+  [data-theme="light"] .vision-card,
+  [data-theme="light"] .contact-card,
+  [data-theme="light"] .roadmap-item,
+  [data-theme="light"] .feature-card,
+  [data-theme="light"] .pricing-card,
+  [data-theme="light"] .timeline-content,
+  [data-theme="light"] .cta-section
+  {
+    box-shadow: 0 0px 40px rgb(16 16 16 / .1);
+  }
+
+
   /* Service section - Light Theme */
   [data-theme="light"] .split-content .service-description {
     color: var(--secondary-text-color);
