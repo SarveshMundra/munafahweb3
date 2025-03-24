@@ -86,7 +86,7 @@
     bottom: 0%;  /* Changed from 10% to -20% */
     left: 0;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
     color: white;
     text-align: center;
     opacity: 1;  /* Changed from 0 to 1 */
@@ -124,7 +124,7 @@
 
 .nav-progress-container {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;

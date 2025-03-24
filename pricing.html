@@ -177,16 +177,20 @@
 
 
         .pricing-card {
+            position: relative;
+            /* Ensure the card is a positioned container */
+            display: flex;
+            flex-direction: column;
             background: transparent;
             border-radius: 20px;
-            height: 520px;
+            min-height: 520px;
             padding: 1rem;
             text-align: center;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 0px 40px rgb(16 16 16 / .1);
-
         }
+
 
         .pricing-card:hover {
             transform: translateY(-10px);
@@ -216,19 +220,38 @@
         }
 
         .plan-features li {
-
+            font-size: .85rem;
             margin-bottom: 1rem;
         }
 
+
+        .card-actions {
+            position: absolute;
+            /* Position the button container */
+            bottom: 20px;
+            /* Fixed distance from the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            /* Center the button horizontally */
+            width: 100%;
+            /* Ensure consistent alignment */
+            text-align: center;
+            /* Center the button inside the container */
+        }
+
         .plan-button {
+            display: inline-block;
+            /* Ensure the button behaves like an inline element */
             background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
             color: white;
             border: none;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             font-family: 'Zen Dots', cursive;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-sizing: border-box;
+            /* Prevent padding from affecting size */
         }
 
         .plan-button:hover {
@@ -236,14 +259,51 @@
             box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
         }
 
-        .pricing-card svg {
+
+
+
+        .cta-card {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: transparent;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            opacity: 1;
+            box-shadow: 0 0px 40px rgb(16 16 16 / .1);
+            backdrop-filter: blur(10px);
+
+        }
+
+        .cta-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            color: white !important;
+        }
+
+        .cta-text {
+            font-family: 'Parkinsans', sans-serif;
+            color: #cecdcd;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Zen Dots', cursive;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .pricing-card:hover svg {
-            transform: scale(1.1);
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
         }
-
 
 
         @media (max-width: 480px) {
@@ -431,6 +491,41 @@
                 </div>
             </div>
 
+            <div class="pricing-card">
+                <h2 class="plan-name" style="color: var(--accent-color) !important; font-size: 1.85rem;">Online Store
+                </h2>
+                <div class="plan-price">
+                    <span class="price-amount" style="font-size: 1.5rem;">Custom Price</span><br>
+                    <span class="price-amount" style="font-size: 1.5rem;">$200 - $600</span>
+                </div>
+
+                <ul class="plan-features">
+                    <li style="list-style-type: disc; margin-left: 20px;">
+                        Complete B2C E-commerce Solutions
+                    </li>
+                    <li style="list-style-type: disc; margin-left: 20px;">
+                        Customizable Online Store
+                    </li>
+                    <li style="list-style-type: disc; margin-left: 20px;">
+                        Payment Gateway Integration
+                    </li>
+                    <li style="list-style-type: disc; margin-left: 20px;">
+                        Dedicated Support for Store Launch
+                    </li>
+                </ul>
+
+                <div class="card-actions">
+                    <a href="services.html#B2C-section" class="plan-button">Explore</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="cta-card" style="margin-top: 2rem;">
+            <h2 class="cta-title">Looking to Set Up Your Online Store?</h2>
+            <p class="cta-text">We provide complete B2C e-commerce solutions to help you launch your online store with
+                ease. Click below to explore our services and get started today!</p>
+            <a href="services.html#B2C-section" class="cta-button">Explore</a>
         </div>
 
         <div style="margin: 30px 0;  z-index: 1;">
