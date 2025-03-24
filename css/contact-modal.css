@@ -1,0 +1,165 @@
+/* Contact Modal Styles */
+.contact-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    opacity: 0;
+}
+
+.contact-modal-overlay.modal-show {
+    display: block;
+}
+
+.contact-modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    max-width: 1000px;
+    width: 90%;
+    max-height: 90vh;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    overflow-y: auto;
+    opacity: 0;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.modal-title {
+    font-family: 'Zen Dots', cursive;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.modal-subtitle {
+    font-family: 'Parkinsans', sans-serif;
+    color: #a5a5a5;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.contact-modal-card {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Space between content and button */
+    align-items: center; /* Center align content horizontally */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 252, 252, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    height: 100%; /* Ensure equal height for all cards */
+}
+
+.contact-modal-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0px 30px rgba(142, 45, 226, .5);
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-title {
+    font-family: 'Zen Dots', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.contact-text {
+    font-family: 'Parkinsans', sans-serif;
+    color: #a5a5a5;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.contact-action-btn {
+    margin-top: auto; /* Push the button to the bottom */
+    display: inline-block;
+    background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-family: 'Zen Dots', cursive;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.contact-action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(142, 45, 226, 0.5);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .contact-modal-container {
+        padding: 1.5rem;
+    }
+    
+    .contact-cards-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .contact-title {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-modal-container {
+        padding: 1rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .contact-modal-card {
+        padding: 1.5rem;
+    }
+}

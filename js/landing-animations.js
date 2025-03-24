@@ -230,19 +230,6 @@ function initSplitScreenServicesAnimations() {
             ease: "power2.out"
         });
 
-    // Divider dot pulse animation
-    gsap.to(".divider-dot", {
-        scrollTrigger: {
-            trigger: ".services-section",
-            start: "top 60%",
-            toggleActions: "play reverse play reverse"
-        },
-        boxShadow: "0 0 30px rgba(255, 255, 255, 1)",
-        repeat: -1,
-        yoyo: true,
-        duration: 1.5
-    });
-
     // Split animation for left and right panels
     const splitScreenTl = gsap.timeline({
         scrollTrigger: {

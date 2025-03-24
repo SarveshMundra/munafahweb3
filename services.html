@@ -16,34 +16,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Zen+Dots&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/heroservices.css">
     <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/contact-modal.css">
     <link rel="stylesheet" href="css/theme.css">
     <style>
-        .services-section {
+        .split-services-section {
             position: relative;
             min-height: 100vh;
-            padding: 120px 20px 60px;
+            padding: 0px 0 0 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             background-color: black;
         }
 
-        .services-section::before {
+        .split-services-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: var(--servicepgae-bg);            
+            background-image: var(--servicepgae-bg);
             background-size: cover;
             background-position: center;
             opacity: 1;
             pointer-events: none;
         }
 
-        .services-section::after {
+
+
+        .B2C-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 60px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+        }
+
+        .B2C-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--servicepgae-bg);
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .B2C-section::after {
             content: '';
             position: absolute;
             top: 0;
@@ -54,21 +82,21 @@
             pointer-events: none;
         }
 
-        .services-container {
+        .B2C-container {
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
         }
 
-        .services-hero {
+        .B2C-hero {
             text-align: center;
             margin-bottom: 4rem;
-            opacity: 0;
+            opacity: 1;
             transform: translateY(30px);
         }
 
-        .services-title {
+        .B2C-title {
             font-family: 'Zen Dots', cursive;
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1.5rem;
@@ -78,7 +106,7 @@
             color: transparent;
         }
 
-        .services-subtitle {
+        .B2C-subtitle {
             font-size: 1.2rem;
             color: #ffffff;
             max-width: 800px;
@@ -432,7 +460,7 @@
         }
 
         @media (max-width: 768px) {
-            .services-section {
+            .B2C-section {
                 padding: 100px 20px 40px;
             }
 
@@ -478,7 +506,7 @@
                         <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </button>
-                
+
                 <div class="nav-links">
                     <a href="./" class="nav-link">Home</a>
                     <a href="pricing.html" class="nav-link">Pricing</a>
@@ -494,17 +522,61 @@
         </div>
     </header>
 
-    <section class="services-section">
-        <div class="services-container">
+
+    <!-- SPLIT-SCREEN REVEAL SERVICES SECTION -->
+    <section class="split-services-section">
+        <!-- <div class="services-title-container">
+            <h2 class="services-title">You Want. We Got.</h2>
+            <p class="services-subtitle">Choose the solution that fits your business needs</p>
+        </div> -->
+
+        <div class="split-container" style="height: 100vh;">
+            <div class="split-divider">
+                <span class="divider-dot"></span>
+            </div>
+
+            <!-- Left Side - Munafah Core -->
+            <div class="split-side split-left">
+                <div class="split-content">
+                    <div class="service-icon">
+                        <img src="images/websitelogo.png" alt="Munafah Logo">
+                    </div>
+                    <h3 class="service-title">Munafah Core</h3>
+                    <p class="service-description">Our all-in-one platform for inventory, sales, purchase, and financial
+                        management.</p>
+                        <a href="pricing.html" class="service-button">Explore More</a>
+                </div>
+            </div>
+
+            <!-- Right Side - E-commerce Solutions -->
+            <div class="split-side split-right">
+                <div class="split-content">
+                    <div class="service-icon">
+                        <img src="images/shop.jpg" alt="E-commerce Icon">
+                    </div>
+                    <h3 class="service-title">E-Commerce Solutions</h3>
+                    <p class="service-description">We build and set up your Shopify store so you can start selling
+                        online immediately.</p>
+                    <a href="#B2C-section" class="service-button">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="B2C-section" id="B2C-section">
+        <div class="B2C-container">
+
             <!-- Hero Section -->
-            <div class="services-hero">
-                <h1 class="services-title">Online Store Solutions</h1>
-                <p class="services-subtitle">Launch your online store with our complete e-commerce solutions. We handle
+            <div class="B2C-hero">
+                <h1 class="B2C-title">Online Store Solutions (B2C)</h1>
+                <p class="B2C-subtitle">Do you sell to Retail Customers? Launch your online store with our complete B2C
+                    e-commerce solutions using Shopify. We handle
                     everything from store setup to ongoing support, so you can focus on growing your business.</p>
             </div>
 
             <!-- Features Section -->
-            <div class="ecommerce-features">
+            <!-- <div class="ecommerce-features">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
@@ -578,7 +650,7 @@
                     <p class="feature-text">Comprehensive training for your team and ongoing support to ensure smooth
                         operation of your online store.</p>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Process Section -->
             <div class="process-section">
@@ -660,7 +732,7 @@
                             <li>1 hour training session</li>
                             <li>30 days of support</li>
                         </ul>
-                        <button class="price-button">Get Started</button>
+                        <button class="price-button contact-trigger">Get Started</button>
                     </div>
 
                     <div class="pricing-card">
@@ -679,7 +751,7 @@
                             <li>3 hours of training</li>
                             <li>60 days of support</li>
                         </ul>
-                        <button class="price-button">Get Started</button>
+                        <button class="price-button contact-trigger">Get Started</button>
                     </div>
 
                     <div class="pricing-card">
@@ -700,7 +772,7 @@
                             <li>10 hours of training</li>
                             <li>6 months of priority support</li>
                         </ul>
-                        <button class="price-button">Get Started</button>
+                        <button class="price-button contact-trigger">Get Started</button>
                     </div>
                 </div>
             </div>
@@ -711,23 +783,55 @@
                 <p class="cta-text">Let us handle the technical aspects of setting up your e-commerce store so you can
                     focus on growing your business and delighting your customers. Our team of experts will ensure your
                     online store is optimized for conversions and easy to manage.</p>
-                <button class="cta-button">Schedule a Free Consultation</button>
+                <button class="cta-button contact-trigger">Schedule a Free Consultation</button>
             </div>
         </div>
     </section>
 
-    <script src="js/theme-switcher.js"></script>
-    <script src="js/navigation.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/theme-switcher.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/contact-modal.js"></script>
+
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+
+        // Split animation for left and right panels
+        const splitScreenTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".split-services-section",
+                start: "top 60%",
+                toggleActions: "play reverse play reverse"
+            }
+        });
+
+        splitScreenTl
+            .to(".split-left, .split-right", {
+                x: 0,
+                duration: 0.3,
+                ease: "power3.out"
+            })
+            .to(".split-content", {
+                opacity: 1,
+                duration: 0.3,
+                ease: "power3.out"
+            }, 0); // Start at the same time as the previous animation
+
+    </script>
+
+
     <script>
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
 
         // Hero section animation
-        gsap.to(".services-hero", {
+        gsap.to(".B2C-hero", {
             scrollTrigger: {
-                trigger: ".services-hero",
+                trigger: ".B2C-hero",
                 start: "top 80%"
             },
             y: 0,

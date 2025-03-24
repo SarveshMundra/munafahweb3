@@ -80,13 +80,13 @@
 .split-left {
     left: 0;
     transform: translateX(-100%);
-    background: linear-gradient(to right, rgb(237 74 157 / 20%), rgb(45 116 226 / 40%))
+    background: linear-gradient(to right, rgb(237 74 157 / 60%), rgb(45 116 226 / 80%))
 }
 
 .split-right {
     right: 0;
     transform: translateX(100%);
-    background: linear-gradient(to left, rgb(237 74 157 / 20%), rgb(45 116 226 / 40%))
+    background: linear-gradient(to left, rgb(237 74 157 / 60%), rgb(45 116 226 / 80%))
 }
 
 .split-content {
@@ -124,8 +124,8 @@
 }
 
 .service-description {
-    color: #e0e0e0;
-    margin-bottom: 2rem;
+    color: white;
+    margin: 2rem 0;
     line-height: 1.6;
     opacity: 1;
 

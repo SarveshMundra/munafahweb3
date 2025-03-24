@@ -36,6 +36,7 @@
     --grid-cell-blur: 0px;
     --overlay-color: rgba(231, 231, 231, .4);
     --primary-gradient: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
+    --ligther-gradient: linear-gradient(295deg, #edbdf8 0%, #cad4ff 60%, #ffbeeb 100%);
     --title-glow: 0 0 5px #9427c9;
     --button-hover-shadow: 0 0 20px rgba(114, 36, 181, 0.5);
     --card-border: rgba(0, 0, 0, 0.2);
@@ -46,7 +47,7 @@
     --progress-dot-bg: rgba(0, 0, 0, 0.3);
     --progress-dot-active: var(--text-color);
     --pricepgae-bg: url('images/WBG2.png');
-    --aboutpgae-bg: url('images/WBG5.png');
+    --aboutpgae-bg: url('images/WBG7.png');
     --servicepgae-bg: url('images/WBG5.png');
 }
 
@@ -93,7 +94,10 @@ p, .services-subtitle, .feature-description, .vision-text {
 [data-theme="light"] .roadmap-phase,
 [data-theme="light"] .plan-name,
 [data-theme="light"] .nav-link,
-[data-theme="light"] .highlight
+[data-theme="light"] .highlight,
+[data-theme="light"] .feature-list li,
+[data-theme="light"] .contact-title, 
+[data-theme="light"] .modal-close
  {
     color: var(--text-color);
     text-shadow: none;
@@ -111,14 +115,16 @@ p, .services-subtitle, .feature-description, .vision-text {
 [data-theme="light"] .join-text,
 [data-theme="light"] .cta-text,
 [data-theme="light"] .feature-text,
-[data-theme="light"] .timeline-text {
+[data-theme="light"] .timeline-text,
+[data-theme="light"] .contact-text,
+[data-theme="light"] .modal-subtitle  {
     color: var(--secondary-text-color);
 
 }
 
 /* Background overlays for sections */
 [data-theme="light"] .about-section::after,
-[data-theme="light"] .services-section::after,
+[data-theme="light"] .B2C-section::after,
 [data-theme="light"] .pricing-section::after,
 [data-theme="light"] .contact-section::after {
     background-color: var(--overlay-color);
@@ -148,7 +154,7 @@ p, .services-subtitle, .feature-description, .vision-text {
   }
   
 
-  [data-theme="light"] .service-title,
+
   [data-theme="light"] .services-title,
   [data-theme="light"] #hero-title .letter
   {
@@ -161,7 +167,8 @@ p, .services-subtitle, .feature-description, .vision-text {
   /* Buttons - Light Theme */
   [data-theme="light"] .plan-button:hover,
   [data-theme="light"] .service-button:hover,
-  [data-theme="light"] .cta-button:hover {
+  [data-theme="light"] .cta-button:hover,
+  [data-theme="light"] .contact-modal-card:hover {
     box-shadow: var(--button-hover-shadow);
   }
   
@@ -172,17 +179,25 @@ p, .services-subtitle, .feature-description, .vision-text {
   [data-theme="light"] .feature-card,
   [data-theme="light"] .pricing-card,
   [data-theme="light"] .timeline-content,
-  [data-theme="light"] .cta-section
+  [data-theme="light"] .cta-section,
+  [data-theme="light"] .contact-modal-card
   {
     box-shadow: 0 0px 40px rgb(16 16 16 / .1);
   }
 
 
   /* Service section - Light Theme */
+  [data-theme="light"] .modal-container,
+  [data-theme="light"] .contact-modal-container {
+    background: var(--ligther-gradient);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+  
   [data-theme="light"] .split-content .service-description {
     color: var(--secondary-text-color);
   }
-  
+
   /* Nav arrows and progress dots - Light Theme */
   [data-theme="light"] .nav-arrow {
     background: rgba(0, 0, 0, 0.1);
