@@ -94,7 +94,6 @@ p, .services-subtitle, .feature-description, .vision-text {
 [data-theme="light"] .roadmap-phase,
 [data-theme="light"] .plan-name,
 [data-theme="light"] .nav-link,
-[data-theme="light"] .highlight,
 [data-theme="light"] .feature-list li,
 [data-theme="light"] .contact-title, 
 [data-theme="light"] .modal-close
@@ -217,7 +216,8 @@ p, .services-subtitle, .feature-description, .vision-text {
   }
   
   /* Floating features and early bird - Light Theme */
-  [data-theme="light"] .spots-counter {
+  [data-theme="light"] .spots-counter,
+  [data-theme="light"] .highlight {
     color: var(--accent-color);
     text-shadow: 2px 2px 5px var(--accent-shadow);
   }
