@@ -54,11 +54,12 @@
     --progress-dot-active: var(--text-color);
     --pricepgae-bg: url('images/WBG2.png');
     --aboutpgae-bg: url('images/WBG14.png');
+    --aboutpgae-bg: url('images/WBG14.png');
 
 
     --split-services-bg: url('images/WBG14.png');
     --b2c-section-bg: url('images/WBG14.png');
-    --pricing-section-bg: url('images/WBG13.png');
+    --pricing-section-bg: url('images/WBG14.png');
     --cta-section-bg: url('images/WBG14.png');
 }
 
@@ -135,6 +136,7 @@ p, .services-subtitle, .feature-description, .vision-text {
 
 /* Background overlays for sections */
 [data-theme="light"] .about-section::after,
+[data-theme="light"] .join-contact-section::after,
 [data-theme="light"] .B2C-section::after,
 [data-theme="light"] .pricing-section::after,
 [data-theme="light"] .contact-section::after {

@@ -55,6 +55,49 @@
             pointer-events: none;
         }
 
+        .join-contact-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+        }
+
+        .join-contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--aboutpgae-bg);
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .join-contact-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .8);
+            /* Dark overlay */
+            pointer-events: none;
+        }
+
+        .join-contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
         .about-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -350,7 +393,7 @@
                         <path d="M3 12h18M3 6h18M3 18h18" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </button>
-                
+
                 <div class="nav-links">
                     <a href="./" class="nav-link">Home</a>
                     <a href="pricing.html" class="nav-link">Pricing</a>
@@ -374,7 +417,8 @@
                 <h1 class="why-us-title">Why Us</h1>
                 <p class="why-us-description">
                     <span class="highlight">Our Platform is new but we are NOT.</span> With over 17 years of experience
-                    building Products for AT&T, T-Mobile, Oracle, Ericsson, IBM, Accenture, Tesco, GlobalLogic, TCS and Tech Mahindra.
+                    building Products for AT&T, T-Mobile, Oracle, Ericsson, IBM, Accenture, Tesco, GlobalLogic, TCS and
+                    Tech Mahindra.
                 </p>
                 <!-- <p class="why-us-description">With over 17 years of experience working with AT&T, T-Mobile, IBM, Accenture, and Tech Mahindra. 
                     Munafah is committed to transforming how Emerging Businesses operate. Our trusted, innovative solutions are accessible, affordable, and powerful, 
@@ -454,14 +498,18 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Join Us Section -->
+    <section class="join-contact-section" id="join-contact-section">
+        <div class="join-contact-container">
+            <!-- Join Section -->
             <div class="join-section">
                 <h2 class="join-title">Be Part of Our Journey</h2>
                 <p class="join-text">Join us as an early adopter and help shape the future of Emerging Business
                     management.
                     Get exclusive benefits and direct access to our development team.</p>
-                    <button class="join-button" onclick="window.location.href='pricing.html'">Select plan</button>
+                <button class="join-button" onclick="window.location.href='pricing.html'">Select plan</button>
             </div>
 
             <!-- Contact Section -->
@@ -482,7 +530,8 @@
                     <div class="contact-card">
                         <div class="contact-icon">
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2-8 5-8-5h16zm-8 7L4 8v10h16V8l-8 5z" />
+                                <path
+                                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2-8 5-8-5h16zm-8 7L4 8v10h16V8l-8 5z" />
                             </svg>
                         </div>
                         <h3 class="vision-title">Email Us</h3>
@@ -500,10 +549,11 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
+
+
+
 
     <script src="js/navigation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
