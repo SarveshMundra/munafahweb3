@@ -38,7 +38,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: var(--servicepgae-bg);
+            background-image: var(--split-services-bg);
             background-size: cover;
             background-position: center;
             opacity: 1;
@@ -64,7 +64,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: var(--servicepgae-bg);
+            background-image: var(--b2c-section-bg);
             background-size: cover;
             background-position: center;
             opacity: 1;
@@ -300,9 +300,38 @@
             color: white;
         }
 
+
         .pricing-section {
-            margin: 4rem 0;
+            position: relative;
+            min-height: 100vh;
+            padding: 0px 0 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
         }
+
+        .pricing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--pricing-section-bg);
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .pricing-container {
+            margin: 4rem 0;
+            max-width: 1600px;
+            
+        }
+
+        
 
         .pricing-cards {
             display: grid;
@@ -712,9 +741,13 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
 
             <!-- Pricing Section -->
-            <div class="pricing-section">
+            <section class="pricing-section" id="pricing-section">
+                <div class="pricing-container">
                 <h2 class="section-title">E-commerce Pricing Plans</h2>
                 <div class="pricing-cards">
                     <div class="pricing-card">
@@ -775,7 +808,8 @@
                         <button class="price-button contact-trigger">Get Started</button>
                     </div>
                 </div>
-            </div>
+                </div>
+            </section>
 
             <!-- Call to Action Section -->
             <div class="cta-section">
