@@ -363,7 +363,7 @@
 
 
 
-        @media (max-width: 768px) {
+        @media (max-width: 576px) {
             .vision-section {
                 grid-template-columns: 1fr;
             }
@@ -371,6 +371,13 @@
             .about-section {
                 padding: 100px 20px 40px;
             }
+
+            .about-section::before,
+            .join-contact-section::before {
+                background-image: var(--aboutpgae-mbg);
+                /* Replace with your mobile background image */
+            }
+
         }
     </style>
 </head>
@@ -408,6 +415,8 @@
             </nav>
         </div>
     </header>
+
+    
 
     <section class="about-section">
         <div class="about-container">
