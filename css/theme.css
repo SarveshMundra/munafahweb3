@@ -7,7 +7,7 @@
     --card-bg: rgba(255, 255, 255, 0.1);
     --header-bg: rgba(0, 0, 0, 0.2);
     --grid-cell-color: rgba(129, 129, 129, 0.4);
-    --overlay-color: rgba(68, 67, 67, 0.8);
+    --overlay-color: rgba(51, 51, 51, 0.6);
     --grid-cell-blur: 20px;
     --primary-gradient: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
     --title-glow: 0 0 5px #bb39f7;
@@ -20,13 +20,14 @@
     --progress-dot-bg: rgba(255, 255, 255, 0.3);
     --progress-dot-active: white;
     --pricepgae-bg: url('images/DNB25.png');
-    --aboutpgae-bg: url('images/DBG3.png');
+    --aboutpgae-bg: url('images/DBG4.png');
+    --aboutpgaereverse-bg: url('images/DBG4.png');
 
 
-    --split-services-bg: url('images/DBG3.png');
-    --b2c-section-bg: url('images/DBG3.png');
-    --pricing-section-bg: url('images/DBG3.png');
-    --cta-section-bg: url('images/DBG3.png');
+    --split-services-bg: url('images/DBG4.png');
+    --b2c-section-bg: url('images/DBG4.png');
+    --pricing-section-bg: url('images/DBG4.png');
+
 }
 
 /* Light Theme */
@@ -40,9 +41,9 @@
     --grid-cell-color: linear-gradient(135deg, #edbdf8 0%, #b6c2f5 50%, #89d2ff 100%);
     --grid-cell-blur: 0px;
     --overlay-color: rgba(231, 231, 231, .4);
-    --overlay-color: rgba(205, 204, 250, 0);
+    --overlay-color: rgba(255, 255, 255, 0);
     --primary-gradient: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
-    --ligther-gradient: linear-gradient(295deg, #edbdf8 0%, #cad4ff 60%, #ffbeeb 100%);
+    --ligther-gradient: linear-gradient(295deg, #ffffff 0%, #cad4ff 60%, #ffe4f7 100%);
     --title-glow: 0 0 5px #9427c9;
     --button-hover-shadow: 0 0 20px rgba(114, 36, 181, 0.5);
     --card-border: rgba(0, 0, 0, 0.2);
@@ -52,15 +53,24 @@
     --accent-shadow: rgba(255, 0, 128, 0.4);
     --progress-dot-bg: rgba(0, 0, 0, 0.3);
     --progress-dot-active: var(--text-color);
+
     --pricepgae-bg: url('images/WBG2.png');
-    --aboutpgae-bg: url('images/WBG31.png');
-    --aboutpgaereverse-bg: url('images/WBG32.png');
+    
+    --aboutpgae-bg: url('images/WBG34.png');
+    --aboutpgaereverse-bg: url('images/WBG35.png');
+    --aboutpgae-bg-mob: url('images/WBGM1.png');
+    --aboutpgaereverse-bg-mob: url('images/WBGM2.png');
 
 
-    --split-services-bg: url('images/WBG30.png');
-    --b2c-section-bg: url('images/WBG33.png');
-    --pricing-section-bg: url('images/WBG34.png');
-    --cta-section-bg: url('images/WBG30.png');
+    --split-services-bg: url('images/WBG34.png');
+    --b2c-section-bg: url('images/WBG34.png');
+    --pricing-section-bg: url('images/WBG35.png');
+
+
+    --split-services-bg-mob: url('images//WBGM2.png');
+    --b2c-section-bg-mob: url('images//WBGM1.png');
+    --pricing-section-bg-mob: url('images//WBGM2.png');
+
 }
 
 /* Apply theme variables to elements */
@@ -135,6 +145,16 @@ p, .services-subtitle, .feature-description, .vision-text {
 }
 
 /* Background overlays for sections */
+.total-about-section::after,
+.about-section::after,
+.join-contact-section::after,
+.B2C-section::after,
+.pricing-section::after,
+.contact-section::after {
+    background-color: var(--overlay-color);
+}
+
+/* Background overlays for sections */
 [data-theme="light"] .total-about-section::after,
 [data-theme="light"] .about-section::after,
 [data-theme="light"] .join-contact-section::after,
@@ -199,6 +219,9 @@ p, .services-subtitle, .feature-description, .vision-text {
     box-shadow: 0 0px 40px rgb(16 16 16 / .1);
   }
 
+  [data-theme="light"] .cta-section {
+    background: var(--ligther-gradient);
+  }
 
   /* Service section - Light Theme */
   [data-theme="light"] .modal-container,
@@ -244,7 +267,7 @@ p, .services-subtitle, .feature-description, .vision-text {
 
 
 /* Theme Switch Styles */
-/* Theme Switch Styles - Improved */
+
 .theme-switch {
   position: relative;
   width: 60px;

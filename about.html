@@ -128,7 +128,7 @@
         .join-contact-section {
             position: relative;
             min-height: 100vh;
-            padding: 120px 20px 60px;
+            padding: 0px 20px 60px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -169,7 +169,6 @@
         }
 
         .about-container {
-            max-width: 1200px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -182,6 +181,11 @@
             align-items: center;
             margin-bottom: 6rem;
             text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            opacity: 1;
+            border-radius: 60px 0 0 260px;
+            padding: 3rem;
             transform: translateY(30px);
         }
 
@@ -198,7 +202,7 @@
         .why-us-description {
 
             font-family: 'Parkinsans', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #ffffff;
             max-width: 800px;
             margin: 0 auto;
@@ -307,8 +311,9 @@
         .join-section {
             text-align: center;
             padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            border-radius: 260px 0 0 260px;
             margin-bottom: 4rem;
             opacity: 0;
             transform: translateY(30px);
@@ -318,6 +323,7 @@
             font-family: 'Zen Dots', cursive;
             font-size: clamp(1.5rem, 3vw, 2rem);
             margin-bottom: 1.5rem;
+            padding: 0 4rem;
             background: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
             -webkit-background-clip: text;
             background-clip: text;
@@ -371,6 +377,7 @@
 
         .roadmap-item {
             background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
             border-radius: 20px;
             box-shadow: 0 0px 40px rgb(16 16 16 / .1);
             padding: 2rem;
@@ -441,6 +448,16 @@
             .about-section {
                 padding: 100px 20px 40px;
             }
+
+            .join-contact-section::before {
+
+            background-image: var(--aboutpgaereverse-bg-mob);
+            }
+
+            .about-section::before {
+            background-image: var(--aboutpgae-bg-mob);
+            }
+
         }
     </style>
 </head>

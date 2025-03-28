@@ -78,7 +78,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, .8);
+            background-color: rgba(0, 0, 0, .5);
             pointer-events: none;
         }
 
@@ -90,6 +90,10 @@
         }
 
         .B2C-hero {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            border-radius: 160px 0px 0 0px;
             text-align: center;
             margin-bottom: 4rem;
             opacity: 1;
@@ -325,21 +329,40 @@
             pointer-events: none;
         }
 
-        .pricing-container {
-            margin: 4rem 0;
-            max-width: 1600px;
-            
+        .pricing-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .8);
+            pointer-events: none;
         }
 
-        
+        .pricing-container {
+            max-width: 1200px;
+            z-index: 1;
+
+        }
+
+
 
         .pricing-cards {
+            position: relative;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            justify-content: center;
+            align-items: center;
             gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            padding: 1rem;
+            z-index: 1;
         }
 
         .pricing-card {
+            position: relative;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             padding: 2rem;
@@ -351,6 +374,7 @@
             transform: translateY(30px);
             display: flex;
             flex-direction: column;
+            min-height: 750px;
         }
 
         .pricing-card:hover {
@@ -424,11 +448,8 @@
         .cta-section {
             text-align: center;
             padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            margin-bottom: 2rem;
+            background: linear-gradient(35deg, #000000, #53009b, #5b002e);
             opacity: 0;
-            transform: translateY(30px);
         }
 
         .cta-title {
@@ -462,29 +483,20 @@
             box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
         }
 
+        /* Media Queries */
+        
         @media (max-width: 992px) {
-            .process-timeline::before {
-                left: 40px;
+
+            /* Add iPad-specific fix */
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 80px;
-                padding-right: 0;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-                padding-left: 80px;
-            }
-
-            .timeline-dot {
-                left: 30px;
-                right: auto;
-            }
-
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: 30px;
+            .pricing-card {
+                min-height: auto;
+                padding: 2rem 1.5rem;
             }
         }
 
@@ -500,6 +512,27 @@
             .platform-card {
                 width: 160px;
                 padding: 1.5rem;
+            }
+
+            .split-services-section::before {
+                background-image: var(--split-services-bg-mob);
+            }
+
+            .B2C-section::before {
+                background-image: var(--b2c-section-bg-mob);
+            }
+
+            .pricing-section::before {
+                background-image: var(--pricing-section-bg-mob);
+            }
+
+            /* ONLY NEW CODE BELOW - PRICING CARDS FIX */
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card {
+                min-height: auto;
             }
         }
 
@@ -573,7 +606,7 @@
                     <h3 class="service-title">Munafah Core</h3>
                     <p class="service-description">Our all-in-one platform for inventory, sales, purchase, and financial
                         management.</p>
-                        <a href="pricing.html" class="service-button">Explore More</a>
+                    <a href="pricing.html" class="service-button">Explore More</a>
                 </div>
             </div>
 
@@ -745,81 +778,81 @@
     </section>
 
 
-            <!-- Pricing Section -->
-            <section class="pricing-section" id="pricing-section">
-                <div class="pricing-container">
-                <h2 class="section-title">E-commerce Pricing Plans</h2>
-                <div class="pricing-cards">
-                    <div class="pricing-card">
-                        <h3 class="price-tier">Basic Store</h3>
-                        <div class="price-amount">
-                            $999
-                            <span class="price-period">One-time setup fee</span>
-                        </div>
-                        <ul class="price-features">
-                            <li>Shopify or WooCommerce store setup</li>
-                            <li>Basic theme customization</li>
-                            <li>Up to 50 products uploaded</li>
-                            <li>Payment gateway integration</li>
-                            <li>Basic shipping setup</li>
-                            <li>1 hour training session</li>
-                            <li>30 days of support</li>
-                        </ul>
-                        <button class="price-button contact-trigger">Get Started</button>
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing-section">
+        <div class="pricing-container">
+            <h2 class="section-title">E-commerce Pricing Plans</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 class="price-tier">Basic Store</h3>
+                    <div class="price-amount">
+                        $999
+                        <span class="price-period">One-time setup fee</span>
                     </div>
-
-                    <div class="pricing-card">
-                        <h3 class="price-tier">Professional Store</h3>
-                        <div class="price-amount">
-                            $1,999
-                            <span class="price-period">One-time setup fee</span>
-                        </div>
-                        <ul class="price-features">
-                            <li>Any platform of your choice</li>
-                            <li>Advanced theme customization</li>
-                            <li>Up to 200 products uploaded</li>
-                            <li>Multiple payment gateways</li>
-                            <li>Advanced shipping configuration</li>
-                            <li>SEO optimization</li>
-                            <li>3 hours of training</li>
-                            <li>60 days of support</li>
-                        </ul>
-                        <button class="price-button contact-trigger">Get Started</button>
-                    </div>
-
-                    <div class="pricing-card">
-                        <h3 class="price-tier">Enterprise Store</h3>
-                        <div class="price-amount">
-                            $3,499
-                            <span class="price-period">One-time setup fee</span>
-                        </div>
-                        <ul class="price-features">
-                            <li>Any platform with custom features</li>
-                            <li>Custom theme development</li>
-                            <li>Unlimited products</li>
-                            <li>Custom checkout experience</li>
-                            <li>Worldwide shipping setup</li>
-                            <li>Advanced SEO & marketing setup</li>
-                            <li>Email marketing automation</li>
-                            <li>Custom reporting dashboards</li>
-                            <li>10 hours of training</li>
-                            <li>6 months of priority support</li>
-                        </ul>
-                        <button class="price-button contact-trigger">Get Started</button>
-                    </div>
+                    <ul class="price-features">
+                        <li>Shopify or WooCommerce store setup</li>
+                        <li>Basic theme customization</li>
+                        <li>Up to 50 products uploaded</li>
+                        <li>Payment gateway integration</li>
+                        <li>Basic shipping setup</li>
+                        <li>1 hour training session</li>
+                        <li>30 days of support</li>
+                    </ul>
+                    <button class="price-button contact-trigger">Get Started</button>
                 </div>
-                </div>
-            </section>
 
-            <!-- Call to Action Section -->
-            <div class="cta-section">
-                <h2 class="cta-title">Ready to Launch Your Online Store?</h2>
-                <p class="cta-text">Let us handle the technical aspects of setting up your e-commerce store so you can
-                    focus on growing your business and delighting your customers. Our team of experts will ensure your
-                    online store is optimized for conversions and easy to manage.</p>
-                <button class="cta-button contact-trigger">Schedule a Free Consultation</button>
+                <div class="pricing-card">
+                    <h3 class="price-tier">Professional Store</h3>
+                    <div class="price-amount">
+                        $1,999
+                        <span class="price-period">One-time setup fee</span>
+                    </div>
+                    <ul class="price-features">
+                        <li>Any platform of your choice</li>
+                        <li>Advanced theme customization</li>
+                        <li>Up to 200 products uploaded</li>
+                        <li>Multiple payment gateways</li>
+                        <li>Advanced shipping configuration</li>
+                        <li>SEO optimization</li>
+                        <li>3 hours of training</li>
+                        <li>60 days of support</li>
+                    </ul>
+                    <button class="price-button contact-trigger">Get Started</button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="price-tier">Enterprise Store</h3>
+                    <div class="price-amount">
+                        $3,499
+                        <span class="price-period">One-time setup fee</span>
+                    </div>
+                    <ul class="price-features">
+                        <li>Any platform with custom features</li>
+                        <li>Custom theme development</li>
+                        <li>Unlimited products</li>
+                        <li>Custom checkout experience</li>
+                        <li>Worldwide shipping setup</li>
+                        <li>Advanced SEO & marketing setup</li>
+                        <li>Email marketing automation</li>
+                        <li>Custom reporting dashboards</li>
+                        <li>10 hours of training</li>
+                        <li>6 months of priority support</li>
+                    </ul>
+                    <button class="price-button contact-trigger">Get Started</button>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <div class="cta-section">
+        <h2 class="cta-title">Ready to Launch Your Online Store?</h2>
+        <p class="cta-text">Let us handle the technical aspects of setting up your e-commerce store so you can
+            focus on growing your business and delighting your customers. Our team of experts will ensure your
+            online store is optimized for conversions and easy to manage.</p>
+        <button class="cta-button contact-trigger">Schedule a Free Consultation</button>
+    </div>
+    </div>
     </section>
 
 
