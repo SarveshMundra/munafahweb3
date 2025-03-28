@@ -19,14 +19,22 @@
     --accent-shadow: rgba(255, 0, 128, 0.8);
     --progress-dot-bg: rgba(255, 255, 255, 0.3);
     --progress-dot-active: white;
+
     --pricepgae-bg: url('images/DNB25.png');
-    --aboutpgae-bg: url('images/DBG4.png');
-    --aboutpgaereverse-bg: url('images/DBG4.png');
+
+    --aboutpgae-bg: url('images/DBG1.png');
+    --aboutpgaereverse-bg: url('images/DBG1.png');
+    --aboutpgae-bg-mob: url('images/DBGM1.png');
+    --aboutpgaereverse-bg-mob: url('images/DBGM1.png');
 
 
-    --split-services-bg: url('images/DBG4.png');
-    --b2c-section-bg: url('images/DBG4.png');
-    --pricing-section-bg: url('images/DBG4.png');
+    --split-services-bg: url('images/DBG1.png');
+    --b2c-section-bg: url('images/DBG1.png');
+    --pricing-section-bg: url('images/DBG1.png');
+
+    --split-services-bg-mob: url('images/DBGM1.png');
+    --b2c-section-bg-mob: url('images/DBGM1.png');
+    --pricing-section-bg-mob: url('images/DBGM1.png');
 
 }
 
@@ -67,9 +75,9 @@
     --pricing-section-bg: url('images/WBG35.png');
 
 
-    --split-services-bg-mob: url('images//WBGM2.png');
-    --b2c-section-bg-mob: url('images//WBGM1.png');
-    --pricing-section-bg-mob: url('images//WBGM2.png');
+    --split-services-bg-mob: url('images/WBGM2.png');
+    --b2c-section-bg-mob: url('images/WBGM1.png');
+    --pricing-section-bg-mob: url('images/WBGM2.png');
 
 }
 
