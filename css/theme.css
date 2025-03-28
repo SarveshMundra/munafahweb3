@@ -205,10 +205,13 @@ p, .services-subtitle, .feature-description, .vision-text {
   }
   
 
+  [data-theme="light"] .why-us,
   [data-theme="light"] .vision-card,
   [data-theme="light"] .contact-card,
   [data-theme="light"] .roadmap-item,
+  [data-theme="light"] .join-section,
   [data-theme="light"] .feature-card,
+  [data-theme="light"] .B2C-hero,
   [data-theme="light"] .pricing-card,
   [data-theme="light"] .timeline-content,
   [data-theme="light"] .cta-section,
