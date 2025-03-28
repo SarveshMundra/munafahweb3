@@ -20,13 +20,13 @@
     --progress-dot-bg: rgba(255, 255, 255, 0.3);
     --progress-dot-active: white;
     --pricepgae-bg: url('images/DNB25.png');
-    --aboutpgae-bg: url('images/Gal4.png');
+    --aboutpgae-bg: url('images/DBG3.png');
 
 
-    --split-services-bg: url('images/Gal4.png');
-    --b2c-section-bg: url('images/Gal4.png');
-    --pricing-section-bg: url('images/Gal4.png');
-    --cta-section-bg: url('images/Gal4.png');
+    --split-services-bg: url('images/DBG3.png');
+    --b2c-section-bg: url('images/DBG3.png');
+    --pricing-section-bg: url('images/DBG3.png');
+    --cta-section-bg: url('images/DBG3.png');
 }
 
 /* Light Theme */
@@ -40,7 +40,7 @@
     --grid-cell-color: linear-gradient(135deg, #edbdf8 0%, #b6c2f5 50%, #89d2ff 100%);
     --grid-cell-blur: 0px;
     --overlay-color: rgba(231, 231, 231, .4);
-    --overlay-color: rgba(192, 191, 253, 0.5);
+    --overlay-color: rgba(205, 204, 250, 0);
     --primary-gradient: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
     --ligther-gradient: linear-gradient(295deg, #edbdf8 0%, #cad4ff 60%, #ffbeeb 100%);
     --title-glow: 0 0 5px #9427c9;
@@ -53,14 +53,14 @@
     --progress-dot-bg: rgba(0, 0, 0, 0.3);
     --progress-dot-active: var(--text-color);
     --pricepgae-bg: url('images/WBG2.png');
-    --aboutpgae-bg: url('images/WBG14.png');
-    --aboutpgae-bg: url('images/WBG14.png');
+    --aboutpgae-bg: url('images/WBG31.png');
+    --aboutpgaereverse-bg: url('images/WBG32.png');
 
 
-    --split-services-bg: url('images/WBG14.png');
-    --b2c-section-bg: url('images/WBG14.png');
-    --pricing-section-bg: url('images/WBG14.png');
-    --cta-section-bg: url('images/WBG14.png');
+    --split-services-bg: url('images/WBG30.png');
+    --b2c-section-bg: url('images/WBG33.png');
+    --pricing-section-bg: url('images/WBG34.png');
+    --cta-section-bg: url('images/WBG30.png');
 }
 
 /* Apply theme variables to elements */
@@ -135,6 +135,7 @@ p, .services-subtitle, .feature-description, .vision-text {
 }
 
 /* Background overlays for sections */
+[data-theme="light"] .total-about-section::after,
 [data-theme="light"] .about-section::after,
 [data-theme="light"] .join-contact-section::after,
 [data-theme="light"] .B2C-section::after,

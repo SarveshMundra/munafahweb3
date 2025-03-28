@@ -19,6 +19,42 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/theme.css">
     <style>
+        .total-about-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: black;
+        }
+
+        .total-about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: var(--aboutpgae-bg);
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .total-about-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .8);
+            /* Dark overlay */
+            pointer-events: none;
+        }
+
         .about-section {
             position: relative;
             min-height: 100vh;
@@ -55,6 +91,40 @@
             pointer-events: none;
         }
 
+
+/* Add this to your CSS */
+.section-gradient-connector {
+  position: relative;
+  height: 100px; /* Adjust height as needed */
+  width: 100%;
+  z-index: 2; /* Make sure it's above the backgrounds */
+  background: linear-gradient(to bottom, 
+               rgba(0,0,0,0) 0%,
+               rgba(175, 78, 78, 0.1) 50%, 
+               rgba(0,0,0,0) 100%);
+  pointer-events: none; /* So it doesn't interfere with clicks */
+}
+
+/* Add this to your CSS */
+.wave-divider {
+  position: relative;
+  bottom: -2px; /* Slight overlap to prevent gaps */
+  left: 0;
+  width: 100%;
+  height: 50px; /* Adjust height as needed */
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wave-divider svg {
+  width: 100%;
+  height: 100%;
+  fill: rgba(255,255,255,0.05); /* Subtle, semi-transparent fill */
+}
+
+
+
         .join-contact-section {
             position: relative;
             min-height: 100vh;
@@ -72,7 +142,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: var(--aboutpgae-bg);
+            background-image: var(--aboutpgaereverse-bg);
             background-size: cover;
             background-position: center;
             opacity: 1;
@@ -409,147 +479,164 @@
         </div>
     </header>
 
-    <section class="about-section">
-        <div class="about-container">
-            <!-- Hero Section -->
+    <section class="totalaboutsection">
+        <section class="about-section">
+            <div class="about-container">
+                <!-- Hero Section -->
 
-            <div class="why-us">
-                <h1 class="why-us-title">Why Us</h1>
-                <p class="why-us-description">
-                    <span class="highlight">Our Platform is new but we are NOT.</span> With over 17 years of experience
-                    building Products for AT&T, T-Mobile, Oracle, Ericsson, IBM, Accenture, Tesco, GlobalLogic, TCS and
-                    Tech Mahindra.
-                </p>
-                <!-- <p class="why-us-description">With over 17 years of experience working with AT&T, T-Mobile, IBM, Accenture, and Tech Mahindra. 
+                <div class="why-us">
+                    <h1 class="why-us-title">Why Us</h1>
+                    <p class="why-us-description">
+                        <span class="highlight">Our Platform is new but we are NOT.</span> With over 17 years of
+                        experience
+                        building Products for AT&T, T-Mobile, Oracle, Ericsson, IBM, Accenture, Tesco, GlobalLogic, TCS
+                        and
+                        Tech Mahindra.
+                    </p>
+                    <!-- <p class="why-us-description">With over 17 years of experience working with AT&T, T-Mobile, IBM, Accenture, and Tech Mahindra. 
                     Munafah is committed to transforming how Emerging Businesses operate. Our trusted, innovative solutions are accessible, affordable, and powerful, 
                     enabling every business to thrive in today's competitive market. Join us and experience the future of business management.</p> -->
 
-            </div>
-
-            <div class="about-hero">
-                <h1 class="about-title">Our Vision</h1>
-                <p class="about-subtitle">Revolutionizing how Emerging Businesses operate through smart, accessible
-                    technology</p>
-            </div>
-
-            <!-- Vision Cards -->
-            <div class="vision-section">
-                <div class="vision-card">
-                    <div class="vision-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-                    <h2 class="vision-title">The Concept</h2>
-                    <p class="vision-text">Emerging Businesses struggle with complex, expensive software that's hard to
-                        use. Many resort to manual processes or disconnected tools.</p>
                 </div>
 
-                <div class="vision-card">
-                    <div class="vision-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-                    <h2 class="vision-title">Our Solution</h2>
-                    <p class="vision-text">We're building an all-in-one platform that's affordable, easy to use, and
-                        powerful enough to run your entire business efficiently.</p>
+                <div class="about-hero">
+                    <h1 class="about-title">Our Vision</h1>
+                    <p class="about-subtitle">Revolutionizing how Emerging Businesses operate through smart, accessible
+                        technology</p>
                 </div>
 
-                <div class="vision-card">
-                    <div class="vision-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                    </div>
-                    <h2 class="vision-title">The Future</h2>
-                    <p class="vision-text">Our goal is to empower 1 million Emerging Businesses with technology that was
-                        previously only available to large enterprises.</p>
-                </div>
-            </div>
-
-            <!-- Roadmap Section -->
-            <div class="roadmap-section">
-                <h2 class="roadmap-title">Our Journey</h2>
-                <div class="roadmap-container">
-                    <div class="roadmap-item">
-                        <h3 class="roadmap-phase">Phase 1: Foundation</h3>
-                        <p class="roadmap-content">
-                            • Core business features<br>
-                            • User-friendly interface<br>
-                            • Cloud infrastructure
-                        </p>
-                    </div>
-                    <div class="roadmap-item">
-                        <h3 class="roadmap-phase">Phase 2: Growth</h3>
-                        <p class="roadmap-content">
-                            • Advanced analytics<br>
-                            • Mobile applications<br>
-                            • API integrations
-                        </p>
-                    </div>
-                    <div class="roadmap-item">
-                        <h3 class="roadmap-phase">Phase 3: Scale</h3>
-                        <p class="roadmap-content">
-                            • AI-powered insights<br>
-                            • Global expansion<br>
-                            • Industry solutions
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="join-contact-section" id="join-contact-section">
-        <div class="join-contact-container">
-            <!-- Join Section -->
-            <div class="join-section">
-                <h2 class="join-title">Be Part of Our Journey</h2>
-                <p class="join-text">Join us as an early adopter and help shape the future of Emerging Business
-                    management.
-                    Get exclusive benefits and direct access to our development team.</p>
-                <button class="join-button" onclick="window.location.href='pricing.html'">Select plan</button>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="contact-section">
-                <h2 class="roadmap-title">Get In Touch</h2>
-                <div class="contact-container">
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                <!-- Vision Cards -->
+                <div class="vision-section">
+                    <div class="vision-card">
+                        <div class="vision-icon">
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                                <path
-                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                             </svg>
                         </div>
-                        <h3 class="vision-title">Call Us</h3>
-                        <p class="vision-text">+1 (404) 491-8845<br> 7AM-11PM EST</p>
+                        <h2 class="vision-title">The Concept</h2>
+                        <p class="vision-text">Emerging Businesses struggle with complex, expensive software that's hard
+                            to
+                            use. Many resort to manual processes or disconnected tools.</p>
                     </div>
 
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                    <div class="vision-card">
+                        <div class="vision-icon">
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                                <path
-                                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2-8 5-8-5h16zm-8 7L4 8v10h16V8l-8 5z" />
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                             </svg>
                         </div>
-                        <h3 class="vision-title">Email Us</h3>
-                        <p class="vision-text">munafah@outlook.com<br>24/7 Email Support</p>
+                        <h2 class="vision-title">Our Solution</h2>
+                        <p class="vision-text">We're building an all-in-one platform that's affordable, easy to use, and
+                            powerful enough to run your entire business efficiently.</p>
                     </div>
 
-                    <div class="contact-card">
-                        <div class="contact-icon">
+                    <div class="vision-card">
+                        <div class="vision-icon">
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                             </svg>
                         </div>
-                        <h3 class="vision-title">Text Us</h3>
-                        <p class="vision-text">+1 (404) 491-8845<br>Quick Response within 1hr</p>
+                        <h2 class="vision-title">The Future</h2>
+                        <p class="vision-text">Our goal is to empower 1 million Emerging Businesses with technology that
+                            was
+                            previously only available to large enterprises.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- <div class="section-gradient-connector"></div> -->
+
+        <!-- <div class="wave-divider">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+              <path d="M0,40 C320,100 420,0 640,40 C880,80 980,0 1200,40 C1320,60 1400,30 1440,40 L1440,100 L0,100 Z"></path>
+            </svg>
+          </div> -->
+
+        <section class="join-contact-section" id="join-contact-section">
+            <div class="join-contact-container">
+
+                <!-- Roadmap Section -->
+                <div class="roadmap-section">
+                    <h2 class="roadmap-title">Our Journey</h2>
+                    <div class="roadmap-container">
+                        <div class="roadmap-item">
+                            <h3 class="roadmap-phase">Phase 1: Foundation</h3>
+                            <p class="roadmap-content">
+                                • Core business features<br>
+                                • User-friendly interface<br>
+                                • Cloud infrastructure
+                            </p>
+                        </div>
+                        <div class="roadmap-item">
+                            <h3 class="roadmap-phase">Phase 2: Growth</h3>
+                            <p class="roadmap-content">
+                                • Advanced analytics<br>
+                                • Mobile applications<br>
+                                • API integrations
+                            </p>
+                        </div>
+                        <div class="roadmap-item">
+                            <h3 class="roadmap-phase">Phase 3: Scale</h3>
+                            <p class="roadmap-content">
+                                • AI-powered insights<br>
+                                • Global expansion<br>
+                                • Industry solutions
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Join Section -->
+                <div class="join-section">
+                    <h2 class="join-title">Be Part of Our Journey</h2>
+                    <p class="join-text">Join us as an early adopter and help shape the future of Emerging Business
+                        management.
+                        Get exclusive benefits and direct access to our development team.</p>
+                    <button class="join-button" onclick="window.location.href='pricing.html'">Select plan</button>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="contact-section">
+                    <h2 class="roadmap-title">Get In Touch</h2>
+                    <div class="contact-container">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                                </svg>
+                            </div>
+                            <h3 class="vision-title">Call Us</h3>
+                            <p class="vision-text">+1 (404) 491-8845<br> 7AM-11PM EST</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                    <path
+                                        d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2-8 5-8-5h16zm-8 7L4 8v10h16V8l-8 5z" />
+                                </svg>
+                            </div>
+                            <h3 class="vision-title">Email Us</h3>
+                            <p class="vision-text">munafah@outlook.com<br>24/7 Email Support</p>
+                        </div>
+
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+                                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                                </svg>
+                            </div>
+                            <h3 class="vision-title">Text Us</h3>
+                            <p class="vision-text">+1 (404) 491-8845<br>Quick Response within 1hr</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
 
 
