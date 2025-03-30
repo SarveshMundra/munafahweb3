@@ -86,6 +86,7 @@
             justify-content: center;
             align-items: start;
             gap: 8rem;
+            margin: 2rem;
 
         }
 
@@ -191,6 +192,13 @@
             box-shadow: 0 0px 40px rgb(16 16 16 / .1);
         }
 
+        .pricing-card-b2b {
+            min-height: 520px;
+        }
+
+        .pricing-card-b2c {
+            min-height: 650px;
+        }
 
         .pricing-card:hover {
             transform: translateY(-10px);
@@ -213,7 +221,7 @@
 
         .plan-features {
             list-style: none;
-            padding: 1rem;
+            padding: 1rem 1rem 1rem 3rem;
             margin-bottom: 2rem;
             color: white;
             text-align: left;
@@ -260,6 +268,25 @@
         }
 
 
+        .show-features-btn {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Zen Dots', cursive;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .show-features-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
 
 
         .cta-card {
@@ -305,6 +332,119 @@
             box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
         }
 
+        /* Tabs section */
+        .pricing-tabs-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pricing-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 5px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pricing-tab {
+            padding: 0.75rem 1.5rem;
+            font-family: 'Zen Dots', cursive;
+            font-size: clamp(0.8rem, 1vw, 1rem);
+            color: white;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+
+        .pricing-tab.active {
+            color: white;
+        }
+
+        .tab-slider {
+            position: absolute;
+            height: calc(100% - 10px);
+            top: 5px;
+            left: 5px;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        /* Plan grids for different types */
+        .pricing-grid-container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .pricing-grid-b2c {
+            display: none;
+        }
+
+        .pricing-grid-b2c.active,
+        .pricing-grid-b2b.active {
+            display: grid;
+        }
+
+        /* B2C price card styles (copied from services.html) */
+        .price-tier {
+            font-family: 'Zen Dots', cursive;
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .price-amount {
+            font-family: 'Zen Dots', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #4A00E0, #8E2DE2, #FF0080);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-period {
+            font-size: 0.9rem;
+            color: #a5a5a5;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 0.8rem;
+            color: #d0d0d0;
+            display: flex;
+            align-items: flex-start;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            color: #8E2DE2;
+            position: absolute;
+            left: 0;
+        }
+
 
         @media (max-width: 480px) {
 
@@ -327,7 +467,14 @@
                 padding: 1rem;
             }
 
+            .pricing-tabs {
+                width: 100%;
+            }
 
+            .pricing-tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -371,9 +518,18 @@
 
         <h1 class="pricing-title">Choose Your Plan</h1>
 
+        <!-- Tabs for switching between B2B and B2C pricing -->
+        <div class="pricing-tabs-container">
+            <div class="pricing-tabs">
+                <div class="tab-slider"></div>
+                <button class="pricing-tab active" data-tab="b2b">Munafah Core (B2B)</button>
+                <button class="pricing-tab" data-tab="b2c">Online Store (B2C)</button>
+            </div>
+        </div>
+
         <div class="features-and-spots-container">
             <div class="appfeatures-container">
-                <button class="show-features-btn plan-button">See All Features</button>
+                <button class="show-features-btn">See All Features</button>
                 <p class="appfeatures-text ">All Plans, Same Software Features.</p>
             </div>
 
@@ -383,163 +539,209 @@
             </div>
         </div>
 
+        <!-- Pricing Grid Container -->
+        <div class="pricing-grid-container">
+            <!-- B2B Pricing Grid (Munafah Core) -->
+            <div class="pricing-grid pricing-grid-b2b active">
+                <!-- Starter Pricing Card -->
+                <div class="pricing-card pricing-card-b2b">
+                    <h2 class="plan-name">Starter</h2>
+                    <div class="plan-price">
+                        <span class="price-amount">$0/month</span><br>
+                        <span class="price-amount"
+                            style="text-decoration: line-through; font-size: 1.5rem; text-decoration-color: #ff0062; text-decoration-thickness: 4px;">$5/month</span>
+                    </div>
 
-        <div class="pricing-grid">
-            <!-- Starter Pricing Card -->
+                    <ul class="plan-features">
 
-            <div class="pricing-card">
-                <h2 class="plan-name">Starter</h2>
-                <div class="plan-price">
-                    <span class="price-amount">$0/month</span><br>
-                    <span class="price-amount"
-                        style="text-decoration: line-through; font-size: 1.5rem; text-decoration-color: #ff0062; text-decoration-thickness: 4px;">$5/month</span>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            All Features Included
+                        </li>
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            Up to 3 users <br> <span style="font-size:  12px;"> ($3/user after that) </span>
+
+                        </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            24X5 Offline Support <br> <span style="font-size:  12px;"> (1 min to 4 hours) </span>
+                        </li>
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            SetUp - Demo Videos <br> <span style="font-size: 0;">.</span>
+                        </li>
+
+                    </ul>
+
+                    <div class="card-actions">
+                        <button class="plan-button contact-trigger">Start Free</button>
+                    </div>
                 </div>
 
-                <ul class="plan-features">
+                <!-- Serious Pricing Card -->
+                <div class="pricing-card pricing-card-b2b">
+                    <h2 class="plan-name">Serious</h2>
+                    <div class="plan-price">
+                        <span class="price-amount">$0/month</span> <br>
+                        <span class="price-amount"
+                            style="text-decoration: line-through; font-size: 1.5rem; text-decoration-color: #ff0062; text-decoration-thickness: 4px;">$10/month</span>
 
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        All Features Included
-                    </li>
+                    </div>
 
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Up to 3 users <br> <span style="font-size:  12px;"> ($3/user after that) </span>
+                    <ul class="plan-features">
 
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        24X5 Offline Support <br> <span style="font-size:  12px;"> (1 min to 4 hours) </span>
-                    </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            All Features Included
+                        </li>
 
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        SetUp - Demo Videos <br> <span style="font-size: 0;">.</span>
-                    </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            Up to 3 users <br> <span style="font-size:  12px;"> ($5/user after that) </span>
+                        </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            24X7 Offline Support <br> <span style="font-size:  12px;"> (1 min to 2 hours) </span>
+                        </li>
 
-                </ul>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            SetUp - Demo Videos & Phone Support
+                        </li>
 
-                <div class="card-actions">
-                    <button class="plan-button contact-trigger">Start Free</button>
+                    </ul>
+
+                    <div class="card-actions">
+                        <button class="plan-button contact-trigger">Start Now</button>
+                    </div>
                 </div>
+
+                <!-- Committed Pricing Card -->
+                <div class="pricing-card pricing-card-b2b">
+                    <h2 class="plan-name">Committed</h2>
+                    <div class="plan-price">
+                        <span class="price-amount">$5/month</span><br>
+                        <span class="price-amount"
+                            style="text-decoration: line-through; font-size: 1.5rem; text-decoration-color: #ff0062; text-decoration-thickness: 4px;">$15/month</span>
+
+                    </div>
+
+                    <ul class="plan-features">
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            All Features Included
+                        </li>
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            Up to 3 users <br> <span style="font-size:  12px;"> ($10/user after that) </span>
+                        </li>
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            24X7 Live Support <br> <span style="font-size:  12px;">(1 min to 15 mins) </span>
+                        </li>
+
+                        <li style="list-style-type: disc; margin-left: 20px;">
+                            Setup - Live Video Call <br> <span style="font-size: 0;">.</span>
+                        </li>
+
+                    </ul>
+
+                    <div class="card-actions">
+                        <button class="plan-button contact-trigger">Start Now</button>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Serious Pricing Card -->
 
-            <div class="pricing-card">
-                <h2 class="plan-name">Serious</h2>
-                <div class="plan-price">
-                    <span class="price-amount">$0/month</span> <br>
-                    <span class="price-amount"
-                        style="text-decoration: line-through; font-size: 1.5rem; text-decoration-color: #ff0062; text-decoration-thickness: 4px;">$10/month</span>
+            <!-- <div style="margin: 30px 0;  z-index: 1;">
+                <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
+                    Offline Support - Send us a Chat, Text, email and we will get back to you ASAP.
+                </li>
+                <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
+                    Pay Anually and lock-in the price for the year. Cancel anytime and get a refund for the
+                    remaining
+                    months.
+                </li>
+                <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
+                    3% Rate hike possible at start of every year to account for inflation.
+                </li>
+            </div> -->
 
+
+            <!-- B2C Pricing Grid (Online Store) -->
+            <div class="pricing-grid pricing-grid-b2c">
+                <!-- Basic Store Card -->
+                <div class="pricing-card pricing-card-b2c">
+                    <h3 class="price-tier">Basic Store</h3>
+                    <div class="price-amount">
+                        $999
+                        <span class="price-period">One-time setup fee</span>
+                    </div>
+                    <ul class="price-features">
+                        <li>Shopify or WooCommerce store setup</li>
+                        <li>Basic theme customization</li>
+                        <li>Up to 50 products uploaded</li>
+                        <li>Payment gateway integration</li>
+                        <li>Basic shipping setup</li>
+                        <li>1 hour training session</li>
+                        <li>30 days of support</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="plan-button contact-trigger">Get Started</button>
+                    </div>
                 </div>
 
-                <ul class="plan-features">
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        All Features Included
-                    </li>
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Up to 3 users <br> <span style="font-size:  12px;"> ($5/user after that) </span>
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        24X7 Offline Support <br> <span style="font-size:  12px;"> (1 min to 2 hours) </span>
-                    </li>
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        SetUp - Demo Videos & Phone Support
-                    </li>
-
-                </ul>
-
-                <div class="card-actions">
-                    <button class="plan-button contact-trigger">Start Now</button>
-                </div>
-            </div>
-
-            <!-- Committed Pricing Card -->
-
-            <div class="pricing-card">
-                <h2 class="plan-name">Committed</h2>
-                <div class="plan-price">
-                    <span class="price-amount">$5/month</span><br>
-                    <span class="price-amount"
-                        style="text-decoration: line-through; font-size: 1.5rem; text-decoration-color: #ff0062; text-decoration-thickness: 4px;">$15/month</span>
-
+                <!-- Professional Store Card -->
+                <div class="pricing-card pricing-card-b2c">
+                    <h3 class="price-tier">Professional Store</h3>
+                    <div class="price-amount">
+                        $1,999
+                        <span class="price-period">One-time setup fee</span>
+                    </div>
+                    <ul class="price-features">
+                        <li>Any platform of your choice</li>
+                        <li>Advanced theme customization</li>
+                        <li>Up to 200 products uploaded</li>
+                        <li>Multiple payment gateways</li>
+                        <li>Advanced shipping configuration</li>
+                        <li>SEO optimization</li>
+                        <li>3 hours of training</li>
+                        <li>60 days of support</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="plan-button contact-trigger">Get Started</button>
+                    </div>
                 </div>
 
-                <ul class="plan-features">
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        All Features Included
-                    </li>
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Up to 3 users <br> <span style="font-size:  12px;"> ($10/user after that) </span>
-                    </li>
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        24X7 Live Support <br> <span style="font-size:  12px;">(1 min to 15 mins) </span>
-                    </li>
-
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Setup - Live Video Call <br> <span style="font-size: 0;">.</span>
-                    </li>
-
-                </ul>
-
-                <div class="card-actions">
-                    <button class="plan-button contact-trigger">Start Now</button>
-                </div>
-            </div>
-
-            <div class="pricing-card">
-                <h2 class="plan-name" style="color: var(--accent-color) !important; font-size: 1.85rem;">Online Store
-                </h2>
-                <div class="plan-price">
-                    <span class="price-amount" style="font-size: 1.5rem;">Custom Price</span><br>
-                    <span class="price-amount" style="font-size: 1.5rem;">$200 - $600</span>
-                </div>
-
-                <ul class="plan-features">
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Complete B2C E-commerce Solutions
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Customizable Online Store
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Payment Gateway Integration
-                    </li>
-                    <li style="list-style-type: disc; margin-left: 20px;">
-                        Dedicated Support for Store Launch
-                    </li>
-                </ul>
-
-                <div class="card-actions">
-                    <a href="services.html#B2C-section" class="plan-button">Explore</a>
+                <!-- Enterprise Store Card -->
+                <div class="pricing-card pricing-card-b2c">
+                    <h3 class="price-tier">Enterprise Store</h3>
+                    <div class="price-amount">
+                        $3,499
+                        <span class="price-period">One-time setup fee</span>
+                    </div>
+                    <ul class="price-features">
+                        <li>Any platform with custom features</li>
+                        <li>Custom theme development</li>
+                        <li>Unlimited products</li>
+                        <li>Custom checkout experience</li>
+                        <li>Worldwide shipping setup</li>
+                        <li>Advanced SEO & marketing setup</li>
+                        <li>Email marketing automation</li>
+                        <li>Custom reporting dashboards</li>
+                        <li>10 hours of training</li>
+                        <li>6 months of priority support</li>
+                    </ul>
+                    <div class="card-actions">
+                        <button class="plan-button contact-trigger">Get Started</button>
+                    </div>
                 </div>
             </div>
-
         </div>
 
-        <div class="cta-card" style="margin-top: 2rem;">
+        <!-- <div class="cta-card" style="margin-top: 2rem;">
             <h2 class="cta-title">Looking to Set Up Your Online Store?</h2>
             <p class="cta-text">We provide complete B2C e-commerce solutions to help you launch your online store with
                 ease. Click below to explore our services and get started today!</p>
             <a href="services.html#B2C-section" class="cta-button">Explore</a>
-        </div>
+        </div> -->
 
-        <div style="margin: 30px 0;  z-index: 1;">
-            <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
-                Offline Support - Send us a Chat, Text, email and we will get back to you ASAP.
-            </li>
-            <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
-                Pay Anually and lock-in the price for the year. Cancel anytime and get a refund for the remaining
-                months.
-            </li>
-            <li style="list-style-type: disc; margin: 10px 0; color: white; font-size: 11px;">
-                3% Rate hike possible at start of every year to account for inflation.
-            </li>
-        </div>
+
 
     </section>
 
@@ -574,7 +776,87 @@
                 y: 100,
                 opacity: 1,
                 duration: 1,
+            });
 
+            // Tabs functionality
+            const tabs = document.querySelectorAll('.pricing-tab');
+            const tabSlider = document.querySelector('.tab-slider');
+            const b2bGrid = document.querySelector('.pricing-grid-b2b');
+            const b2cGrid = document.querySelector('.pricing-grid-b2c');
+            const spotsContainer = document.querySelector('.spots-number-container');
+            const featuresContainer = document.querySelector('.appfeatures-container');
+
+            // Initial state - hide B2C grid on page load
+            if (b2cGrid) {
+                b2cGrid.style.display = 'none';
+            }
+
+            // Set initial tab slider width and position
+            function setTabSlider(activeTab) {
+                if (!tabSlider) return;
+
+                tabSlider.style.width = `${activeTab.offsetWidth}px`;
+                tabSlider.style.left = `${activeTab.offsetLeft}px`;
+            }
+
+            // Initialize tab slider
+            const activeTab = document.querySelector('.pricing-tab.active');
+            if (activeTab) {
+                setTabSlider(activeTab);
+            }
+
+            // Handle tab clicks
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabType = tab.getAttribute('data-tab');
+
+                    // Update active state on tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // Move the tab slider
+                    setTabSlider(tab);
+
+                    // Show the corresponding grid
+                    if (tabType === 'b2b') {
+                        if (b2bGrid) b2bGrid.style.display = 'grid';
+                        if (b2cGrid) b2cGrid.style.display = 'none';
+                        // Show spots counter and features button for B2B
+                        if (spotsContainer) spotsContainer.style.display = 'flex';
+                        if (featuresContainer) featuresContainer.style.display = 'flex';
+                    } else {
+                        if (b2bGrid) b2bGrid.style.display = 'none';
+                        if (b2cGrid) b2cGrid.style.display = 'grid';
+                        // Hide spots counter and modify features text for B2C
+                        if (spotsContainer) spotsContainer.style.display = 'none';
+                        if (featuresContainer) featuresContainer.style.display = 'none';
+                    }
+
+                    // Animate the new grid items
+                    animateGridItems();
+                });
+            });
+
+            // Function to animate grid items when switching tabs
+            function animateGridItems() {
+                const visibleGrid = document.querySelector('.pricing-grid[style*="display: grid"]');
+                if (visibleGrid) {
+                    gsap.from(`${visibleGrid.classList.contains('pricing-grid-b2b') ? '.pricing-grid-b2b' : '.pricing-grid-b2c'} .pricing-card`, {
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.5,
+                        stagger: 0.1,
+                        ease: "power2.out"
+                    });
+                }
+            }
+
+            // Handle window resize to update tab slider
+            window.addEventListener('resize', () => {
+                const currentActiveTab = document.querySelector('.pricing-tab.active');
+                if (currentActiveTab) {
+                    setTabSlider(currentActiveTab);
+                }
             });
         });
     </script>
