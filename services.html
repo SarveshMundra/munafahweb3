@@ -445,6 +445,39 @@
             box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
         }
 
+        /* Styling for the iframe section */
+        .external-site-frame {
+            margin: 4rem auto 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 120px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(142, 45, 226, 0.5);
+        }
+
+        .external-site-frame .section-title {
+            font-family: 'Zen Dots', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            background: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .video-container {
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            display: block;
+            margin: 1px auto;
+        }
+
         .cta-section {
             text-align: center;
             padding: 4rem 2rem;
@@ -567,27 +600,26 @@
         @media (max-width: 375px) {
 
 
-    .service-icon {
-        max-width: 80px;
-        height: auto;
-    }
+            .service-icon {
+                max-width: 80px;
+                height: auto;
+            }
 
-    .service-title {
-        font-size: 1.5rem;
-    }
+            .service-title {
+                font-size: 1.5rem;
+            }
 
-    .service-description {
-        font-size: 0.9rem;
-        margin: 1rem 0;
+            .service-description {
+                font-size: 0.9rem;
+                margin: 1rem 0;
 
-    }
+            }
 
-    .service-button {
-        font-size: 0.9rem;
-        padding: 10px 15px;
-    }
-}
-
+            .service-button {
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+        }
     </style>
 </head>
 
@@ -673,82 +705,7 @@
                     everything from store setup to ongoing support, so you can focus on growing your business.</p>
             </div>
 
-            <!-- Features Section -->
-            <!-- <div class="ecommerce-features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                        </svg>
-                    </div>
-                    <h2 class="feature-title">Store Setup</h2>
-                    <p class="feature-text">Professional setup of your online store with customized design that matches
-                        your brand identity.</p>
-                </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path
-                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                            </path>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                        </svg>
-                    </div>
-                    <h2 class="feature-title">Product Management</h2>
-                    <p class="feature-text">Complete product catalog setup with optimized descriptions, images, and
-                        categories for better discoverability.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                            <line x1="1" y1="10" x2="23" y2="10"></line>
-                        </svg>
-                    </div>
-                    <h2 class="feature-title">Payment Solutions</h2>
-                    <p class="feature-text">Integration of secure payment gateways and checkout processes to ensure
-                        smooth customer transactions.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                            </path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </div>
-                    <h2 class="feature-title">Marketing Setup</h2>
-                    <p class="feature-text">Email marketing, SEO optimization, and social media integration to help
-                        drive traffic to your store.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </div>
-                    <h2 class="feature-title">Shipping Configuration</h2>
-                    <p class="feature-text">Setup of shipping options, rates, and delivery methods to ensure efficient
-                        order fulfillment.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
-                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                        </svg>
-                    </div>
-                    <h2 class="feature-title">Training & Support</h2>
-                    <p class="feature-text">Comprehensive training for your team and ongoing support to ensure smooth
-                        operation of your online store.</p>
-                </div>
-            </div> -->
 
             <!-- Process Section -->
             <div class="process-section">
@@ -879,6 +836,18 @@
             </div>
         </div>
     </section>
+
+    <section class="external-site-frame">
+        <h2 class="section-title">Latest Project completed</h2>
+        <a href="https://uniqstree.com/" target="_blank">
+            <video class="video-container" autoplay muted loop playsinline>
+                <source src="media/uniq.mp4" type="video/mp4">
+                <source src="https://github.com/SarveshMundra/MunafahWeb3/raw/refs/heads/main/Media/uniq.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </a>
+    </section>
+
 
     <!-- Call to Action Section -->
     <div class="cta-section">
