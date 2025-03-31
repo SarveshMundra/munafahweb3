@@ -99,7 +99,7 @@ body {
     opacity: .4;
 }
 
-p, .services-subtitle, .feature-description, .vision-text {
+ .feature-description, .vision-text {
     color: var(--secondary-text-color);
 }
 
@@ -131,7 +131,6 @@ p, .services-subtitle, .feature-description, .vision-text {
     text-shadow: none;
 }
 
-[data-theme="light"] p,
 [data-theme="light"] #hero-tagline,
 [data-theme="light"] .appfeatures-text,
 [data-theme="light"] .why-us-description,
@@ -153,12 +152,12 @@ p, .services-subtitle, .feature-description, .vision-text {
 
 
 /* Background overlays for sections */
-[data-theme="light"] .total-about-section::after,
+/* [data-theme="light"] .total-about-section::after,
 [data-theme="light"] .about-section::after,
 [data-theme="light"] .join-contact-section::after,
 [data-theme="light"] .B2C-section::after,
-[data-theme="light"] .pricing-section::after,
-[data-theme="light"] .contact-section::after {
+[data-theme="light"] .contact-section::after, */
+[data-theme="light"] .pricing-section::after {
     background-color: var(--overlay-color);
 }
 
@@ -232,10 +231,6 @@ p, .services-subtitle, .feature-description, .vision-text {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   }
   
-  [data-theme="light"] .split-content .service-description {
-    color: var(--secondary-text-color);
-  }
-
   /* Nav arrows and progress dots - Light Theme */
   [data-theme="light"] .nav-arrow {
     background: rgba(0, 0, 0, 0.1);
