@@ -20,15 +20,18 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/contact-modal.css">
     <link rel="stylesheet" href="css/theme.css">
+
     <style>
         .split-services-section {
             position: relative;
             min-height: 100vh;
-            padding: 0px 0 0 0;
+            margin: 4rem 1rem;
+            border-radius: 30px 30px 260px 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: black;
+
         }
 
         .split-services-section::before {
@@ -38,6 +41,7 @@
             left: 0;
             right: 0;
             bottom: 0;
+            border-radius: 30px 30px 260px 30px;
             background-image: var(--split-services-bg);
             background-size: cover;
             background-position: center;
@@ -45,16 +49,54 @@
             pointer-events: none;
         }
 
+        .split-services-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Dark overlay as the background image has too much flashy light*/
+            pointer-events: none;
+        }
 
+
+        .split-side {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease;
+        }
+
+        .split-left {
+            left: 0;
+            transform: translateX(-100%);
+            background: linear-gradient(to right, rgb(237 74 157 / 60%), rgb(45 116 226 / 80%));
+            border-radius: 30px 0px 0px 30px;
+
+        }
+
+        .split-right {
+            right: 0;
+            transform: translateX(100%);
+            background: linear-gradient(to left, rgb(237 74 157 / 60%), rgb(45 116 226 / 80%));
+            border-radius: 0px 30px 260px 0px;
+        }
 
         .B2C-section {
             position: relative;
             min-height: 100vh;
             padding: 60px 20px 60px;
+            margin: 1rem 1rem;
+            border-radius: 260px 60px 100px 100px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: black;
+
         }
 
         .B2C-section::before {
@@ -64,6 +106,7 @@
             left: 0;
             right: 0;
             bottom: 0;
+            border-radius: 260px 60px 100px 100px;
             background-image: var(--b2c-section-bg);
             background-size: cover;
             background-position: center;
@@ -78,6 +121,7 @@
             left: 0;
             right: 0;
             bottom: 0;
+            border-radius: 260px 60px 100px 100px;
             background-color: var(--overlay-color);
             pointer-events: none;
         }
@@ -481,6 +525,8 @@
         .cta-section {
             text-align: center;
             padding: 4rem 2rem;
+            margin: 4rem 1rem;
+            border-radius: 100px;
             background: linear-gradient(35deg, #000000, #53009b, #5b002e);
             opacity: 0;
         }
@@ -772,7 +818,7 @@
 
 
     <!-- Pricing Section -->
-    <section class="pricing-section" id="pricing-section">
+    <!-- <section class="pricing-section" id="pricing-section">
         <div class="pricing-container">
             <h2 class="section-title">E-commerce Pricing Plans</h2>
             <div class="pricing-cards">
@@ -835,14 +881,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="external-site-frame">
         <h2 class="section-title">Latest Project completed</h2>
         <a href="https://uniqstree.com/" target="_blank">
             <video class="video-container" autoplay muted loop playsinline>
                 <source src="media/uniq.mp4" type="video/mp4">
-                <source src="https://github.com/SarveshMundra/MunafahWeb3/raw/refs/heads/main/Media/uniq.mp4" type="video/mp4">
+                <source src="https://github.com/SarveshMundra/MunafahWeb3/raw/refs/heads/main/Media/uniq.mp4"
+                    type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </a>

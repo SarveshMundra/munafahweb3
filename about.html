@@ -23,6 +23,7 @@
             position: relative;
             min-height: 100vh;
             padding: 120px 20px 60px;
+            margin: 4rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -59,10 +60,13 @@
             position: relative;
             min-height: 100vh;
             padding: 120px 20px 60px;
+            margin: 4rem 1rem;
+            border-radius: 30px 30px 260px 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: black;
+
         }
 
         .about-section::before {
@@ -72,6 +76,7 @@
             left: 0;
             right: 0;
             bottom: 0;
+            border-radius: 30px 30px 260px 30px;
             background-image: var(--aboutpgae-bg);
             background-size: cover;
             background-position: center;
@@ -86,53 +91,21 @@
             left: 0;
             right: 0;
             bottom: 0;
+            border-radius: 30px 30px 260px 30px;
             background-color: var(--overlay-color);
-            /* Dark overlay */
+            /* Dark overlay as the background image has too much flashy light*/
             pointer-events: none;
         }
-
-
-/* Add this to your CSS */
-.section-gradient-connector {
-  position: relative;
-  height: 100px; /* Adjust height as needed */
-  width: 100%;
-  z-index: 2; /* Make sure it's above the backgrounds */
-  background: linear-gradient(to bottom, 
-               rgba(0,0,0,0) 0%,
-               rgba(175, 78, 78, 0.1) 50%, 
-               rgba(0,0,0,0) 100%);
-  pointer-events: none; /* So it doesn't interfere with clicks */
-}
-
-/* Add this to your CSS */
-.wave-divider {
-  position: relative;
-  bottom: -2px; /* Slight overlap to prevent gaps */
-  left: 0;
-  width: 100%;
-  height: 50px; /* Adjust height as needed */
-  z-index: 2;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.wave-divider svg {
-  width: 100%;
-  height: 100%;
-  fill: rgba(255,255,255,0.05); /* Subtle, semi-transparent fill */
-}
-
 
 
         .join-contact-section {
             position: relative;
             min-height: 100vh;
-            padding: 0px 20px 60px;
+            padding: 70px 20px 60px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: black;
+
         }
 
         .join-contact-section::before {
@@ -142,6 +115,8 @@
             left: 0;
             right: 0;
             bottom: 0;
+            margin: 1rem 1rem;
+            border-radius: 160px 30px;
             background-image: var(--aboutpgaereverse-bg);
             background-size: cover;
             background-position: center;
@@ -156,6 +131,8 @@
             left: 0;
             right: 0;
             bottom: 0;
+            margin: 1rem 1rem;
+            border-radius: 160px 30px;
             background-color: var(--overlay-color);
             /* Dark overlay */
             pointer-events: none;

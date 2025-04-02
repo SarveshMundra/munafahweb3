@@ -24,17 +24,19 @@
 
     --aboutpgae-bg: url('images/DBG1.png');
     --aboutpgaereverse-bg: url('images/DBG1.png');
-    --aboutpgae-bg-mob: url('images/DBGM1.png');
-    --aboutpgaereverse-bg-mob: url('images/DBGM1.png');
-
 
     --split-services-bg: url('images/DBG1.png');
     --b2c-section-bg: url('images/DBG1.png');
     --pricing-section-bg: url('images/DBG1.png');
 
+    --aboutpgae-bg-mob: url('images/DBGM1.png');
+    --aboutpgaereverse-bg-mob: url('images/DBGM1.png');
+
     --split-services-bg-mob: url('images/DBGM1.png');
     --b2c-section-bg-mob: url('images/DBGM1.png');
     --pricing-section-bg-mob: url('images/DBGM1.png');
+
+
 
 }
 
@@ -48,9 +50,9 @@
     /* --grid-cell-color: rgba(255, 255, 255, 0.4); */
     --grid-cell-color: linear-gradient(135deg, #edbdf8 0%, #b6c2f5 50%, #89d2ff 100%);
     --grid-cell-blur: 0px;
-    --overlay-color: rgba(255, 255, 255, 0);
+    --overlay-color: rgba(186, 232, 253, 0.4);
     --primary-gradient: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
-    --ligther-gradient: linear-gradient(295deg, #ffffff 0%, #cad4ff 60%, #ffe4f7 100%);
+    --ligther-gradient: linear-gradient(295deg, #ffffff 0%, #cad4ff 60%, #c1eefc 100%);
     --title-glow: 0 0 5px #9427c9;
     --button-hover-shadow: 0 0 20px rgba(114, 36, 181, 0.5);
     --card-border: rgba(0, 0, 0, 0.2);
@@ -61,18 +63,17 @@
     --progress-dot-bg: rgba(0, 0, 0, 0.3);
     --progress-dot-active: var(--text-color);
 
-    --pricepgae-bg: url('images/WBG2.png');
+    --pricepgae-bg: url('images/WBG58.png');
     
-    --aboutpgae-bg: url('images/WBG34.png');
-    --aboutpgaereverse-bg: url('images/WBG35.png');
+    --aboutpgae-bg: url('images/WBG71.png');
+    --aboutpgaereverse-bg: url('images/WBG72.png');
+
+    --split-services-bg: url('images/WBG72.png');
+    --b2c-section-bg: url('images/WBG75.png');
+    --pricing-section-bg: url('images/WBG79.png');
+
     --aboutpgae-bg-mob: url('images/WBGM1.png');
     --aboutpgaereverse-bg-mob: url('images/WBGM2.png');
-
-
-    --split-services-bg: url('images/WBG34.png');
-    --b2c-section-bg: url('images/WBG34.png');
-    --pricing-section-bg: url('images/WBG35.png');
-
 
     --split-services-bg-mob: url('images/WBGM2.png');
     --b2c-section-bg-mob: url('images/WBGM1.png');
@@ -122,7 +123,6 @@ body {
 [data-theme="light"] .vision-title,
 [data-theme="light"] .roadmap-phase,
 [data-theme="light"] .plan-name,
-[data-theme="light"] .nav-link,
 [data-theme="light"] .feature-list li,
 [data-theme="light"] .contact-title, 
 [data-theme="light"] .modal-close

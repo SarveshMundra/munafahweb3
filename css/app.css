@@ -56,14 +56,17 @@ html, body {
 .nav-links {
     display: flex;
     gap: 1.5rem;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     align-items: center;
     border-radius: 30px;
 }
 
 .nav-link {
     font-family: 'Zen Dots', cursive;
-    color: white;
+    background: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     text-decoration: none;
     position: relative;
     padding: 0.5rem 1rem;
@@ -81,9 +84,7 @@ html, body {
     transition: width 0.3s ease;
 }
 
-.nav-link:hover {
-    text-shadow: 0 0 10px rgba(142, 45, 226, 0.8);
-}
+
 
 .nav-link:hover::after {
     width: 100%;
