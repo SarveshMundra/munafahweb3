@@ -72,12 +72,12 @@
     --b2c-section-bg: url('images/WBG75.png');
     --pricing-section-bg: url('images/WBG79.png');
 
-    --aboutpgae-bg-mob: url('images/WBGM1.png');
-    --aboutpgaereverse-bg-mob: url('images/WBGM2.png');
+    --aboutpgae-bg-mob: url('images/WBG71.png');
+    --aboutpgaereverse-bg-mob: url('images/WBG72.png');
 
-    --split-services-bg-mob: url('images/WBGM2.png');
-    --b2c-section-bg-mob: url('images/WBGM1.png');
-    --pricing-section-bg-mob: url('images/WBGM2.png');
+    --split-services-bg-mob: url('images/WBG72.png');
+    --b2c-section-bg-mob: url('images/WBG75.png');
+    --pricing-section-bg-mob: rl('images/WBG79.png');
 
 }
 

@@ -163,7 +163,7 @@
             opacity: 1;
             border-radius: 60px 0 0 160px;
             padding: 3rem;
-            
+
             transform: translateY(30px);
         }
 
@@ -429,13 +429,37 @@
 
             .join-contact-section::before {
 
-            background-image: var(--aboutpgaereverse-bg-mob);
+                background-image: var(--aboutpgaereverse-bg-mob);
             }
 
             .about-section::before {
-            background-image: var(--aboutpgae-bg-mob);
+                background-image: var(--aboutpgae-bg-mob);
             }
 
+
+        }
+
+        @media (max-width: 480px) {
+
+            .about-section,
+            .join-contact-section {
+                margin: 0;
+                border-radius: 0;
+            }
+
+
+            .about-section::before,
+            .join-contact-section::before {
+                margin: 0;
+                border-radius: 0px;
+            }
+
+            .about-section::after ,
+            .join-contact-section::after {
+                margin: 0;
+                border-radius: 0px;
+
+            }
         }
     </style>
 </head>

@@ -21,8 +21,7 @@
 
 
     <style>
-
-.pricing-section {
+        .pricing-section {
             position: relative;
             min-height: 100vh;
             padding: 60px 20px 60px;
@@ -34,7 +33,6 @@
 
 
         }
-
 
 
         .pricing-section::before {
@@ -453,6 +451,22 @@
 
 
         @media (max-width: 480px) {
+
+            .pricing-section {
+                margin: 0;
+                border-radius: 0;
+            }
+
+
+            .pricing-section::before {
+                border-radius: 0px;
+            }
+
+            .pricing-section::after {
+
+                border-radius: 0px;
+
+            }
 
             .features-and-spots-container {
                 display: flex;
