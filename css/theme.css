@@ -50,7 +50,7 @@
     /* --grid-cell-color: rgba(255, 255, 255, 0.4); */
     --grid-cell-color: linear-gradient(135deg, #edbdf8 0%, #7c93fc 50%, #89d2ff 100%);
     --grid-cell-blur: 0px;
-    --overlay-color: rgba(255, 255, 255, .4);
+    --overlay-color: rgba(255, 255, 255, 0.4);
     --primary-gradient: linear-gradient(90deg, #5603fc, #aa4bfd, #ff0080);
     --ligther-gradient: linear-gradient(295deg, #ffffff 0%, #cad4ff 60%, #c1eefc 100%);
     --title-glow: 0 0 5px #9427c9;
