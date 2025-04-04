@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add background when scrolling down
         if (currentScroll > 10) {
-            header.style.background = 'rgba(0, 0, 0, .01)';
+            header.style.background = 'rgba(255, 255, 255, 0.9)';
         } else {
-            header.style.background = 'rgba(0, 0, 0, .01)';
+            header.style.background = 'rgba(255, 255, 255, 0)';
         }
 
         // Hide/show header based on scroll direction
