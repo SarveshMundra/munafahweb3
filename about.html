@@ -297,7 +297,7 @@
             border-radius: 260px 0 0 260px;
             margin-bottom: 4rem;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(120px);
         }
 
         .join-title {
@@ -671,110 +671,110 @@
     <script>
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
-
-
+    
         // About US section animation
         gsap.to(".why-us", {
             scrollTrigger: {
                 trigger: ".why-us",
-                start: "top 80%"
+                start: "top 80%" // Adjusted to 70%
             },
             y: 0,
             opacity: 1,
             duration: 1
         });
-
+    
         // Highlight word-by-word animation
         document.addEventListener('DOMContentLoaded', () => {
             const highlightElements = document.querySelectorAll('.highlight');
-
+    
             highlightElements.forEach(element => {
                 const words = element.textContent.split(' ');
                 element.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
-
+    
                 gsap.set('.word', { opacity: 0 });
-
+    
                 gsap.to('.word', {
                     opacity: 1,
                     duration: .3,
                     stagger: 0.2,
                     scrollTrigger: {
                         trigger: element,
-                        start: 'top 80%'
+                        start: 'top 70%' // Adjusted to 70%
                     }
                 });
             });
         });
-
+    
         // About US section animation
         gsap.to(".about-hero", {
             scrollTrigger: {
                 trigger: ".about-hero",
-                start: "top 80%"
+                start: "top 80%" // Adjusted to 70%
             },
             y: 0,
             opacity: 1,
             duration: 1
         });
-
+    
         // Vision cards animation
         gsap.to(".vision-card", {
             scrollTrigger: {
                 trigger: ".vision-section",
-                start: "top 80%"
+                start: "top 80%", // Adjusted to 70%
+                markers: false // Optional: Remove markers for production
             },
             y: 0,
             opacity: 1,
             duration: 1,
-            stagger: 0.2
+            stagger: 0.5
         });
-
+    
         // Roadmap title animation
         gsap.to(".roadmap-title", {
             scrollTrigger: {
                 trigger: ".roadmap-section",
-                start: "top 80%"
+                start: "top 80%" // Adjusted to 70%
             },
             y: 0,
             opacity: 1,
             duration: 1
         });
-
+    
         // Roadmap items animation
         gsap.to(".roadmap-item", {
             scrollTrigger: {
                 trigger: ".roadmap-container",
-                start: "top 80%"
+                start: "top 80%", // Adjusted to 70%
             },
             y: 0,
             opacity: 1,
             duration: 1,
-            stagger: 0.2
+            stagger: 0.5
         });
-
+    
         // Join US section animation
         gsap.to(".join-section", {
             scrollTrigger: {
                 trigger: ".join-section",
-                start: "top 80%"
+                start: "top 80%" // Adjusted to 70%
             },
             y: 0,
             opacity: 1,
             duration: 1
+  
         });
-
+    
         // Contact US section animation
         gsap.to(".contact-card", {
             scrollTrigger: {
                 trigger: ".contact-container",
-                start: "top 80%"
+                start: "top 80%", // Adjusted to 70%
             },
             y: 0,
             opacity: 1,
             duration: 1,
-            stagger: 0.2
+            stagger: .2
         });
-
     </script>
 </body>
 

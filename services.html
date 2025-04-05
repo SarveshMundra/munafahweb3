@@ -26,7 +26,7 @@
             position: relative;
             min-height: 100vh;
             margin: 4rem 1rem;
-            border-radius: 30px 30px 260px 30px;
+            border-radius: 30px 30px 160px 30px;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
@@ -41,7 +41,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            border-radius: 30px 30px 260px 30px;
+            border-radius: 30px 30px 160px 30px;
             background-image: var(--split-services-bg);
             background-size: cover;
             background-position: center;
@@ -75,7 +75,7 @@
             right: 0;
             transform: translateX(100%);
             background: linear-gradient(to left, rgb(237 74 157 / 60%), rgb(45 116 226 / 80%));
-            border-radius: 0px 30px 260px 0px;
+            border-radius: 0px 30px 160px 0px;
         }
 
         .B2C-section {
@@ -133,7 +133,7 @@
             text-align: center;
             margin-bottom: 4rem;
             opacity: 1;
-            transform: translateY(30px);
+            transform: translateY(120px);
         }
 
         .B2C-title {
@@ -624,7 +624,7 @@
 
         @media (max-width: 480px) {
 
-            
+
             .split-services-section,
             .split-left,
             .split-right {
@@ -950,7 +950,6 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-
         // Split animation for left and right panels
         const splitScreenTl = gsap.timeline({
             scrollTrigger: {
@@ -972,14 +971,8 @@
                 ease: "power3.out"
             }, 0); // Start at the same time as the previous animation
 
-    </script>
-
-
-    <script>
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
-
         // Hero section animation
+        gsap.set(".B2C-hero", { y: 120, opacity: 0 }); // Set initial state
         gsap.to(".B2C-hero", {
             scrollTrigger: {
                 trigger: ".B2C-hero",
@@ -991,6 +984,7 @@
         });
 
         // Feature cards animation
+        gsap.set(".feature-card", { y: 50, opacity: 0 }); // Set initial state
         gsap.to(".feature-card", {
             scrollTrigger: {
                 trigger: ".ecommerce-features",
@@ -1002,54 +996,37 @@
             stagger: 0.2
         });
 
-        // Section titles animation
-        gsap.to(".section-title", {
-            scrollTrigger: {
-                trigger: ".section-title",
-                start: "top 80%"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1
-        });
 
-        // Timeline items animation
-        gsap.to(".timeline-item", {
-            scrollTrigger: {
-                trigger: ".process-timeline",
-                start: "top 80%"
-            },
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.2
-        });
+        // Timeline items animation (individual triggers for each item)
+        document.querySelectorAll(".timeline-item").forEach((item, index) => {
+            // Check if the screen width is small (e.g., mobile view)
+            const isSmallScreen = window.innerWidth <= 768;
 
-        // Platform cards animation
-        gsap.to(".platform-card", {
-            scrollTrigger: {
-                trigger: ".platforms-container",
-                start: "top 80%"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.15
-        });
+            // Set initial state based on screen size and position
+            if (isSmallScreen) {
+                // On small screens, all cards move from left to right
+                gsap.set(item, { x: -50, opacity: 0 });
+            } else {
+                // On larger screens, alternate cards move from left or right
+                const direction = index % 2 === 0 ? -50 : 50; // Even: left, Odd: right
+                gsap.set(item, { x: direction, opacity: 0 });
+            }
 
-        // Pricing cards animation
-        gsap.to(".pricing-card", {
-            scrollTrigger: {
-                trigger: ".pricing-cards",
-                start: "top 80%"
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.2
+            // Animate the timeline item
+            gsap.to(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                x: 0,
+                opacity: 1,
+                duration: 1
+            });
         });
 
         // CTA section animation
+        gsap.set(".cta-section", { y: 30, opacity: 0 }); // Set initial state
         gsap.to(".cta-section", {
             scrollTrigger: {
                 trigger: ".cta-section",
@@ -1060,6 +1037,9 @@
             duration: 1
         });
     </script>
+
+
+
 </body>
 
 </html>
